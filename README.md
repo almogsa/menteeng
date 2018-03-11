@@ -2,7 +2,7 @@
 ### Menteeng Installation: 
 
 - npm install
-- npm npm start
+- npm start
 - Go to http://0.0.0.0:4200 or http://localhost:4200 in your browser.
 
 - To run the local copy in a production mode and build the sources, execute:
