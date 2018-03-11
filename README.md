@@ -1,3 +1,17 @@
+
+############################# Menteeng Installation ##########################################
+#npm install
+#npm npm start
+Go to http://0.0.0.0:4200 or http://localhost:4200 in your browser.
+#To run the local copy in a production mode and build the sources, execute:
+#npm run start:prod
+#To create a bundle in production mode, execute:
+
+#npm run build:prod
+#################################################################################################
+
+
+
 [![Build Status](https://travis-ci.org/akveo/ngx-admin.svg?branch=master)](https://travis-ci.org/akveo/ngx-admin)
 [![Join the chat at https://gitter.im/ng2-admin/Lobby](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ng2-admin/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Dependency Status](https://david-dm.org/akveo/ngx-admin/status.svg)](https://david-dm.org/akveo/ng2-admin)
