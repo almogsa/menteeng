@@ -1,14 +1,14 @@
 
 ### Menteeng Installation: 
 
--npm install
--npm npm start
--Go to http://0.0.0.0:4200 or http://localhost:4200 in your browser.
+- npm install
+- npm npm start
+- Go to http://0.0.0.0:4200 or http://localhost:4200 in your browser.
 
--To run the local copy in a production mode and build the sources, execute:
--npm run start:prod
--To create a bundle in production mode, execute:
--npm run build:prod
+- To run the local copy in a production mode and build the sources, execute:
+- npm run start:prod
+- To create a bundle in production mode, execute:
+- npm run build:prod
 #####################################################################
 
 
