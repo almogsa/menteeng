@@ -16,7 +16,7 @@ import { ThemeModule } from './@theme/theme.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NbAuthModule, NbEmailPassAuthProvider} from '@nebular/auth';
 import {AuthGuard} from './auth-guard.service';
-import { NB_AUTH_PROVIDERS, NB_AUTH_TOKEN_CLASS, NbAuthJWTToken } from '@nebular/auth';
+import { NB_AUTH_PROVIDERS, NbAuthJWTToken } from '@nebular/auth';
 
 @NgModule({
   declarations: [AppComponent],
@@ -92,10 +92,10 @@ import { NB_AUTH_PROVIDERS, NB_AUTH_TOKEN_CLASS, NbAuthJWTToken } from '@nebular
               defaultMessages: ['Your password has been successfully changed.'],
             },
             token: {
-              key: 'token'
+              key: 'token',
             },
             messages: {
-              key: 'messages'
+              key: 'messages',
             },
           },
         },

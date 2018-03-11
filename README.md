@@ -1,6 +1,7 @@
 
 ### Menteeng Installation: 
-
+- install node js ( + npm is needed)
+- FOR CLIENT SIDE:
 - npm install
 - npm start
 - Go to http://0.0.0.0:4200 or http://localhost:4200 in your browser.
@@ -9,6 +10,12 @@
 - npm run start:prod
 - To create a bundle in production mode, execute:
 - npm run build:prod
+
+- FOR BACKEND SIDE
+- go to "backend-menteeng"
+- npm install
+- npm start
+- the server will start on port 3000
 
 #####################################################################
 
