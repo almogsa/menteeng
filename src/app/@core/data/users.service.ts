@@ -14,10 +14,11 @@ export class UserService {
     lee: { name: 'Lee Wong', picture: 'assets/images/lee.png' },
     alan: { name: 'Alan Thompson', picture: 'assets/images/alan.png' },
     kate: { name: 'Kate Martinez', picture: 'assets/images/kate.png' },
-    almog: {name: 'Almog Sade' , type: 'student' ,  email: 'almog@gmail.com', picture: 'assets/images/almog.png'},
-    almogsa: {name: 'Almog Sade' , email: 'almog@gmail.com', picture: 'assets/images/almog.png'},
-    tom: {name: 'Tom Vaingart' , email: 'tom@gmail.com', picture: 'assets/images/tom.png'},
-    t: {name: 'Tom Vaingart' , email: 'tom@gmail.com', picture: 'assets/images/almog.png'},
+    almog: {name: 'Almog Sade' , isStudent: true ,  email: 'almog@gmail.com', picture: 'assets/images/almog.png'},
+    almogsa: {name: 'Almog Sade' , isStudent: true , email: 'almog@gmail.com', picture: 'assets/images/almog.png'},
+    tom: {name: 'Tom Vaingart' , isStudent: true  , email: 'tom@gmail.com', picture: 'assets/images/tom.png'},
+    t: {name: 'Tom Vaingart' , isStudent: true  , class: '1' , category: '3' ,
+      email: 'tom@gmail.com', remark: 'remark' , picture: 'assets/images/almog.png'},
   };
 
   private userArray: any[];

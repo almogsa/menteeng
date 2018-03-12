@@ -144,12 +144,12 @@
 
       &.light {
         color: nb-theme(color-fg-text);
-        padding-right: 10px;
+        padding: 8px;
       }
 
       &.cosmic {
         color: nb-theme(color-fg);
-        padding-left: 10px;
+        padding: 8px;
       }
 
       @include nb-for-theme(cosmic) {
@@ -158,7 +158,7 @@
         }
 
         &.cosmic {
-          color: nb-theme(color-white);
+          color: nb-theme(color-fg-text);
         }
       }
 

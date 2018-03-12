@@ -8,8 +8,11 @@ import {AnalyticsService} from '../../../@core/utils/analytics.service';
 export interface  User {
 
   name: string;
-  type: string;
+  isStudent: boolean;
   picture: string;
+  category: string ;
+  remark: string;
+  class: string;
 }
 @Component({
   selector: 'ngx-form-inputs',
@@ -32,7 +35,7 @@ export class FormInputsComponent {
               private tokenService: NbTokenService,
               private authService: NbAuthService) {
 
-    this.model = {name : '', type :  'student', picture : ''};
+    this.model = {name : '', isStudent :  true, picture : '', category: '1', remark: '', class: '1'};
     this.authService.onTokenChange()
       .subscribe((token: NbAuthJWTToken) => {
         if (token.isValid()) {
@@ -42,25 +45,31 @@ export class FormInputsComponent {
               this.user = users[userName];
               this.model.name = this.user.name;
               this.model.picture = this.user.picture;
-              this.model.type = this.user.type;
+              this.model.class = this.user.class;
+              this.model.category = this.user.category;
+              this.model.isStudent = this.user.isStudent;
+              this.model.remark = this.user.remark;
             });
         }
 
       });
     this.categories = [ {name: 'Football', id: 1}, {name: 'Guitar Hero', id: 2} ,
       {name: 'Climbing', id: 3} , {name: 'Books', id: 4} , {name: 'TV', id: 5} ];
-    this.classes = [{name: 'א' , id: 1} , {name: 'ב', id: 1} , {name: 'ג', id: 1} ,
-      {name: 'ד' , id: 1} , {name: 'ה' , id: 1} , {name: 'ו'  , id: 1}];
+    this.classes = [{name: 'א' , id: 1} , {name: 'ב', id: 2} , {name: 'ג', id: 3} ,
+      {name: 'ד' , id: 4} , {name: 'ה' , id: 5} , {name: 'ו'  , id: 6}];
 
   }
   public toggleType() {
-    if(this.model.type === 'student'){
-      this.model.type = 'mentor'
-    } else{
-      this.model.type = 'student'
+    if (this.model.isStudent) {
+      this.model.isStudent = false;
+    } else {
+      this.model.isStudent = true;
     }
   }
   public getCurrentType() {
-    return  this.model.type === 'student';
+    return  this.model.isStudent;
+  }
+  public submit() {
+    console.log( ' USER for submit : ' + JSON.stringify(this.model));
   }
 }
