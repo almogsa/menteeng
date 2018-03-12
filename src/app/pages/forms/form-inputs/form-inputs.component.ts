@@ -5,6 +5,12 @@ import {UserService} from '../../../@core/data/users.service';
 import {Router} from '@angular/router';
 import {AnalyticsService} from '../../../@core/utils/analytics.service';
 
+export interface  User {
+
+  name: string;
+  type: string;
+  picture: string;
+}
 @Component({
   selector: 'ngx-form-inputs',
   styleUrls: ['./form-inputs.component.scss'],
@@ -15,7 +21,7 @@ export class FormInputsComponent {
   starRate = 2;
   heartRate = 4;
   user: any;
-  model = {};
+  model: User ;
   categories  = [] ;
   classes = [];
   constructor(private sidebarService: NbSidebarService,
@@ -25,6 +31,7 @@ export class FormInputsComponent {
               private router: Router,
               private tokenService: NbTokenService,
               private authService: NbAuthService) {
+
     this.authService.onTokenChange()
       .subscribe((token: NbAuthJWTToken) => {
         if (token.isValid()) {
@@ -32,8 +39,8 @@ export class FormInputsComponent {
           this.userService.getUsers()
             .subscribe((users: any) => {
               this.user = users[userName];
-              this.model.name= this.user.name;
-              this.model.img= this.user.picture;
+              this.model.name = this.user.name;
+              this.model.picture = this.user.picture;
               this.model.type = this.user.type;
             });
         }
