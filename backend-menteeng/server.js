@@ -65,7 +65,7 @@ api.post('/users/me', checkAuthenticated, (req, res) => {
 // auth requests:
 function sendToken(user, res) {
     var token = jwt.sign(user.id, '123'); // in production key must not be hardcoded, used id we get from DB
-    return res.json({firstName: user.firstName, 'token' : token}); // return the token to client
+    return res.json({firstName: user.firstName, 'token' : user.email}); // return the token to client
 }
 function sendAuthError(res){
 return res.json({success: false, message: 'email or password incorrect'});

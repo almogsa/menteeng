@@ -1,54 +1,125 @@
 <div class="row">
   <div class="col-lg-6">
     <nb-card>
-      <nb-card-header>Default Inputs</nb-card-header>
+      <nb-card-header>Profile</nb-card-header>
       <nb-card-body>
-        <div class="input-group">
+      <!--  <div class="input-group">
           <input type="text" placeholder="Project" class="form-control"/>
-        </div>
+        </div>-->
         <div class="row full-name-inputs">
-          <div class="col-sm-6 input-group">
+         <!-- <div class="col-sm-6 input-group">
             <input type="text" placeholder="Nick" class="form-control"/>
-          </div>
+          </div>-->
           <div class="col-sm-6 input-group">
-            <input type="text" placeholder="Last Name" class="form-control"/>
+            <input type="text" placeholder="Name" [(ngModel)]="model.name" name="name" class="form-control"/>
           </div>
-        </div>
-        <div class="input-group">
-          <input type="password" placeholder="Password" class="form-control"/>
-        </div>
-        <div class="input-group has-person-icon">
-          <input type="text" placeholder="With Icon" class="form-control"/>
-        </div>
-        <div class="input-group input-group-rounded">
-          <input type="text" placeholder="Rounded border" class="form-control"/>
         </div>
         <div class="form-group">
+          <label>Select Class</label>
+          <select class="form-control"  id="class"
+                  required
+                  [(ngModel)]="model.class" name="class">
+            <option *ngFor="let cls of classes" [value]="cls.id">{{cls.name}}</option>
+          </select>
+        </div>
+
+        <label class="theme-switch" style="display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 50%;">
+          <span class="light">Student</span>
+          <div class="switch">
+            <input type="checkbox" [checked]="getCurrentType()" (change)="toggleType()" #theme>
+            <span class="slider"></span>
+          </div>
+          <span class="cosmic">Mentor</span>
+        </label>
+
+       <!-- <div class="input-group">
+          <input type="password" placeholder="Password" class="form-control"/>
+        </div>-->
+        <!--div class="input-group has-person-icon">
+          <img [src]="model.img"  class="form-control"/>
+        </div-->
+      <!--  <div class="input-group input-group-rounded">
+          <input type="text" placeholder="Rounded border" class="form-control"/>
+        </div>-->
+
+
+       <!-- <div class="form-group">
+
+          <div class="form-group">
+            <label>Select Categories</label>
+            <select multiple class="form-control">
+              <option>Football</option>
+              <option>Gitar</option>
+              <option>Painting</option>
+              <option>Drawing</option>
+              <option>Cycling</option>
+              <option>Climbing</option>
+            </select>
+          </div>
+
+
           <input type="text" placeholder="Project" class="form-control"/>
           <small class="form-text">A block of help text that breaks into a new line and may extend beyond one line.
           </small>
-        </div>
-        <div class="input-group">
+        </div>-->
+      <!--  <div class="input-group">
           <input type="text" placeholder="Disabled input" class="form-control" disabled/>
-        </div>
-        <div class="input-group">
-          <textarea rows="5" placeholder="Text Area" class="form-control"></textarea>
-        </div>
-        <div class="input-group input-group-sm">
+        </div>-->
+      <!--  <div class="input-group">
+          <textarea rows="5"  [(ngModel)]="model.remark" placeholder="Text Area" class="form-control"></textarea>
+        </div>-->
+       <!-- <div class="input-group input-group-sm">
           <input type="text" placeholder="Small Input" class="form-control"/>
         </div>
         <div class="input-group input-group-lg">
           <input type="text" placeholder="Large Input" class="form-control"/>
+        </div>-->
+      </nb-card-body>
+    </nb-card>
+    <nb-card>
+      <nb-card-header>Skills</nb-card-header>
+      <nb-card-body>
+
+        <div class="form-group">
+          <label for="category">Choose Category</label>
+          <select class="form-control"  id="category"
+                  required
+                  [(ngModel)]="model.category" name="power">
+            <option *ngFor="let cat of categories" [value]="cat.id">{{cat.name}}</option>
+          </select>
+        </div>
+        <div class="demo-radio col-sm-4 " style="flex-direction: row;">
+          <label class="custom-control custom-radio">
+            <input type="radio" [(ngModel)]="model.type" class="custom-control-input" name="customRadio" checked>
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">Student</span>
+          </label>
+          <label class="custom-control custom-radio">
+            <input type="radio" [(ngModel)]="model.type" class="custom-control-input" name="customRadio" >
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">Mentor</span>
+          </label>
+
         </div>
       </nb-card-body>
     </nb-card>
-
+    <nb-card>
+      <nb-card-header>Remarks</nb-card-header>
+      <nb-card-body>
+        <div class="input-group">
+          <textarea rows="5"  [(ngModel)]="model.remark" placeholder="Text Area" class="form-control"></textarea>
+        </div>
+      </nb-card-body>
+    </nb-card>
     <nb-card>
       <nb-card-header>Input Groups</nb-card-header>
       <nb-card-body>
         <div class="input-group">
           <span class="input-group-addon success">@</span>
-          <input type="text" class="form-control" placeholder="Username"/>
+          <input type="text" class="form-control"  [value]="user.name" placeholder="Username"/>
         </div>
 
         <div class="input-group mail-btn-group">
