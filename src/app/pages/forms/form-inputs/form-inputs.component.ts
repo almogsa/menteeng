@@ -32,6 +32,7 @@ export class FormInputsComponent {
               private tokenService: NbTokenService,
               private authService: NbAuthService) {
 
+    this.model = {name : '', type :  'student', picture : ''};
     this.authService.onTokenChange()
       .subscribe((token: NbAuthJWTToken) => {
         if (token.isValid()) {
