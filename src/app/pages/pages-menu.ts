@@ -8,6 +8,16 @@ export const MENU_ITEMS: NbMenuItem[] = [
     home: true,
   },
   {
+    title: 'Skills',
+    icon: 'nb-tables',
+    children: [
+      {
+        title: 'Available skills',
+        link: '/pages/tables/smart-table',
+      },
+    ],
+  },
+  {
     title: 'FEATURES',
     group: true,
   },
@@ -128,16 +138,6 @@ export const MENU_ITEMS: NbMenuItem[] = [
       {
         title: 'CKEditor',
         link: '/pages/editors/ckeditor',
-      },
-    ],
-  },
-  {
-    title: 'Tables',
-    icon: 'nb-tables',
-    children: [
-      {
-        title: 'Smart Table',
-        link: '/pages/tables/smart-table',
       },
     ],
   },

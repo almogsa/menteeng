@@ -15,7 +15,7 @@ export class FormInputsComponent {
   starRate = 2;
   heartRate = 4;
   user: any;
-  model = {};
+  model: any = {};
   categories  = [] ;
   classes = [];
   constructor(private sidebarService: NbSidebarService,
@@ -32,8 +32,8 @@ export class FormInputsComponent {
           this.userService.getUsers()
             .subscribe((users: any) => {
               this.user = users[userName];
-              this.model.name= this.user.name;
-              this.model.img= this.user.picture;
+              this.model.name = this.user.name;
+              this.model.img = this.user.picture;
               this.model.type = this.user.type;
             });
         }
@@ -46,9 +46,9 @@ export class FormInputsComponent {
 
   }
   public toggleType() {
-    if(this.model.type === 'student'){
+    if (this.model.type === 'student') {
       this.model.type = 'mentor'
-    } else{
+    } else {
       this.model.type = 'student'
     }
   }

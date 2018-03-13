@@ -31,27 +31,27 @@ export class SmartTableComponent {
     },
     columns: {
       id: {
-        title: 'ID',
+        title: 'Session ID',
         type: 'number',
       },
       firstName: {
-        title: 'First Name',
+        title: 'Category',
         type: 'string',
       },
       lastName: {
-        title: 'Last Name',
+        title: 'Skill',
         type: 'string',
       },
       username: {
-        title: 'Username',
+        title: 'Mentor',
         type: 'string',
       },
       email: {
-        title: 'E-mail',
+        title: 'Email',
         type: 'string',
       },
       age: {
-        title: 'Age',
+        title: 'Mentor Grade',
         type: 'number',
       },
     },
