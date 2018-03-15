@@ -130,7 +130,7 @@ auth.post('/logout', (req, res) => {
 //app.listen(defaultPort);
 
 
-app.use(express.static(path.join(root, 'src')));
+app.use(express.static(path.join(root, 'dist')));
 app.set('port', process.env.PORT || 5000);
 app.listen(app.get('port'), function () {
   console.log('Express server listening on port ' + app.get('port'));
