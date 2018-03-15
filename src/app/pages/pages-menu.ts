@@ -8,11 +8,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
     home: true,
   },
   {
-    title: 'Skills',
+    title: 'Supervisor',
     icon: 'nb-tables',
     children: [
       {
-        title: 'Available skills',
+        title: 'All skills',
         link: '/pages/tables/smart-table',
       },
     ],
