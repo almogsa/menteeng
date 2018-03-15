@@ -32,7 +32,7 @@ export class HeaderComponent implements OnInit {
           const userName = token.token.split('@')[0];
           this.userService.getUsers()
             .subscribe((users: any) => {
-              this.user = users[userName];
+              this.user = users[token.token];
             });
           // here we receive a payload from the token and assigne it to our `user` variable
         //  this.user = token;

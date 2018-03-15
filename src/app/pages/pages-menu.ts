@@ -28,6 +28,25 @@ export const MENU_ITEMS: NbMenuItem[] = [
     ],
   },
   {
+    title: 'Student',
+    icon: 'nb-tables',
+    children: [
+      {
+        title: 'Profile',
+        link: '/pages/forms/inputs',
+      },
+      {
+        title: 'Search',
+        // icon: 'nb-home',
+        link: '/pages/tables/all-students',
+      },
+/*      {
+        title: 'Participants',
+        link: '/pages/tables/all-users',
+      },*/
+    ],
+  },
+  {
     title: 'FEATURES',
     group: true,
   },

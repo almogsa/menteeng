@@ -42,7 +42,7 @@ export class FormInputsComponent {
           const userName = token.token.split('@')[0];
           this.userService.getUsers()
             .subscribe((users: any) => {
-              this.user = users[userName];
+              this.user = users[token.token];
               this.model.name = this.user.name;
               this.model.picture = this.user.picture;
               this.model.class = this.user.class;

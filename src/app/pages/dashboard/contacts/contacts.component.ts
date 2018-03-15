@@ -10,12 +10,14 @@ import { UserService } from '../../../@core/data/users.service';
 })
 export class ContactsComponent implements OnInit, OnDestroy {
 
-  contacts: any[];
   recent: any[];
   breakpoint: NbMediaBreakpoint;
   breakpoints: any;
+  contacts:any;
+  users:any;
   themeSubscription: any;
-
+  @Input() title: string;
+  @Input() search: string;
   constructor(private userService: UserService,
               private themeService: NbThemeService,
               private breakpointService: NbMediaBreakpointsService) {
@@ -31,14 +33,16 @@ export class ContactsComponent implements OnInit, OnDestroy {
 
     this.userService.getUsers()
       .subscribe((users: any) => {
-        this.contacts = [
-          {user: users.nick, type: 'mobile'},
-          {user: users.eva, type: 'home'},
-          {user: users.jack, type: 'mobile'},
-          {user: users.lee, type: 'mobile'},
-          {user: users.alan, type: 'home'},
-          {user: users.kate, type: 'work'},
-        ];
+        this.contacts = [];
+        this.users = users;
+        this.recent = [];
+        console.log('SErach ' + this.search);
+        for (const curUser in users) {
+          if (users.hasOwnProperty(curUser)) {
+            console.log(curUser);
+            this.contacts.push(users[curUser])
+          }
+        }
 
         this.recent = [
           {user: users.alan, type: 'home', time: '9:12 pm'},
@@ -52,7 +56,26 @@ export class ContactsComponent implements OnInit, OnDestroy {
         ];
       });
   }
-  @Input() title: string;
+  ngOnChanges(changes){
+    this.contacts = [];
+
+    if (changes && changes.search){
+      for (const curUser in this.users) {
+        if (this.users.hasOwnProperty(curUser)) {
+          console.log(curUser);
+          let user = this.users[curUser];
+          if (user && user.skills && user.skills.length > 0 ) {
+            for (const cat of user.skills) {
+              if (cat.category.toLowerCase().indexOf(changes.search.currentValue.toLowerCase()) > -1 || cat.sub_category.toLowerCase().indexOf(changes.search.currentValue.toLowerCase()) > -1)
+                this.contacts.push(user);
+            }
+          }
+
+        }
+      }
+    }
+    console.log('change')
+  }
   ngOnDestroy() {
     this.themeSubscription.unsubscribe();
   }
