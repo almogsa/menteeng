@@ -1,16 +1,22 @@
 import { NbMenuItem } from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
-  {
+/*  {
     title: 'Dashboard',
     icon: 'nb-home',
     link: '/pages/dashboard',
     home: true,
-  },
+  },*/
   {
     title: 'Supervisor',
     icon: 'nb-tables',
     children: [
+      {
+        title: 'Dashboard',
+        // icon: 'nb-home',
+        home: true,
+        link: '/pages/dashboard',
+      },
       {
         title: 'All skills',
         link: '/pages/tables/smart-table',
