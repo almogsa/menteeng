@@ -4,10 +4,12 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { ThemeModule } from '../../@theme/theme.module';
 import { TablesRoutingModule, routedComponents } from './tables-routing.module';
 import { SmartTableService } from '../../@core/data/smart-table.service';
+import {DashboardModule} from '../dashboard/dashboard.module';
+
 
 @NgModule({
   imports: [
-    ThemeModule,
+    ThemeModule, DashboardModule,
     TablesRoutingModule,
     Ng2SmartTableModule,
   ],

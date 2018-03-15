@@ -1,10 +1,17 @@
-<nb-card>
-  <nb-card-header>
-    Available Skills
-  </nb-card-header>
+<div style="display: flex">
+  <div style="flex-basis: 80%; padding-right: 10px">
+  <nb-card >
+    <nb-card-header>
+      Available Skills
+    </nb-card-header>
 
-  <nb-card-body>
-    <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
-    </ng2-smart-table>
-  </nb-card-body>
-</nb-card>
+    <nb-card-body>
+      <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
+      </ng2-smart-table>
+    </nb-card-body>
+  </nb-card>
+  </div>
+  <div style="flex-basis: 20%">
+    <ngx-contacts ></ngx-contacts>
+  </div>
+</div>

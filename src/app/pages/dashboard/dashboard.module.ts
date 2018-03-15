@@ -46,5 +46,6 @@ import { TrafficChartComponent } from './traffic/traffic-chart.component';
     TrafficComponent,
     TrafficChartComponent,
   ],
+  exports: [ContactsComponent],
 })
 export class DashboardModule { }
