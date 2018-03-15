@@ -20,12 +20,14 @@ import { SolarComponent } from './solar/solar.component';
 import { PlayerComponent } from './rooms/player/player.component';
 import { TrafficComponent } from './traffic/traffic.component';
 import { TrafficChartComponent } from './traffic/traffic-chart.component';
+import {ChartsModule} from '../charts/charts.module';
 
 
 @NgModule({
   imports: [
     ThemeModule,
     NgxEchartsModule,
+    ChartsModule,
   ],
   declarations: [
     DashboardComponent,
