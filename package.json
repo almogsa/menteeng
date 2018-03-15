@@ -14,6 +14,7 @@
     "conventional-changelog": "conventional-changelog",
     "start": "ng serve",
     "build": "ng build",
+	"postinstall": "npm run clean:dist && webpack --config config/webpack.prod.js --progress --profile --colors --display-error-details --display-cached --bail",
     "build:prod": "npm run build -- --prod --aot",
     "test": "ng test -sr",
     "test:coverage": "rimraf coverage && npm run test -- -cc",
