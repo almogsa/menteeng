@@ -16,7 +16,13 @@
 - npm install
 - npm start
 - the server will start on port 3000
+-To run the local copy in a production mode and build the sources, execute:
 
+-npm run start:prod
+-To create a bundle in production mode, execute:
+
+-npm run build:prod
+-This will clear up your dist folder (where release files are located) and generate a release build. Now you can copy the sources from the dist folder and use it with any backend framework or simply put it under a web server.
 #####################################################################
 
 
