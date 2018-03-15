@@ -12,7 +12,8 @@
   "scripts": {
     "ng": "ng",
     "conventional-changelog": "conventional-changelog",
-    "start": "ng serve",
+    "preinstall": "npm install -g http-server",
+	"start": "http-server dist/",
     "build": "ng build",
 	"postinstall": "npm run clean:dist && webpack --config config/webpack.prod.js --progress --profile --colors --display-error-details --display-cached --bail",
     "build:prod": "npm run build -- --prod --aot",
