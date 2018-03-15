@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import { NbThemeService, NbMediaBreakpoint, NbMediaBreakpointsService } from '@nebular/theme';
 
 import { UserService } from '../../../@core/data/users.service';
@@ -52,7 +52,7 @@ export class ContactsComponent implements OnInit, OnDestroy {
         ];
       });
   }
-
+  @Input() title: string;
   ngOnDestroy() {
     this.themeSubscription.unsubscribe();
   }
