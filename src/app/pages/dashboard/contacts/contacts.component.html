@@ -15,9 +15,55 @@
   </nb-tabset>
 </nb-card>
 
-<nb-card *ngIf="isList" style="height: 96%" [size]="breakpoint.width >= breakpoints.xxxl || breakpoint.width < breakpoints.md ? 'large' : 'xlarge'">
+<nb-card *ngIf="isList && !isStatus" style="height: 96%" [size]="breakpoint.width >= breakpoints.xxxl || breakpoint.width < breakpoints.md ? 'large' : 'xlarge'">
+  
+
     <div style="display:flex ;flex-wrap: wrap; ">
         <div class="contact" *ngFor="let c of contacts" style="display:flex;flex-direction:column ">
+            <nb-card>
+                <nb-card-header>
+                    <img style="width:50px;height:50px; border-radius:  5px  5px;" [src]="c.picture">
+                  {{c.name}}</nb-card-header>
+              <nb-card-body>
+            <div >
+               </div> 
+          <div style="display:flex;flex-direction:column "> 
+          <div class="contact" *ngFor="let skill of c.skills" >
+              <div style="min-width:200px">  
+                <span  [class]="skill.icon" [style.color]="skill.color"></span>
+                <!--img style="width:50px;height:50px;" [src]="skill?.image"--> 
+                {{skill.sub_category}} <!--span style="border-left: 1px dashed #a4abb3;
+                height: 12px;
+                width: 1px;
+                display: inline-block;
+                /* position: relative; */
+                margin: 0 2px 0 2px;"></span>  <span >{{skill.sub_category}}</span-->
+                
+              </div>
+              
+          </div>
+          <button style="display:inline-block;" (click)="changeStatus(c)"  [class]="c.status? 'btn btn-warning' : 'btn btn-success'">{{c.status?  c.status : 'Add' }}</button>
+
+        </div>
+      </nb-card-body>
+            </nb-card>
+          </div>
+    </div>
+    
+    <!--<nb-tab tabTitle="Recent">
+      <div class="contact" *ngFor="let c of recent">
+        <nb-user [picture]="c.user.picture" [name]="c.user.name" [title]="c.type" size="large"></nb-user>
+        <span class="time">{{ c.time }}</span>
+      </div>
+    </nb-tab>-->
+  
+</nb-card>
+
+<nb-card *ngIf="isStatus" style="height: 96%" [size]="breakpoint.width >= breakpoints.xxxl || breakpoint.width < breakpoints.md ? 'large' : 'xlarge'">
+  
+    
+    <div style="display:flex ;flex-wrap: wrap; ">
+        <div class="contact" *ngFor="let c of user.courses" style="display:flex;flex-direction:column ">
             <nb-card>
                 <nb-card-header>
                     <img style="width:50px;height:50px; border-radius:  5px  5px;" [src]="c.picture">

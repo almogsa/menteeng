@@ -1,3 +1,4 @@
+import { StudentStatusComponent } from './student-status/student-status.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -20,6 +21,10 @@ const routes: Routes = [{
     {
       path: 'all-students',
       component: AllStudentsComponent,
+    },
+    {
+      path: 'student-status',
+      component: StudentStatusComponent,
     }],
   component: TablesComponent,
 }];
@@ -35,4 +40,5 @@ export const routedComponents = [
   SmartTableComponent,
   AllUsersComponent,
   AllStudentsComponent,
+  StudentStatusComponent,
 ];

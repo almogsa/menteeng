@@ -2,6 +2,7 @@ import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import { NbThemeService, NbMediaBreakpoint, NbMediaBreakpointsService } from '@nebular/theme';
 
 import { UserService } from '../../../@core/data/users.service';
+import { NbAuthService, NbAuthJWTToken } from '@nebular/auth';
 
 @Component({
   selector: 'ngx-contacts',
@@ -15,18 +16,34 @@ export class ContactsComponent implements OnInit, OnDestroy {
   breakpoints: any;
   contacts:any;
   users:any;
+  user:any;
   themeSubscription: any;
   @Input() title: string;
   @Input() search: string;
   @Input() isList: boolean;
+  @Input() isStatus: boolean;
   constructor(private userService: UserService,
               private themeService: NbThemeService,
-              private breakpointService: NbMediaBreakpointsService) {
+              private breakpointService: NbMediaBreakpointsService,
+              private authService: NbAuthService) {
 
     this.breakpoints = this.breakpointService.getBreakpointsMap();
     this.themeSubscription = this.themeService.onMediaQueryChange()
       .subscribe(([oldValue, newValue]) => {
         this.breakpoint = newValue;
+      });
+      this.authService.onTokenChange()
+      .subscribe((token: NbAuthJWTToken) => {
+        if (token.isValid()) {
+          const userName = token.token.split('@')[0];
+          this.userService.getUsers()
+            .subscribe((users: any) => {
+              this.user = users[token.token];
+            });
+          // here we receive a payload from the token and assigne it to our `user` variable
+        //  this.user = token;
+        }
+
       });
   }
 
@@ -39,6 +56,9 @@ export class ContactsComponent implements OnInit, OnDestroy {
         this.recent = [];
         if (typeof this.isList === 'undefined') {
           this.isList = false;
+        };
+        if (typeof this.isStatus === 'undefined') {
+          this.isStatus = false;
         };
         console.log('IS LIST : ', this.isList);
         for (const curUser in users) {
@@ -88,5 +108,10 @@ export class ContactsComponent implements OnInit, OnDestroy {
   }
   changeStatus(contact) {
     contact.status = 'Pending...';
+    if (typeof this.user.courses === 'undefined') {
+      this.user.courses = [];
+    }
+    this.user.courses.push(contact);
+     this.userService.updateUser(this.user);
   }
 }

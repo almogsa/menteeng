@@ -45,6 +45,11 @@ var MENU_ITEMS = [
                 // icon: 'nb-home',
                 link: '/pages/tables/all-students',
             },
+            {
+                title: 'Status',
+                // icon: 'nb-home',
+                link: '/pages/tables/student-status',
+            },
         ],
     },
     {

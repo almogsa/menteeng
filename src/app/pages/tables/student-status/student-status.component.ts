@@ -2,18 +2,18 @@ import { Component } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 
 import { SmartTableService } from '../../../@core/data/smart-table.service';
-import {NbSearchService} from "@nebular/theme";
+import {NbSearchService} from '@nebular/theme';
 
 @Component({
-  selector: 'ngx-students-users',
-  templateUrl: './all-students.component.html',
+  selector: 'ngx-student-status',
+  templateUrl: './student-status.component.html',
   styles: [`
     nb-card {
       transform: translate3d(0, 0, 0);
     }
   `],
 })
-export class AllStudentsComponent {
+export class StudentStatusComponent {
 
   settings = {
     add: {

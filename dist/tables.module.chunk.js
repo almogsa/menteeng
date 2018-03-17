@@ -26789,18 +26789,136 @@ var SmartTableComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/pages/tables/student-status/student-status.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "\r\n<div class=\"col-md-12\" >\r\n  <nb-card>\r\n    <nb-card-header>\r\n      Search for mentor ...\r\n    </nb-card-header>\r\n    <nb-card-body>\r\n      <nb-search type=\"rotate-layout\" (click)=\"handleKeyUp($event)\"  tag=\"rotate-layout\"></nb-search>\r\n    </nb-card-body>\r\n  </nb-card>\r\n</div>\r\n<div class=\"col-md-12\">\r\n<div style=\"display: flex\">\r\n  <!--<nb-action class=\"control-item\">\r\n    <nb-search type=\"rotate-layout\" (click)=\"startSearch()\"></nb-search>\r\n  </nb-action>-->\r\n\r\n    <div style=\"flex-basis: 100%; padding-right: 5px;\">\r\n      <ngx-contacts search=\"{{search}}\" isList=\"{{false}}\" isStatus=\"{{true}}\"></ngx-contacts>\r\n    </div>\r\n\r\n</div>\r\n\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/pages/tables/student-status/student-status.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StudentStatusComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ng2_smart_table__ = __webpack_require__("./node_modules/ng2-smart-table/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__core_data_smart_table_service__ = __webpack_require__("./src/app/@core/data/smart-table.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__nebular_theme__ = __webpack_require__("./node_modules/@nebular/theme/index.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var StudentStatusComponent = /** @class */ (function () {
+    function StudentStatusComponent(service, searchService) {
+        var _this = this;
+        this.service = service;
+        this.searchService = searchService;
+        this.settings = {
+            add: {
+                addButtonContent: '<i class="nb-plus"></i>',
+                createButtonContent: '<i class="nb-checkmark"></i>',
+                cancelButtonContent: '<i class="nb-close"></i>',
+            },
+            edit: {
+                editButtonContent: '<i class="nb-edit"></i>',
+                saveButtonContent: '<i class="nb-checkmark"></i>',
+                cancelButtonContent: '<i class="nb-close"></i>',
+            },
+            delete: {
+                deleteButtonContent: '<i class="nb-trash"></i>',
+                confirmDelete: true,
+            },
+            columns: {
+                id: {
+                    title: 'Session ID',
+                    type: 'number',
+                },
+                firstName: {
+                    title: 'Category',
+                    type: 'string',
+                },
+                lastName: {
+                    title: 'Skill',
+                    type: 'string',
+                },
+                username: {
+                    title: 'Mentor',
+                    type: 'string',
+                },
+                email: {
+                    title: 'Email',
+                    type: 'string',
+                },
+                age: {
+                    title: 'Mentor Grade',
+                    type: 'number',
+                },
+            },
+        };
+        this.source = new __WEBPACK_IMPORTED_MODULE_1_ng2_smart_table__["a" /* LocalDataSource */]();
+        var data = this.service.getData();
+        this.source.load(data);
+        this.searchService.onSearchSubmit().subscribe(function (data) {
+            console.log(data.term);
+            _this.search = data.term;
+            _this.handleSearch();
+        });
+    }
+    StudentStatusComponent.prototype.onDeleteConfirm = function (event) {
+        if (window.confirm('Are you sure you want to delete?')) {
+            event.confirm.resolve();
+        }
+        else {
+            event.confirm.reject();
+        }
+    };
+    StudentStatusComponent.prototype.handleSearch = function () {
+        console.log(event);
+    };
+    StudentStatusComponent.prototype.handleKeyUp = function (event) {
+        console.log('Key press ', event);
+        if (event.keyCode === 13) {
+            console.log('ENTER CLICKED');
+        }
+    };
+    StudentStatusComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'ngx-student-status',
+            template: __webpack_require__("./src/app/pages/tables/student-status/student-status.component.html"),
+            styles: ["\n    nb-card {\n      transform: translate3d(0, 0, 0);\n    }\n  "],
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__core_data_smart_table_service__["a" /* SmartTableService */], __WEBPACK_IMPORTED_MODULE_3__nebular_theme__["m" /* NbSearchService */]])
+    ], StudentStatusComponent);
+    return StudentStatusComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/pages/tables/tables-routing.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TablesRoutingModule; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return routedComponents; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tables_component__ = __webpack_require__("./src/app/pages/tables/tables.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__smart_table_smart_table_component__ = __webpack_require__("./src/app/pages/tables/smart-table/smart-table.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__all_users_all_users_component__ = __webpack_require__("./src/app/pages/tables/all-users/all-users.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__all_students_all_students_component__ = __webpack_require__("./src/app/pages/tables/all-students/all-students.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__student_status_student_status_component__ = __webpack_require__("./src/app/pages/tables/student-status/student-status.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tables_component__ = __webpack_require__("./src/app/pages/tables/tables.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__smart_table_smart_table_component__ = __webpack_require__("./src/app/pages/tables/smart-table/smart-table.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__all_users_all_users_component__ = __webpack_require__("./src/app/pages/tables/all-users/all-users.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__all_students_all_students_component__ = __webpack_require__("./src/app/pages/tables/all-students/all-students.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -26813,41 +26931,47 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var routes = [{
         path: '',
         children: [
             {
                 path: 'smart-table',
-                component: __WEBPACK_IMPORTED_MODULE_3__smart_table_smart_table_component__["a" /* SmartTableComponent */],
+                component: __WEBPACK_IMPORTED_MODULE_4__smart_table_smart_table_component__["a" /* SmartTableComponent */],
             },
             {
                 path: 'all-users',
-                component: __WEBPACK_IMPORTED_MODULE_4__all_users_all_users_component__["a" /* AllUsersComponent */],
+                component: __WEBPACK_IMPORTED_MODULE_5__all_users_all_users_component__["a" /* AllUsersComponent */],
             },
             {
                 path: 'all-students',
-                component: __WEBPACK_IMPORTED_MODULE_5__all_students_all_students_component__["a" /* AllStudentsComponent */],
+                component: __WEBPACK_IMPORTED_MODULE_6__all_students_all_students_component__["a" /* AllStudentsComponent */],
+            },
+            {
+                path: 'student-status',
+                component: __WEBPACK_IMPORTED_MODULE_0__student_status_student_status_component__["a" /* StudentStatusComponent */],
             }
         ],
-        component: __WEBPACK_IMPORTED_MODULE_2__tables_component__["a" /* TablesComponent */],
+        component: __WEBPACK_IMPORTED_MODULE_3__tables_component__["a" /* TablesComponent */],
     }];
 var TablesRoutingModule = /** @class */ (function () {
     function TablesRoutingModule() {
     }
     TablesRoutingModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
-            imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["d" /* RouterModule */].forChild(routes)],
-            exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["d" /* RouterModule */]],
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
+            imports: [__WEBPACK_IMPORTED_MODULE_2__angular_router__["d" /* RouterModule */].forChild(routes)],
+            exports: [__WEBPACK_IMPORTED_MODULE_2__angular_router__["d" /* RouterModule */]],
         })
     ], TablesRoutingModule);
     return TablesRoutingModule;
 }());
 
 var routedComponents = [
-    __WEBPACK_IMPORTED_MODULE_2__tables_component__["a" /* TablesComponent */],
-    __WEBPACK_IMPORTED_MODULE_3__smart_table_smart_table_component__["a" /* SmartTableComponent */],
-    __WEBPACK_IMPORTED_MODULE_4__all_users_all_users_component__["a" /* AllUsersComponent */],
-    __WEBPACK_IMPORTED_MODULE_5__all_students_all_students_component__["a" /* AllStudentsComponent */],
+    __WEBPACK_IMPORTED_MODULE_3__tables_component__["a" /* TablesComponent */],
+    __WEBPACK_IMPORTED_MODULE_4__smart_table_smart_table_component__["a" /* SmartTableComponent */],
+    __WEBPACK_IMPORTED_MODULE_5__all_users_all_users_component__["a" /* AllUsersComponent */],
+    __WEBPACK_IMPORTED_MODULE_6__all_students_all_students_component__["a" /* AllStudentsComponent */],
+    __WEBPACK_IMPORTED_MODULE_0__student_status_student_status_component__["a" /* StudentStatusComponent */],
 ];
 
 

@@ -40,6 +40,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
         // icon: 'nb-home',
         link: '/pages/tables/all-students',
       },
+      {
+        title: 'Status',
+        // icon: 'nb-home',
+        link: '/pages/tables/student-status',
+      },
 /*      {
         title: 'Participants',
         link: '/pages/tables/all-users',

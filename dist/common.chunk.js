@@ -67257,7 +67257,7 @@ var EchartsComponent = /** @class */ (function () {
 /***/ "./src/app/pages/dashboard/contacts/contacts.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nb-card *ngIf=\"!isList\" style=\"height: 96%\" [size]=\"breakpoint.width >= breakpoints.xxxl || breakpoint.width < breakpoints.md ? 'large' : 'xlarge'\">\r\n  <nb-tabset fullWidth>\r\n    <nb-tab tabTitle={{title}}>\r\n      <div class=\"contact\" *ngFor=\"let c of contacts\">\r\n        <nb-user [picture]=\"c.picture\" [name]=\"c.name\" [title]=\"c.type\" size=\"large\"></nb-user>\r\n        <i class=\"i-contact nb-phone\"></i>\r\n      </div>\r\n    </nb-tab>\r\n    <!--<nb-tab tabTitle=\"Recent\">\r\n      <div class=\"contact\" *ngFor=\"let c of recent\">\r\n        <nb-user [picture]=\"c.user.picture\" [name]=\"c.user.name\" [title]=\"c.type\" size=\"large\"></nb-user>\r\n        <span class=\"time\">{{ c.time }}</span>\r\n      </div>\r\n    </nb-tab>-->\r\n  </nb-tabset>\r\n</nb-card>\r\n\r\n<nb-card *ngIf=\"isList\" style=\"height: 96%\" [size]=\"breakpoint.width >= breakpoints.xxxl || breakpoint.width < breakpoints.md ? 'large' : 'xlarge'\">\r\n    <div style=\"display:flex ;flex-wrap: wrap; \">\r\n        <div class=\"contact\" *ngFor=\"let c of contacts\" style=\"display:flex;flex-direction:column \">\r\n            <nb-card>\r\n                <nb-card-header>\r\n                    <img style=\"width:50px;height:50px; border-radius:  5px  5px;\" [src]=\"c.picture\">\r\n                  {{c.name}}</nb-card-header>\r\n              <nb-card-body>\r\n            <div >\r\n               </div> \r\n          <div style=\"display:flex;flex-direction:column \"> \r\n          <div class=\"contact\" *ngFor=\"let skill of c.skills\" >\r\n              <div style=\"min-width:200px\">  \r\n                <span  [class]=\"skill.icon\" [style.color]=\"skill.color\"></span>\r\n                <!--img style=\"width:50px;height:50px;\" [src]=\"skill?.image\"--> \r\n                {{skill.sub_category}} <!--span style=\"border-left: 1px dashed #a4abb3;\r\n                height: 12px;\r\n                width: 1px;\r\n                display: inline-block;\r\n                /* position: relative; */\r\n                margin: 0 2px 0 2px;\"></span>  <span >{{skill.sub_category}}</span-->\r\n                \r\n              </div>\r\n              \r\n          </div>\r\n          <button style=\"display:inline-block;\" (click)=\"changeStatus(c)\"  [class]=\"c.status? 'btn btn-warning' : 'btn btn-success'\">{{c.status?  c.status : 'Add' }}</button>\r\n\r\n        </div>\r\n      </nb-card-body>\r\n            </nb-card>\r\n          </div>\r\n    </div>\r\n    \r\n    <!--<nb-tab tabTitle=\"Recent\">\r\n      <div class=\"contact\" *ngFor=\"let c of recent\">\r\n        <nb-user [picture]=\"c.user.picture\" [name]=\"c.user.name\" [title]=\"c.type\" size=\"large\"></nb-user>\r\n        <span class=\"time\">{{ c.time }}</span>\r\n      </div>\r\n    </nb-tab>-->\r\n  \r\n</nb-card>\r\n\r\n"
+module.exports = "<nb-card *ngIf=\"!isList\" style=\"height: 96%\" [size]=\"breakpoint.width >= breakpoints.xxxl || breakpoint.width < breakpoints.md ? 'large' : 'xlarge'\">\r\n  <nb-tabset fullWidth>\r\n    <nb-tab tabTitle={{title}}>\r\n      <div class=\"contact\" *ngFor=\"let c of contacts\">\r\n        <nb-user [picture]=\"c.picture\" [name]=\"c.name\" [title]=\"c.type\" size=\"large\"></nb-user>\r\n        <i class=\"i-contact nb-phone\"></i>\r\n      </div>\r\n    </nb-tab>\r\n    <!--<nb-tab tabTitle=\"Recent\">\r\n      <div class=\"contact\" *ngFor=\"let c of recent\">\r\n        <nb-user [picture]=\"c.user.picture\" [name]=\"c.user.name\" [title]=\"c.type\" size=\"large\"></nb-user>\r\n        <span class=\"time\">{{ c.time }}</span>\r\n      </div>\r\n    </nb-tab>-->\r\n  </nb-tabset>\r\n</nb-card>\r\n\r\n<nb-card *ngIf=\"isList && !isStatus\" style=\"height: 96%\" [size]=\"breakpoint.width >= breakpoints.xxxl || breakpoint.width < breakpoints.md ? 'large' : 'xlarge'\">\r\n  \r\n\r\n    <div style=\"display:flex ;flex-wrap: wrap; \">\r\n        <div class=\"contact\" *ngFor=\"let c of contacts\" style=\"display:flex;flex-direction:column \">\r\n            <nb-card>\r\n                <nb-card-header>\r\n                    <img style=\"width:50px;height:50px; border-radius:  5px  5px;\" [src]=\"c.picture\">\r\n                  {{c.name}}</nb-card-header>\r\n              <nb-card-body>\r\n            <div >\r\n               </div> \r\n          <div style=\"display:flex;flex-direction:column \"> \r\n          <div class=\"contact\" *ngFor=\"let skill of c.skills\" >\r\n              <div style=\"min-width:200px\">  \r\n                <span  [class]=\"skill.icon\" [style.color]=\"skill.color\"></span>\r\n                <!--img style=\"width:50px;height:50px;\" [src]=\"skill?.image\"--> \r\n                {{skill.sub_category}} <!--span style=\"border-left: 1px dashed #a4abb3;\r\n                height: 12px;\r\n                width: 1px;\r\n                display: inline-block;\r\n                /* position: relative; */\r\n                margin: 0 2px 0 2px;\"></span>  <span >{{skill.sub_category}}</span-->\r\n                \r\n              </div>\r\n              \r\n          </div>\r\n          <button style=\"display:inline-block;\" (click)=\"changeStatus(c)\"  [class]=\"c.status? 'btn btn-warning' : 'btn btn-success'\">{{c.status?  c.status : 'Add' }}</button>\r\n\r\n        </div>\r\n      </nb-card-body>\r\n            </nb-card>\r\n          </div>\r\n    </div>\r\n    \r\n    <!--<nb-tab tabTitle=\"Recent\">\r\n      <div class=\"contact\" *ngFor=\"let c of recent\">\r\n        <nb-user [picture]=\"c.user.picture\" [name]=\"c.user.name\" [title]=\"c.type\" size=\"large\"></nb-user>\r\n        <span class=\"time\">{{ c.time }}</span>\r\n      </div>\r\n    </nb-tab>-->\r\n  \r\n</nb-card>\r\n\r\n<nb-card *ngIf=\"isStatus\" style=\"height: 96%\" [size]=\"breakpoint.width >= breakpoints.xxxl || breakpoint.width < breakpoints.md ? 'large' : 'xlarge'\">\r\n  \r\n    \r\n    <div style=\"display:flex ;flex-wrap: wrap; \">\r\n        <div class=\"contact\" *ngFor=\"let c of user.courses\" style=\"display:flex;flex-direction:column \">\r\n            <nb-card>\r\n                <nb-card-header>\r\n                    <img style=\"width:50px;height:50px; border-radius:  5px  5px;\" [src]=\"c.picture\">\r\n                  {{c.name}}</nb-card-header>\r\n              <nb-card-body>\r\n            <div >\r\n               </div> \r\n          <div style=\"display:flex;flex-direction:column \"> \r\n          <div class=\"contact\" *ngFor=\"let skill of c.skills\" >\r\n              <div style=\"min-width:200px\">  \r\n                <span  [class]=\"skill.icon\" [style.color]=\"skill.color\"></span>\r\n                <!--img style=\"width:50px;height:50px;\" [src]=\"skill?.image\"--> \r\n                {{skill.sub_category}} <!--span style=\"border-left: 1px dashed #a4abb3;\r\n                height: 12px;\r\n                width: 1px;\r\n                display: inline-block;\r\n                /* position: relative; */\r\n                margin: 0 2px 0 2px;\"></span>  <span >{{skill.sub_category}}</span-->\r\n                \r\n              </div>\r\n              \r\n          </div>\r\n          <button style=\"display:inline-block;\" (click)=\"changeStatus(c)\"  [class]=\"c.status? 'btn btn-warning' : 'btn btn-success'\">{{c.status?  c.status : 'Add' }}</button>\r\n\r\n        </div>\r\n      </nb-card-body>\r\n            </nb-card>\r\n          </div>\r\n    </div>\r\n    \r\n    <!--<nb-tab tabTitle=\"Recent\">\r\n      <div class=\"contact\" *ngFor=\"let c of recent\">\r\n        <nb-user [picture]=\"c.user.picture\" [name]=\"c.user.name\" [title]=\"c.type\" size=\"large\"></nb-user>\r\n        <span class=\"time\">{{ c.time }}</span>\r\n      </div>\r\n    </nb-tab>-->\r\n  \r\n</nb-card>\r\n\r\n"
 
 /***/ }),
 
@@ -67276,6 +67276,7 @@ module.exports = "/**\n * @license\n * Copyright Akveo. All Rights Reserved.\n *
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__nebular_theme__ = __webpack_require__("./node_modules/@nebular/theme/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__core_data_users_service__ = __webpack_require__("./src/app/@core/data/users.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__nebular_auth__ = __webpack_require__("./node_modules/@nebular/auth/index.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -67288,17 +67289,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var ContactsComponent = /** @class */ (function () {
-    function ContactsComponent(userService, themeService, breakpointService) {
+    function ContactsComponent(userService, themeService, breakpointService, authService) {
         var _this = this;
         this.userService = userService;
         this.themeService = themeService;
         this.breakpointService = breakpointService;
+        this.authService = authService;
         this.breakpoints = this.breakpointService.getBreakpointsMap();
         this.themeSubscription = this.themeService.onMediaQueryChange()
             .subscribe(function (_a) {
             var oldValue = _a[0], newValue = _a[1];
             _this.breakpoint = newValue;
+        });
+        this.authService.onTokenChange()
+            .subscribe(function (token) {
+            if (token.isValid()) {
+                var userName = token.token.split('@')[0];
+                _this.userService.getUsers()
+                    .subscribe(function (users) {
+                    _this.user = users[token.token];
+                });
+                // here we receive a payload from the token and assigne it to our `user` variable
+                //  this.user = token;
+            }
         });
     }
     ContactsComponent.prototype.ngOnInit = function () {
@@ -67310,6 +67325,10 @@ var ContactsComponent = /** @class */ (function () {
             _this.recent = [];
             if (typeof _this.isList === 'undefined') {
                 _this.isList = false;
+            }
+            ;
+            if (typeof _this.isStatus === 'undefined') {
+                _this.isStatus = false;
             }
             ;
             console.log('IS LIST : ', _this.isList);
@@ -67359,6 +67378,11 @@ var ContactsComponent = /** @class */ (function () {
     };
     ContactsComponent.prototype.changeStatus = function (contact) {
         contact.status = 'Pending...';
+        if (typeof this.user.courses === 'undefined') {
+            this.user.courses = [];
+        }
+        this.user.courses.push(contact);
+        this.userService.updateUser(this.user);
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
@@ -67372,6 +67396,10 @@ var ContactsComponent = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
         __metadata("design:type", Boolean)
     ], ContactsComponent.prototype, "isList", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], ContactsComponent.prototype, "isStatus", void 0);
     ContactsComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'ngx-contacts',
@@ -67380,7 +67408,8 @@ var ContactsComponent = /** @class */ (function () {
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__core_data_users_service__["a" /* UserService */],
             __WEBPACK_IMPORTED_MODULE_1__nebular_theme__["r" /* NbThemeService */],
-            __WEBPACK_IMPORTED_MODULE_1__nebular_theme__["g" /* NbMediaBreakpointsService */]])
+            __WEBPACK_IMPORTED_MODULE_1__nebular_theme__["g" /* NbMediaBreakpointsService */],
+            __WEBPACK_IMPORTED_MODULE_3__nebular_auth__["f" /* NbAuthService */]])
     ], ContactsComponent);
     return ContactsComponent;
 }());
