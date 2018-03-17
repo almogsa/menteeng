@@ -33,6 +33,7 @@
         "../node_modules/nebular-icons/scss/nebular-icons.scss",
         "../node_modules/pace-js/templates/pace-theme-flash.tmpl.css",
         "./app/@theme/styles/styles.scss"
+	
       ],
       "scripts": [
         "../node_modules/pace-js/pace.min.js",
@@ -42,7 +43,8 @@
         "../node_modules/tinymce/plugins/paste/plugin.min.js",
         "../node_modules/tinymce/plugins/table/plugin.min.js",
         "../node_modules/echarts/dist/echarts.min.js",
-        "../node_modules/chart.js/dist/Chart.min.js"
+        "../node_modules/chart.js/dist/Chart.min.js",
+		"../node_modules/font-awesome/fontawesome-all.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

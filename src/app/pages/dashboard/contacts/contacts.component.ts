@@ -18,6 +18,7 @@ export class ContactsComponent implements OnInit, OnDestroy {
   themeSubscription: any;
   @Input() title: string;
   @Input() search: string;
+  @Input() isList: boolean;
   constructor(private userService: UserService,
               private themeService: NbThemeService,
               private breakpointService: NbMediaBreakpointsService) {
@@ -36,7 +37,10 @@ export class ContactsComponent implements OnInit, OnDestroy {
         this.contacts = [];
         this.users = users;
         this.recent = [];
-        console.log('SErach ' + this.search);
+        if (typeof this.isList === 'undefined') {
+          this.isList = false;
+        };
+        console.log('IS LIST : ', this.isList);
         for (const curUser in users) {
           if (users.hasOwnProperty(curUser)) {
             console.log(curUser);
@@ -58,16 +62,19 @@ export class ContactsComponent implements OnInit, OnDestroy {
   }
   ngOnChanges(changes){
     this.contacts = [];
-
     if (changes && changes.search){
+      this.isList = true;
       for (const curUser in this.users) {
         if (this.users.hasOwnProperty(curUser)) {
           console.log(curUser);
           let user = this.users[curUser];
           if (user && user.skills && user.skills.length > 0 ) {
             for (const cat of user.skills) {
-              if (cat.category.toLowerCase().indexOf(changes.search.currentValue.toLowerCase()) > -1 || cat.sub_category.toLowerCase().indexOf(changes.search.currentValue.toLowerCase()) > -1)
-                this.contacts.push(user);
+              if (cat.category.toLowerCase().indexOf(changes.search.currentValue.toLowerCase()) > -1
+                 || cat.sub_category.toLowerCase().indexOf(changes.search.currentValue.toLowerCase()) > -1 || 
+                     changes.search.currentValue === '*')
+                this.contacts.push(user) ;
+              break;
             }
           }
 
@@ -78,5 +85,8 @@ export class ContactsComponent implements OnInit, OnDestroy {
   }
   ngOnDestroy() {
     this.themeSubscription.unsubscribe();
+  }
+  changeStatus(contact) {
+    contact.status = 'Pending...';
   }
 }

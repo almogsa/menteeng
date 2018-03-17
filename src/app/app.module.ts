@@ -17,7 +17,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NbAuthModule, NbDummyAuthProvider, NbEmailPassAuthProvider} from '@nebular/auth';
 import {AuthGuard} from './auth-guard.service';
 import {NB_AUTH_PROVIDERS, NbAuthJWTToken} from '@nebular/auth';
-import {AlmogDummyAuthProvider} from "./AlmogDummyProvider";
+import {AlmogDummyAuthProvider} from './AlmogDummyProvider';
+import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome'
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,6 +27,7 @@ import {AlmogDummyAuthProvider} from "./AlmogDummyProvider";
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
+    Angular2FontawesomeModule,
 
     NgbModule.forRoot(),
     ThemeModule.forRoot(),
