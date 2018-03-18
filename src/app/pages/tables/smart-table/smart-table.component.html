@@ -6,12 +6,12 @@
     </nb-card-header>
 
     <nb-card-body>
-      <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
+      <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)" (rowSelect)="itemClick($event)">
       </ng2-smart-table>
     </nb-card-body>
   </nb-card>
   </div>
   <div style="flex-basis: 20%">
-    <ngx-contacts title="Enrolled students"></ngx-contacts>
+    <ngx-contacts title="Enrolled students" getCourseUsers="{{course}}"></ngx-contacts>
   </div>
 </div>

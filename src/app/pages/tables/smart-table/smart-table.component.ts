@@ -43,6 +43,7 @@ export class SmartTableComponent {
 
   source: LocalDataSource = new LocalDataSource();
   settings;
+  course: string;
 
   constructor(private service: SmartTableService, private userService: UserService) {
     const data = this.service.getData();
@@ -80,15 +81,15 @@ export class SmartTableComponent {
           title: 'Session ID',
           type: 'number',
         },
-        firstName: {
+        category: {
           title: 'Category',
           type: 'string',
         },
-        lastName: {
+        skill: {
           title: 'Skill',
           type: 'string',
         },
-        username: {
+        mentor: {
           title: 'Mentor',
           type: 'string',
         },
@@ -117,6 +118,10 @@ export class SmartTableComponent {
       },
       },
     };
+  }
+
+  itemClick(data) {
+    this.course = '' + data.data.skill + ' ' + data.data.email;
   }
 
   onDeleteConfirm(event): void {
