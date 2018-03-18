@@ -4,58 +4,103 @@ import 'rxjs/add/observable/of';
 
 let counter = 0;
 
+export interface Skill {
+  category: string;
+  sub_category: string;
+  image: string;
+  icon: string;
+  color: string;
+  status: string; // pending or approved: supervisor need to approve new courses
+}
+export interface CourseData {
+  name: string;
+  email: string;
+  picture: string;
+  status: string; // status of the enrollment of users to course.
+}
+export interface UserData {
+  name: string;
+  email: string;
+  picture: string;
+  skills: Skill;
+  courses: CourseData; // the courses that this user enrolled to and the status of the enrollment.
+}
+export interface UserInterface {
+  id: UserData;
+}
 @Injectable()
 export class UserService {
 
   private users = {
-    'nick@gmail.com': {name: 'Nick Jones', email: 'nick@gmail.com', picture: 'assets/images/nick.png',
-     skills: [{category: 'photography', sub_category: 'photography',
-    image: 'assets/images/sport.png' , icon: 'fa fa-camera-retro' , color: 'tomato'}]},
-    'eva@gmail.com': {name: 'Eva Moor', email: 'eva@gmail.com', picture: 'assets/images/eva.png',
-    skills: [{category: 'Chess', sub_category: 'Chess',
-    image: 'assets/images/sport.png' , icon: 'fa fa-chess-rook' , color: 'gray'}]},
-    'jack@gmail.com': {name: 'Jack Williams', email: 'jack@gmail.com', picture: 'assets/images/jack.png',
-     skills: [{category: 'Sport', sub_category: 'Basketball',
-    image: 'assets/images/sport.png' , icon: 'fa fa fa-basketball-ball' , color: 'tomato'}]},
-    'lee@gmail.com': {name: 'Lee Wong', email: 'lee@gmail.com', picture: 'assets/images/lee.png',
-    skills: [{category: 'Gaming', sub_category: 'gaiming',
-    image: 'assets/images/sport.png' , icon: 'fa fa fa-gamepad' , color: 'green'}]},
-    'alan@gmail.com': {name: 'Alan Thompson', email: 'alan@gmail.com', picture: 'assets/images/alan.png',
-    skills: [{category: 'Videp', sub_category: 'video',
-    image: 'assets/images/sport.png' , icon: 'fa fa fa-video' , color: '#ffc107'}]},
+    'nick@gmail.com': {
+      name: 'Nick Jones', email: 'nick@gmail.com', picture: 'assets/images/nick.png',
+      skills: [
+        {
+          category: 'photography', sub_category: 'photography',
+          image: 'assets/images/sport.png' , icon: 'fa fa-camera-retro' , color: 'tomato', status: 'pending'
+        }],
+      courses: [
+        {
+          category: 'photography', sub_category: 'photography',
+          image: 'assets/images/sport.png' , icon: 'fa fa-camera-retro' , color: 'tomato', status: 'pending'
+        }]},
+    'eva@gmail.com': {
+      name: 'Eva Moor', email: 'eva@gmail.com', picture: 'assets/images/eva.png',
+      skills: [{
+        category: 'Chess', sub_category: 'Chess',
+        image: 'assets/images/sport.png' , icon: 'fa fa-chess-rook' , color: 'gray', status: 'pending'
+      }]},
+    'jack@gmail.com': {
+      name: 'Jack Williams', email: 'jack@gmail.com', picture: 'assets/images/jack.png',
+      skills: [{
+        category: 'Sport', sub_category: 'Basketball',
+        image: 'assets/images/sport.png' , icon: 'fa fa fa-basketball-ball' , color: 'tomato', status: 'pending'
+      }]},
+    'lee@gmail.com': {
+      name: 'Lee Wong', email: 'lee@gmail.com', picture: 'assets/images/lee.png',
+      skills: [{
+      category: 'Gaming', sub_category: 'gaiming',
+        image: 'assets/images/sport.png' , icon: 'fa fa fa-gamepad' , color: 'green', status: 'approved'
+      }]},
+    'alan@gmail.com': {
+      name: 'Alan Thompson', email: 'alan@gmail.com', picture: 'assets/images/alan.png',
+      skills: [{
+        category: 'Videp', sub_category: 'video',
+        image: 'assets/images/sport.png' , icon: 'fa fa fa-video' , color: '#ffc107', status: 'approved'
+      }]},
     'kate@gmail.com': {name: 'Kate Martinez', email: 'kate@gmail.com', picture: 'assets/images/kate.png',
-     skills: [{category: 'Youtube', sub_category: 'Youtube',
-    image: 'assets/images/sport.png' , icon: 'fa fa fa-music' , color: '#dc354'}]},
+      skills: [{category: 'Youtube', sub_category: 'Youtube',
+        image: 'assets/images/sport.png' , icon: 'fa fa fa-music' , color: '#dc354'}]},
     'almog@gmail.com': {
       name: 'Almog Sade', isStudent: true,
       email: 'almog@gmail.com', picture: 'assets/images/almog.jpg',
-    skills: [{category: 'Sport', sub_category: 'Football',
-     image: 'assets/images/sport.png' , icon: 'fa fa fa-futbol' , color: 'green'}]},
+      skills: [{category: 'Sport', sub_category: 'Football',
+        image: 'assets/images/sport.png' , icon: 'fa fa fa-futbol' , color: 'green'}]},
     'tom@gmail.com': {
       name: 'Tom Vaingart', isStudent: true,
       email: 'tom@gmail.com', picture: 'assets/images/nick.png',
       skills: [{category: 'Computer', sub_category: 'computer',
-      image: 'assets/images/sport.png' , icon: 'fa fa fa-keyboard' , color: '#72c3fc'}]},
+        image: 'assets/images/sport.png' , icon: 'fa fa fa-keyboard' , color: '#72c3fc'}]},
     't@gmail.com': {
       name: 'Tomi Moreno', isStudent: true, class: '1', category: '3',
       email: 't@gmail.com', remark: 'remark', picture: 'assets/images/japan.jpg',
-        skills: [{category: 'Gaming', sub_category: 'gaiming',
-      image: 'assets/images/sport.png' , icon: 'fa fa fa-gamepad' , color: 'green'}]},
-      'alon@gmail.com': {
-        name: 'Alon Sade', isStudent: true,
-        email: 'alon@gmail.com', picture: 'assets/images/alon.jpg',
-        skills: [{category: 'Music', sub_category: 'music',
+      skills: [{category: 'Gaming', sub_category: 'gaiming',
+        image: 'assets/images/sport.png' , icon: 'fa fa fa-gamepad' , color: 'green'}]},
+    'alon@gmail.com': {
+      name: 'Alon Sade', isStudent: true,
+      email: 'alon@gmail.com', picture: 'assets/images/alon.jpg',
+      skills: [{category: 'Music', sub_category: 'music',
         image: 'assets/images/sport.png' , icon: 'fa fa fa-headphones' , color: 'green'}]},
-        'or@gmail.com': {
-          name: 'Or Sade', isStudent: true,
-          email: 'or@gmail.com', picture: 'assets/images/or3.jpg',
-          skills: [{category: 'Dancing', sub_category: 'dancing',
-          image: 'assets/images/sport.png' , icon: 'fa fa fa-hand-scissors' , color: 'green'}]},
-          'amit@gmail.com': {
-            name: 'Amit Sade', isStudent: true,
-            email: 'amit@gmail.com', picture: 'assets/images/amit.jpg',
-            skills: [{category: 'Gaming', sub_category: 'gaming',
-            image: 'assets/images/sport.png' , icon: 'fa fa fa-gamepad' , color: '#228ae6'}]},
+    'or@gmail.com': {
+      name: 'Or Sade', isStudent: true,
+      email: 'or@gmail.com', picture: 'assets/images/or3.jpg',
+      skills: [{category: 'Dancing', sub_category: 'dancing',
+        image: 'assets/images/sport.png' , icon: 'fa fa fa-hand-scissors' , color: 'green'}]},
+    'amit@gmail.com': {
+      name: 'Amit Sade', isStudent: true,
+      email: 'amit@gmail.com', picture: 'assets/images/amit.jpg',
+      skills: [{category: 'Gaming', sub_category: 'gaming',
+        image: 'assets/images/sport.png' , icon: 'fa fa fa-gamepad' , color: '#228ae6'}]},
 
   };
 
@@ -71,6 +116,9 @@ export class UserService {
 
   updateUser(user: any) {
     this.users[user.email] = user;
+  }
+  updateUserSkillProperty(email: string, propertyName: string, newValue: string) {
+    this.users[email].skills[0][propertyName] = newValue;
   }
 
   getUserArray(): Observable<any[]> {

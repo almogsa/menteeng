@@ -5,6 +5,7 @@ import { ThemeModule } from '../../@theme/theme.module';
 import { TablesRoutingModule, routedComponents } from './tables-routing.module';
 import { SmartTableService } from '../../@core/data/smart-table.service';
 import {DashboardModule} from '../dashboard/dashboard.module';
+import {ButtonViewComponent} from "./smart-table/smart-table.component";
 
 
 @NgModule({
@@ -14,10 +15,11 @@ import {DashboardModule} from '../dashboard/dashboard.module';
     Ng2SmartTableModule,
   ],
   declarations: [
-    ...routedComponents,
+    ...routedComponents
   ],
   providers: [
     SmartTableService,
   ],
+  entryComponents: [ButtonViewComponent]
 })
 export class TablesModule { }

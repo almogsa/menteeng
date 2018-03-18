@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { TablesComponent } from './tables.component';
-import { SmartTableComponent } from './smart-table/smart-table.component';
+import {ButtonViewComponent, SmartTableComponent} from './smart-table/smart-table.component';
 import {AllUsersComponent} from './all-users/all-users.component';
 import {AllStudentsComponent} from './all-students/all-students.component';
 
@@ -36,6 +36,7 @@ const routes: Routes = [{
 export class TablesRoutingModule { }
 
 export const routedComponents = [
+  ButtonViewComponent,
   TablesComponent,
   SmartTableComponent,
   AllUsersComponent,

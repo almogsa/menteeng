@@ -1,7 +1,33 @@
-import { Component } from '@angular/core';
-import { LocalDataSource } from 'ng2-smart-table';
-
+import { LocalDataSource, ViewCell } from 'ng2-smart-table';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { SmartTableService } from '../../../@core/data/smart-table.service';
+import {UserService} from '../../../@core/data/users.service';
+
+
+@Component({
+  selector: 'ngx-button-view',
+  template: `
+    <button style="line-height: 0.5; margin: -5px; width: 150px;" [class]="renderValue === 'APPROVED' ?
+     'btn btn-success' : 'btn btn-warning'"
+      (click)="onClick()">{{ renderValue }}</button>
+  `,
+})
+export class ButtonViewComponent implements ViewCell, OnInit {
+  renderValue: string;
+
+  @Input() value: string | number;
+  @Input() rowData: any;
+
+  @Output() save: EventEmitter<any> = new EventEmitter();
+
+  ngOnInit() {
+    this.renderValue = this.value.toString().toUpperCase();
+  }
+
+  onClick() {
+    this.save.emit(this.rowData);
+  }
+}
 
 @Component({
   selector: 'ngx-smart-table',
@@ -12,56 +38,85 @@ import { SmartTableService } from '../../../@core/data/smart-table.service';
     }
   `],
 })
+
 export class SmartTableComponent {
 
-  settings = {
-    add: {
-      addButtonContent: '<i class="nb-plus"></i>',
-      createButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
-    },
-    edit: {
-      editButtonContent: '<i class="nb-edit"></i>',
-      saveButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
-    },
-    delete: {
-      deleteButtonContent: '<i class="nb-trash"></i>',
-      confirmDelete: true,
-    },
-    columns: {
-      id: {
-        title: 'Session ID',
-        type: 'number',
-      },
-      firstName: {
-        title: 'Category',
-        type: 'string',
-      },
-      lastName: {
-        title: 'Skill',
-        type: 'string',
-      },
-      username: {
-        title: 'Mentor',
-        type: 'string',
-      },
-      email: {
-        title: 'Email',
-        type: 'string',
-      },
-      age: {
-        title: 'Mentor Grade',
-        type: 'number',
-      },
-    },
-  };
-
   source: LocalDataSource = new LocalDataSource();
+  settings;
 
-  constructor(private service: SmartTableService) {
+  constructor(private service: SmartTableService, private userService: UserService) {
     const data = this.service.getData();
     this.source.load(data);
+
+    this.settings = {
+      actions: {
+        columnTitle: 'Actions',
+        add: true,
+        edit: true,
+        delete: true,
+        custom: [],
+        position: 'left', // left|right
+      },
+      add: {
+        addButtonContent: '<i class="nb-plus"></i>',
+        createButtonContent: '<i class="nb-checkmark"></i>',
+        cancelButtonContent: '<i class="nb-close"></i>',
+      },
+      edit: {
+        editButtonContent: '<i class="nb-edit"></i>',
+        saveButtonContent: '<i class="nb-checkmark"></i>',
+        cancelButtonContent: '<i class="nb-close"></i>',
+      },
+      delete: {
+        deleteButtonContent: '<i class="nb-trash"></i>',
+        confirmDelete: true,
+      },
+      approve: {
+        deleteButtonContent: '<i class="ion-ionic"></i>',
+        confirmDelete: true,
+      },
+      columns: {
+        id: {
+          title: 'Session ID',
+          type: 'number',
+        },
+        firstName: {
+          title: 'Category',
+          type: 'string',
+        },
+        lastName: {
+          title: 'Skill',
+          type: 'string',
+        },
+        username: {
+          title: 'Mentor',
+          type: 'string',
+        },
+        email: {
+          title: 'Email',
+          type: 'string',
+        },
+        status: {
+          title: 'Status',
+          type: 'custom',
+          renderComponent: ButtonViewComponent,
+          onComponentInitFunction: (instance) => {
+            instance.save.subscribe(row => {
+              let newStatus = 'unavailable';
+              if (row.status === 'pending') {
+                newStatus = 'approved';
+              } else if (row.status === 'approved') {
+                newStatus = 'pending';
+              }
+              row.status = newStatus;
+              this.userService.updateUserSkillProperty(row.email, 'status', newStatus);
+              this.settings.updated = true;
+              this.source.load(data);
+            });
+          },
+      },
+      },
+    };
   }
 
   onDeleteConfirm(event): void {
