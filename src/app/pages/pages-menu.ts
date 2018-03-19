@@ -57,7 +57,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/tables/all-students',
       },
       {
-        title: 'Status',
+        title: 'Registration status',
         // icon: 'nb-home',
         link: '/pages/tables/student-status',
       },
