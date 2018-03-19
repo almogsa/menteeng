@@ -13,9 +13,11 @@ export interface Skill {
   status: string; // pending or approved: supervisor need to approve new courses
 }
 export interface CourseData {
-  name: string;
-  email: string;
+  mentorName: string;
+  mentorEmail: string;
   picture: string;
+  category: string;
+  sub_category: string;
   status: string; // status of the enrollment of users to course.
 }
 export interface UserData {
@@ -23,7 +25,7 @@ export interface UserData {
   email: string;
   picture: string;
   skills: Skill;
-  courses: CourseData; // the courses that this user enrolled to and the status of the enrollment.
+  courses: CourseData[]; // the courses that this user enrolled to and the status of the enrollment.
 }
 export interface UserInterface {
   id: UserData;
@@ -37,29 +39,53 @@ export class UserService {
       skills: [
         {
           category: 'photography', sub_category: 'photography',
-          image: 'assets/images/sport.png' , icon: 'fa fa-camera-retro' , color: 'tomato', status: 'pending'
+          image: 'assets/images/sport.png' , icon: 'fa fa-camera-retro' ,
+          color: 'tomato', status: 'pending'
         }],
       courses: [
         {
-          category: 'photography', sub_category: 'photography',
-          image: 'assets/images/sport.png' , icon: 'fa fa-camera-retro' , color: 'tomato', status: 'pending'
+          category: 'Gaming', sub_category: 'hide & seek',
+          image: 'assets/images/sport.png' , icon: 'fa fa-camera-retro' , color: 'tomato', status: 'pending',
+          mentorName: 'Lee Wong', mentorEmail: 'lee@gmail.com',
+        },
+        {
+          category: 'Board games', sub_category: 'Chess',
+          image: 'assets/images/sport.png' , icon: 'fa fa-chess-rook' , color: 'gray', status: 'pending',
+          mentorName: 'Eva Moor', mentorEmail: 'eva@gmail.com',
         }]},
     'eva@gmail.com': {
       name: 'Eva Moor', email: 'eva@gmail.com', picture: 'assets/images/eva.png',
       skills: [{
-        category: 'Chess', sub_category: 'Chess',
+        category: 'Board games', sub_category: 'Chess',
         image: 'assets/images/sport.png' , icon: 'fa fa-chess-rook' , color: 'gray', status: 'pending'
-      }]},
+      }],
+      courses: [
+        {
+          category: 'photography', sub_category: 'photography',
+          image: 'assets/images/sport.png' , icon: 'fa fa-camera-retro' , color: 'gray', status: 'pending',
+          mentorName: 'Nick Jones', mentorEmail: 'nick@gmail.com',
+        }]},
     'jack@gmail.com': {
       name: 'Jack Williams', email: 'jack@gmail.com', picture: 'assets/images/jack.png',
       skills: [{
         category: 'Sport', sub_category: 'Basketball',
         image: 'assets/images/sport.png' , icon: 'fa fa fa-basketball-ball' , color: 'tomato', status: 'pending'
-      }]},
+      }],
+      courses: [
+        {
+          category: 'photography', sub_category: 'photography',
+          image: 'assets/images/sport.png' , icon: 'fa fa-camera-retro' , color: 'tomato', status: 'pending',
+          mentorName: 'mentor', mentorEmail: 'eva@gmail.com',
+        },
+        {
+          category: 'Board games', sub_category: 'Chess',
+          image: 'assets/images/sport.png' , icon: 'fa fa-chess-rook' , color: 'gray', status: 'pending',
+          mentorName: 'Eva Moor', mentorEmail: 'eva@gmail.com',
+        }]},
     'lee@gmail.com': {
       name: 'Lee Wong', email: 'lee@gmail.com', picture: 'assets/images/lee.png',
       skills: [{
-      category: 'Gaming', sub_category: 'gaiming',
+      category: 'Gaming', sub_category: 'hide & seek',
         image: 'assets/images/sport.png' , icon: 'fa fa fa-gamepad' , color: 'green', status: 'approved'
       }]},
     'alan@gmail.com': {
@@ -84,7 +110,7 @@ export class UserService {
     't@gmail.com': {
       name: 'Tomi Moreno', isStudent: true, class: '1', category: '3',
       email: 't@gmail.com', remark: 'remark', picture: 'assets/images/japan.jpg',
-      skills: [{category: 'Gaming', sub_category: 'gaiming',
+      skills: [{category: 'Gaming', sub_category: 'hide & seek',
         image: 'assets/images/sport.png' , icon: 'fa fa fa-gamepad' , color: 'green'}]},
     'alon@gmail.com': {
       name: 'Alon Sade', isStudent: true,
