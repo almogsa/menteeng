@@ -5,7 +5,11 @@ import { ThemeModule } from '../../@theme/theme.module';
 import { TablesRoutingModule, routedComponents } from './tables-routing.module';
 import { SmartTableService } from '../../@core/data/smart-table.service';
 import {DashboardModule} from '../dashboard/dashboard.module';
-import {ButtonViewComponent} from "./smart-table/smart-table.component";
+import {ButtonViewComponent} from './smart-table/smart-table.component';
+import { MentorSkillComponent } from './mentor-skill/mentor-skill.component';
+import { MatchingComponent } from './matching/matching.component';
+import {RoomsComponent} from '../dashboard/rooms/rooms.component';
+import {RoomSelectorComponent} from "../dashboard/rooms/room-selector/room-selector.component";
 
 
 @NgModule({
@@ -15,7 +19,9 @@ import {ButtonViewComponent} from "./smart-table/smart-table.component";
     Ng2SmartTableModule,
   ],
   declarations: [
-    ...routedComponents
+    ...routedComponents,
+    MentorSkillComponent,
+    MatchingComponent,
   ],
   providers: [
     SmartTableService,

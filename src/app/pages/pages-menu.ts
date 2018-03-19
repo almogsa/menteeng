@@ -25,18 +25,34 @@ export const MENU_ITEMS: NbMenuItem[] = [
         title: 'Participants',
         link: '/pages/tables/all-users',
       },
+      {
+        title: 'Matching',
+        link: '/pages/tables/matching',
+      },
+    ],
+  },
+  {
+    title: 'Mentor',
+    icon: 'nb-tables',
+    children: [
+      {
+        title: 'Add Skill',
+        // icon: 'nb-home',
+        link: '/pages/tables/mentor-skill',
+      },
+/*      {
+        title: 'Participants',
+        link: '/pages/tables/all-users',
+      },*/
     ],
   },
   {
     title: 'Student',
     icon: 'nb-tables',
     children: [
+
       {
-        title: 'Profile',
-        link: '/pages/forms/inputs',
-      },
-      {
-        title: 'Search',
+        title: 'Pick a skill',
         // icon: 'nb-home',
         link: '/pages/tables/all-students',
       },
@@ -45,10 +61,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
         // icon: 'nb-home',
         link: '/pages/tables/student-status',
       },
-/*      {
-        title: 'Participants',
-        link: '/pages/tables/all-users',
-      },*/
+      /*      {
+							title: 'Participants',
+							link: '/pages/tables/all-users',
+						},*/
     ],
   },
   {

@@ -11,6 +11,7 @@ export interface  User {
   isStudent: boolean;
   picture: string;
   category: string ;
+  sub_category: string;
   remark: string;
   class: string;
 }

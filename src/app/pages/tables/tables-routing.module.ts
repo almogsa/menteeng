@@ -6,6 +6,8 @@ import { TablesComponent } from './tables.component';
 import {ButtonViewComponent, SmartTableComponent} from './smart-table/smart-table.component';
 import {AllUsersComponent} from './all-users/all-users.component';
 import {AllStudentsComponent} from './all-students/all-students.component';
+import {MentorSkillComponent} from './mentor-skill/mentor-skill.component';
+import {MatchingComponent} from './matching/matching.component';
 
 const routes: Routes = [{
   path: '',
@@ -25,6 +27,14 @@ const routes: Routes = [{
     {
       path: 'student-status',
       component: StudentStatusComponent,
+    },
+    {
+      path: 'mentor-skill',
+      component: MentorSkillComponent,
+    },
+    {
+      path: 'matching',
+      component: MatchingComponent,
     }],
   component: TablesComponent,
 }];

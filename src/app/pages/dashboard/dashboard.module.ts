@@ -48,6 +48,6 @@ import {ChartsModule} from '../charts/charts.module';
     TrafficComponent,
     TrafficChartComponent,
   ],
-  exports: [ContactsComponent],
+  exports: [ContactsComponent, RoomsComponent],
 })
 export class DashboardModule { }

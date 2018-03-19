@@ -154,9 +154,19 @@ export class ContactsComponent implements OnInit, OnDestroy {
     course.mentorEmail = contact.email;
     course.category = contact.skills[0].category;
     course.sub_category = contact.skills[0].sub_category;
+    course.icon = contact.skills[0].icon;
+    course.color = contact.skills[0].color;
     course.mentorName = contact.name;
-    course.status = 'pending';
+    course.status = contact.status;
     course.picture = contact.picture;
     return course;
+  }
+  public getCourseStatus(contact){
+    if (this.user && this.user.courses) {
+      let courses = this.user.courses.filter(x => x.mentorEmail === contact.email);
+      if (courses && courses.length > 0) {
+        return courses[0].status;
+      } else return null;
+    }else return null;
   }
 }

@@ -17,6 +17,8 @@ export interface CourseData {
   mentorEmail: string;
   picture: string;
   category: string;
+  icon?: string;
+  color?: string;
   sub_category: string;
   status: string; // status of the enrollment of users to course.
 }
@@ -99,7 +101,7 @@ export class UserService {
       skills: [{category: 'Youtube', sub_category: 'Youtube',
         image: 'assets/images/sport.png' , icon: 'fa fa fa-music' , color: '#dc354'}]},
     'almog@gmail.com': {
-      name: 'Almog Sade', isStudent: true,
+      name: 'Almog Sade', isStudent: true, class: 4,
       email: 'almog@gmail.com', picture: 'assets/images/almog.jpg',
       skills: [{category: 'Sport', sub_category: 'Football',
         image: 'assets/images/sport.png' , icon: 'fa fa fa-futbol' , color: 'green'}]},
