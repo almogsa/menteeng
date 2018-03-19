@@ -14,11 +14,14 @@ import {User} from "../../forms/form-inputs/form-inputs.component";
 export class MentorSkillComponent implements OnInit {
   user: any;
   model: User ;
+  categories: any;
+  classes: any;
   constructor(private userService: UserService,
               private themeService: NbThemeService,
               private breakpointService: NbMediaBreakpointsService,
               private authService: NbAuthService) {
-    this.model = {name : '', isStudent :  true, picture : '', category: '1', remark: '', class: '1'};
+    this.model = {name : '', isStudent :  true, picture : '', category: '1', remark: '',
+      class: '1', sub_category: 'Tennis'};
     this.authService.onTokenChange()
       .subscribe((token: NbAuthJWTToken) => {
         if (token.isValid()) {
@@ -76,14 +79,16 @@ export class MentorSkillComponent implements OnInit {
   }
   public submit() {
     console.log( ' USER for submit : ' + JSON.stringify(this.model));
-    let courseData: CourseData = {};
-    courseData.category = this.model.category;
-    courseData.sub_category = this.model.sub_category;
-    courseData.mentorEmail = this.user.email;
-    courseData.mentorName = this.user.name;
-    courseData.status = null;
-    courseData.color = 'tomato';
-    courseData.icon = 'fa fa fa-music';
+    let courseData: CourseData;
+    let courseData2: any = {};
+    courseData2.category = this.model.category;
+    courseData2.sub_category = this.model.sub_category;
+    courseData2.mentorEmail = this.user.email;
+    courseData2.mentorName = this.user.name;
+    courseData2.status = null;
+    courseData2.color = 'tomato';
+    courseData2.icon = 'fa fa fa-music';
+    courseData = courseData2;
     this.user.skills = [];
     this.user.skills.push(courseData);
     this.userService.updateUser(this.user);

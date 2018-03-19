@@ -25,7 +25,7 @@ export class FormInputsComponent {
   starRate = 2;
   heartRate = 4;
   user: any;
-  model: User ;
+  model: User;
   categories  = [] ;
   classes = [];
   constructor(private sidebarService: NbSidebarService,
@@ -36,7 +36,8 @@ export class FormInputsComponent {
               private tokenService: NbTokenService,
               private authService: NbAuthService) {
 
-    this.model = {name : '', isStudent :  true, picture : '', category: '1', remark: '', class: '1'};
+    this.model = {name : '', isStudent :  true, picture : '', category: '1', remark: '',
+      class: '1', sub_category: 'Tennis'};
     this.authService.onTokenChange()
       .subscribe((token: NbAuthJWTToken) => {
         if (token.isValid()) {

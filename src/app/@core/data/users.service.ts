@@ -27,6 +27,7 @@ export interface UserData {
   email: string;
   picture: string;
   skills: Skill;
+  status?: string;
   courses: CourseData[]; // the courses that this user enrolled to and the status of the enrollment.
   position: string;
 }
