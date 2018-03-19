@@ -26,6 +26,7 @@ export interface UserData {
   picture: string;
   skills: Skill;
   courses: CourseData[]; // the courses that this user enrolled to and the status of the enrollment.
+  position: string;
 }
 export interface UserInterface {
   id: UserData;

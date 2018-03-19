@@ -20,6 +20,7 @@ export class ContactsComponent implements OnInit, OnDestroy {
   themeSubscription: any;
   @Input() title: string;
   @Input() search: string;
+  @Input() userType: string;
   @Input() getCourseUsers: string;
   @Input() isList: boolean;
   @Input() isStatus: boolean;
@@ -64,8 +65,24 @@ export class ContactsComponent implements OnInit, OnDestroy {
         console.log('IS LIST : ', this.isList);
         for (const curUser in users) {
           if (users.hasOwnProperty(curUser)) {
-            console.log(curUser);
-            this.contacts.push(users[curUser])
+            if (this.userType === 'students' || this.userType === 'mentors') {
+              if (this.userType === 'students') {
+                if (users[curUser].position === 'student'
+                  || !!users[curUser].courses && users[curUser].courses.length > 0) {
+                  this.contacts.push(users[curUser])
+                }
+              }
+              if (this.userType === 'mentors') {
+                if (users[curUser].position === 'mentor'
+                  || !!users[curUser].skills && users[curUser].skills.length > 0) {
+                  this.contacts.push(users[curUser])
+                }
+              }
+            } else {
+              this.contacts.push(users[curUser])
+            }
+            //console.log(curUser);
+            //this.contacts.push(users[curUser])
           }
         }
 

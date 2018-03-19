@@ -7,14 +7,13 @@ import {UserService} from '../../../@core/data/users.service';
 @Component({
   selector: 'ngx-button-view',
   template: `
-    <button style="line-height: 0.5; margin: -5px; width: 150px;" [class]="renderValue === 'APPROVED' ?
-     'btn btn-success' : 'btn btn-warning'"
+    <button style="line-height: 0.5; margin: -5px; width: 150px;" [class]="getColor(renderValue)"
       (click)="onClick()">{{ renderValue }}</button>
   `,
 })
 export class ButtonViewComponent implements ViewCell, OnInit {
   renderValue: string;
-
+  color: string;
   @Input() value: string | number;
   @Input() rowData: any;
 
@@ -26,6 +25,16 @@ export class ButtonViewComponent implements ViewCell, OnInit {
 
   onClick() {
     this.save.emit(this.rowData);
+  }
+
+  getColor(renderValue) {
+    if (renderValue === 'APPROVED') {
+      return 'btn btn-success';
+    } else if (renderValue === 'PENDING') {
+      return 'btn btn-warning';
+    } else {
+      return ' btn btn-danger';
+    }
   }
 }
 
@@ -107,6 +116,8 @@ export class SmartTableComponent {
               if (row.status === 'pending') {
                 newStatus = 'approved';
               } else if (row.status === 'approved') {
+                newStatus = 'reject';
+              } else if (row.status === 'reject') {
                 newStatus = 'pending';
               }
               row.status = newStatus;
