@@ -105,7 +105,7 @@ export class MentorSkillComponent implements OnInit {
       defaultBody = body;
     }
     this.config = new ToasterConfig({
-      positionClass: 'toast-top-right',
+      positionClass: 'toast-top-center',
       animation: 'fade'
     });
     const toast: Toast = {
