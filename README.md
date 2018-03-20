@@ -2,11 +2,11 @@
 ### Menteeng Installation: 
 ### Client side:
 - install node js ( + npm is needed)
-- FOR CLIENT SIDE:
 - download fontawesome package from this site: https://fontawesome.com/get-started
 - open the zip and take the file 'fontawesome-all.js' file path: svg-with-js/js/fontawesome-all.js
 - paste the file in the following path: menteeng\node_modules\font-awesome
-- run: npm install (inside git folder)
+- run: npm install (inside project folder)
+- run: npm install -g angular-cli
 - run: ng serve
 - Go to http://0.0.0.0:4200 or http://localhost:4200 in your browser.
 
