@@ -8,9 +8,10 @@ import {DashboardModule} from '../dashboard/dashboard.module';
 import {ButtonViewComponent} from './smart-table/smart-table.component';
 import { MentorSkillComponent } from './mentor-skill/mentor-skill.component';
 import { MatchingComponent } from './matching/matching.component';
-import {RoomsComponent} from '../dashboard/rooms/rooms.component';
-import {RoomSelectorComponent} from "../dashboard/rooms/room-selector/room-selector.component";
 import {ChartsModule} from "../charts/charts.module";
+import {ToasterModule} from "angular2-toaster";
+import {ComponentsModule} from "../components/components.module";
+import {NgCircleProgressModule} from 'ng-circle-progress';
 
 
 @NgModule({
@@ -19,11 +20,23 @@ import {ChartsModule} from "../charts/charts.module";
     TablesRoutingModule,
     ChartsModule,
     Ng2SmartTableModule,
+    ToasterModule,
+    ComponentsModule,
+    NgCircleProgressModule.forRoot({
+      // set defaults here
+      radius: 100,
+      outerStrokeWidth: 16,
+      innerStrokeWidth: 8,
+      outerStrokeColor: "#78C000",
+      innerStrokeColor: "#C7E596",
+      animationDuration: 300
+    }),
   ],
   declarations: [
     ...routedComponents,
     MentorSkillComponent,
     MatchingComponent,
+
   ],
   providers: [
     SmartTableService,

@@ -1,3 +1,20 @@
-<p>
-  matching works!
-</p>
+<div><button (click)="startMatch()"  [class]="startMatching? 'btn btn-outline-warning btn-block' : 'btn btn-outline-info btn-warning'" >{{title}}</button></div>
+<div style="display: flex;align-items: center;justify-content: center;height: 100%">
+  <div *ngIf="startMatching">
+    <circle-progress
+      [percent]="100"
+      [radius]="200"
+      [outerStrokeWidth]="16"
+      [titleFontSize]="30"
+      [subtitleFontSize]="30"
+      [subtitleFormat]="formatSubtitle"
+      [unitsFontSize]="30"
+      [innerStrokeWidth]="30"
+      [space]="12"
+      [outerStrokeColor]="'#78C000'"
+      [innerStrokeColor]="'#C7E596'"
+      [animation]="true"
+      [animationDuration]="15000"
+    ></circle-progress>
+  </div>
+</div>
