@@ -3,6 +3,7 @@ import {NbAuthJWTToken, NbAuthService} from "@nebular/auth";
 import {NbMediaBreakpointsService, NbThemeService} from "@nebular/theme";
 import {CourseData, UserService} from "../../../@core/data/users.service";
 import {User} from "../../forms/form-inputs/form-inputs.component";
+import {BodyOutputType, Toast, ToasterConfig, ToasterService} from "angular2-toaster";
 
 
 
@@ -16,12 +17,15 @@ export class MentorSkillComponent implements OnInit {
   model: User ;
   categories: any;
   classes: any;
+  config: ToasterConfig;
+  timeout = 5000;
   constructor(private userService: UserService,
               private themeService: NbThemeService,
               private breakpointService: NbMediaBreakpointsService,
-              private authService: NbAuthService) {
+              private authService: NbAuthService,
+              private toasterService: ToasterService) {
     this.model = {name : '', isStudent :  true, picture : '', category: '1', remark: '',
-      class: '1', sub_category: 'Tennis'};
+      class: '1', sub_category: ''};
     this.authService.onTokenChange()
       .subscribe((token: NbAuthJWTToken) => {
         if (token.isValid()) {
@@ -92,7 +96,27 @@ export class MentorSkillComponent implements OnInit {
     this.user.skills = [];
     this.user.skills.push(courseData);
     this.userService.updateUser(this.user);
+    this.showToast();
 
+  }
+  private showToast(body?: string) {
+    let defaultBody = 'Skill has been successfully added'
+    if (body && body.length > 0) {
+      defaultBody = body;
+    }
+    this.config = new ToasterConfig({
+      positionClass: 'toast-top-right',
+      animation: 'fade'
+    });
+    const toast: Toast = {
+      type: 'success',
+      title: null,
+      body: defaultBody,
+      timeout: this.timeout,
+      showCloseButton: true,
+      bodyOutputType: BodyOutputType.TrustedHtml,
+    };
+    this.toasterService.popAsync(toast);
   }
 }
 

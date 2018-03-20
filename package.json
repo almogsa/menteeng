@@ -65,6 +65,7 @@
     "ionicons": "2.0.1",
     "leaflet": "1.2.0",
     "nebular-icons": "1.0.6",
+    "ng-circle-progress": "^0.9.9",
     "ng2-ckeditor": "1.1.13",
     "ng2-smart-table": "1.2.2",
     "ng2-tree": "2.0.0-rc.4",
