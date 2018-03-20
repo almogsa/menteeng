@@ -15,6 +15,7 @@ export class MentorSkillComponent implements OnInit {
   user: any;
   model: User ;
   categories: any;
+  maxStudents: any = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   classes: any;
   constructor(private userService: UserService,
               private themeService: NbThemeService,

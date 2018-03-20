@@ -10,12 +10,14 @@ import { MentorSkillComponent } from './mentor-skill/mentor-skill.component';
 import { MatchingComponent } from './matching/matching.component';
 import {RoomsComponent} from '../dashboard/rooms/rooms.component';
 import {RoomSelectorComponent} from "../dashboard/rooms/room-selector/room-selector.component";
+import {ChartsModule} from "../charts/charts.module";
 
 
 @NgModule({
   imports: [
     ThemeModule, DashboardModule,
     TablesRoutingModule,
+    ChartsModule,
     Ng2SmartTableModule,
   ],
   declarations: [

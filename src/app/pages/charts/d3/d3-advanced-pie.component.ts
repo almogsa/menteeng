@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 
 @Component({
@@ -10,21 +10,8 @@ import { NbThemeService } from '@nebular/theme';
     </ngx-charts-advanced-pie-chart>
   `,
 })
-export class D3AdvancedPieComponent implements OnDestroy {
-  single = [
-    {
-      name: 'Germany',
-      value: 8940000,
-    },
-    {
-      name: 'USA',
-      value: 5000000,
-    },
-    {
-      name: 'France',
-      value: 7200000,
-    },
-  ];
+export class D3AdvancedPieComponent implements OnDestroy, OnInit {
+  single;
   colorScheme: any;
   themeSubscription: any;
 
@@ -37,6 +24,10 @@ export class D3AdvancedPieComponent implements OnDestroy {
     });
   }
 
+  @Input() data: any[];
+  ngOnInit(): void {
+    this.single = this.data[0];
+  }
   ngOnDestroy(): void {
     this.themeSubscription.unsubscribe();
   }

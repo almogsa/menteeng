@@ -25,6 +25,33 @@
 </div>-->
 
 <div class="row">
+  <div class="col-lg-4">
+    <nb-card>
+      <nb-card-header>School People</nb-card-header>
+      <nb-card-body>
+        <ngx-d3-advanced-pie style="display: flex; justify-content: center; height: 100%;" [data]=[matchingData]></ngx-d3-advanced-pie>
+      </nb-card-body>
+    </nb-card>
+  </div>
+  <div class="col-lg-4">
+    <nb-card>
+      <nb-card-header>Students Enrollment status</nb-card-header>
+      <nb-card-body>
+        <ngx-d3-advanced-pie style="display: flex; justify-content: center; height: 100%;" [data]="[enrolmentData]"></ngx-d3-advanced-pie>
+      </nb-card-body>
+    </nb-card>
+  </div>
+  <div class="col-lg-4">
+    <nb-card>
+      <nb-card-header>Menteengs approvement status</nb-card-header>
+      <nb-card-body>
+        <ngx-d3-advanced-pie style="display: flex; justify-content: center; height: 100%;" [data]="[approvedMenteengsData]"></ngx-d3-advanced-pie>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
+
+<div class="row">
   <div class="col-lg-6">
     <nb-card>
       <nb-card-header>Skill categories</nb-card-header>
@@ -54,9 +81,7 @@
 </div>-->
 
 <div class="row">
-  <div class="col-lg-6">
-    <ngx-rooms></ngx-rooms>
-  </div>
+
 
   <!--<div class="col-xxxl-3 col-xxl-4 col-lg-7 col-md-6">
     <ngx-contacts title="Users?"></ngx-contacts>
