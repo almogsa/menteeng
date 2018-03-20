@@ -26710,6 +26710,7 @@ module.exports = ""
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MatchingComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__core_data_users_service__ = __webpack_require__("./src/app/@core/data/users.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -26720,8 +26721,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var MatchingComponent = /** @class */ (function () {
-    function MatchingComponent() {
+    function MatchingComponent(userService) {
+        this.userService = userService;
     }
     MatchingComponent.prototype.ngOnInit = function () {
     };
@@ -26731,7 +26734,7 @@ var MatchingComponent = /** @class */ (function () {
             template: __webpack_require__("./src/app/pages/tables/matching/matching.component.html"),
             styles: [__webpack_require__("./src/app/pages/tables/matching/matching.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__core_data_users_service__["a" /* UserService */]])
     ], MatchingComponent);
     return MatchingComponent;
 }());
@@ -26743,7 +26746,7 @@ var MatchingComponent = /** @class */ (function () {
 /***/ "./src/app/pages/tables/mentor-skill/mentor-skill.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\" style=\"display: flex\">\r\n  <div class=\"\" style=\"flex-basis: 50%;\">\r\n\r\n    <nb-card>\r\n      <nb-tabset fullWidth>\r\n        <nb-tab tabTitle='Mentor'>\r\n          <div class=\"contact\">\r\n            <nb-user [picture]=\"user.picture\" [name]=\"user.name\"></nb-user>\r\n            <i class=\"i-contact nb-phone\"></i>\r\n          </div>\r\n        </nb-tab>\r\n      </nb-tabset>\r\n    </nb-card>\r\n\r\n    <nb-card>\r\n      <nb-card-header>Skills</nb-card-header>\r\n      <nb-card-body>\r\n\r\n        <nb-card>\r\n          <nb-card-header>Choose Category :</nb-card-header>\r\n          <nb-card-body>\r\n            <select class=\"form-control\" id=\"category\"\r\n                    required\r\n                    [(ngModel)]=\"model.category\" name=\"power\">\r\n              <option *ngFor=\"let cat of categories\" [value]=\"cat?.name\">{{cat?.name}}</option>\r\n            </select>\r\n\r\n          </nb-card-body>\r\n        </nb-card>\r\n        <nb-card>\r\n          <nb-card-header>Add new skill</nb-card-header>\r\n          <nb-card-body>\r\n            <div class=\"input-group input-group-fill-only\">\r\n              <input type=\"text\" [(ngModel)]=\"model.sub_category\" placeholder=\"Sub Category\" class=\"form-control\">\r\n              <!--button (click)=\"addSkill()\" class=\"btn btn-info btn-tn \"><i class=\"ion-plus-round\"></i></button-->\r\n            </div>\r\n          </nb-card-body>\r\n        </nb-card>\r\n\r\n        <nb-card>\r\n          <nb-card-header>Remarks</nb-card-header>\r\n          <nb-card-body>\r\n            <div class=\"input-group\">\r\n              <textarea rows=\"5\" [(ngModel)]=\"model.remark\" placeholder=\"Text Area\" class=\"form-control\"></textarea>\r\n            </div>\r\n          </nb-card-body>\r\n        </nb-card>\r\n        <!--div class=\"demo-radio col-sm-4 \" style=\"flex-direction: row;\">\r\n          <label class=\"custom-control custom-radio\">\r\n            <input type=\"radio\" [(ngModel)]=\"model.type\" class=\"custom-control-input\" name=\"customRadio\" checked>\r\n            <span class=\"custom-control-indicator\"></span>\r\n            <span class=\"custom-control-description\">Student</span>\r\n          </label>\r\n          <label class=\"custom-control custom-radio\">\r\n            <input type=\"radio\" [(ngModel)]=\"model.type\" class=\"custom-control-input\" name=\"customRadio\" >\r\n            <span class=\"custom-control-indicator\"></span>\r\n            <span class=\"custom-control-description\">Mentor</span>\r\n          </label>\r\n\r\n        </div-->\r\n      </nb-card-body>\r\n    </nb-card>\r\n\r\n\r\n    <div class=\"input-group\">\r\n\r\n      <span class=\"input-group-append\">\r\n        <button (click)=\"submit()\" class=\"btn btn-danger input-group-text\">\r\n          SUBMIT\r\n        </button>\r\n      </span>\r\n    </div>\r\n\r\n\r\n  </div>\r\n  <div style=\"flex-basis: 50%; padding-left: 10px;\">\r\n    <nb-card>\r\n      <ngx-rooms></ngx-rooms>\r\n    </nb-card>\r\n  </div>\r\n\r\n</div>\r\n"
+module.exports = "<div class=\"row\" style=\"display: flex\">\r\n  <div class=\"\" style=\"flex-basis: 50%;\">\r\n\r\n    <div style=\"padding-right: 10px;\">\r\n      <nb-card style=\"height: 152px;\">\r\n        <nb-tabset fullWidth>\r\n          <nb-tab tabTitle='Mentor'>\r\n            <div class=\"contact\">\r\n              <nb-user [picture]=\"user.picture\" [name]=\"user.name\"></nb-user>\r\n              <i class=\"i-contact nb-phone\"></i>\r\n            </div>\r\n          </nb-tab>\r\n        </nb-tabset>\r\n      </nb-card>\r\n\r\n\r\n      <nb-card>\r\n        <nb-card-header>Choose menteeng category:</nb-card-header>\r\n        <nb-card-body>\r\n          <select class=\"form-control\" id=\"category\"\r\n                  required\r\n                  [(ngModel)]=\"model.category\" name=\"power\">\r\n            <option *ngFor=\"let cat of categories\" [value]=\"cat?.name\">{{cat?.name}}</option>\r\n          </select>\r\n\r\n        </nb-card-body>\r\n      </nb-card>\r\n      <nb-card>\r\n        <nb-card-header>Add new skill</nb-card-header>\r\n        <nb-card-body>\r\n          <div class=\"input-group input-group-fill-only\">\r\n            <input type=\"text\" [(ngModel)]=\"model.sub_category\" placeholder=\"Sub Category (please write your skill)\" class=\"form-control\">\r\n            <!--button (click)=\"addSkill()\" class=\"btn btn-info btn-tn \"><i class=\"ion-plus-round\"></i></button-->\r\n          </div>\r\n        </nb-card-body>\r\n      </nb-card>\r\n\r\n      <nb-card>\r\n        <nb-card-header>Menteeng description</nb-card-header>\r\n        <nb-card-body>\r\n          <div class=\"input-group\">\r\n            <textarea rows=\"5\" [(ngModel)]=\"model.remark\" placeholder=\"Text Area\" class=\"form-control\"></textarea>\r\n          </div>\r\n        </nb-card-body>\r\n      </nb-card>\r\n    </div>\r\n\r\n    <div class=\"input-group\" style=\"width:100%; display: flex; justify-content: center; padding-right: 10px; height: 92px;\">\r\n\r\n        <button (click)=\"submit()\" class=\"btn btn-warning\" style=\"width:45%; align-content: center; align-items: center; height: 100%\">\r\n          SUBMIT\r\n        </button>\r\n      <div style=\"width:10%\"></div>\r\n                <button class=\"btn btn-danger\" style=\"width:45%; align-content: center; align-items: center; height: 100%\">\r\n          RESET\r\n        </button>\r\n    </div>\r\n\r\n  </div>\r\n  <div style=\"flex-basis: 50%;\">\r\n    <nb-card>\r\n      <nb-card-header>Max number of students:</nb-card-header>\r\n      <nb-card-body>\r\n        <select class=\"form-control\" id=\"maxStudents\"\r\n                required\r\n                [(ngModel)]=\"model.category\" name=\"power\">\r\n          <option *ngFor=\"let number of maxStudents\" [value]=\"number\">{{number}}</option>\r\n        </select>\r\n\r\n      </nb-card-body>\r\n    </nb-card>\r\n    <nb-card>\r\n      <nb-card-header>Preferred number of meetings:</nb-card-header>\r\n      <nb-card-body>\r\n        <select class=\"form-control\" id=\"numOfMenteengs\"\r\n                required\r\n                [(ngModel)]=\"model.category\" name=\"power\">\r\n          <option *ngFor=\"let number of maxStudents\" [value]=\"number\">{{number}}</option>\r\n        </select>\r\n\r\n      </nb-card-body>\r\n\r\n    </nb-card>\r\n    <ngx-rooms></ngx-rooms>\r\n  </div>\r\n\r\n</div>\r\n"
 
 /***/ }),
 
@@ -26783,6 +26786,7 @@ var MentorSkillComponent = /** @class */ (function () {
         this.themeService = themeService;
         this.breakpointService = breakpointService;
         this.authService = authService;
+        this.maxStudents = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
         this.model = { name: '', isStudent: true, picture: '', category: '1', remark: '',
             class: '1', sub_category: 'Tennis' };
         this.authService.onTokenChange()
@@ -27061,7 +27065,7 @@ var SmartTableComponent = /** @class */ (function () {
 /***/ "./src/app/pages/tables/student-status/student-status.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<div class=\"col-md-12\" >\r\n  <nb-card>\r\n    <nb-card-header>\r\n      Search for mentor ...\r\n    </nb-card-header>\r\n    <nb-card-body>\r\n      <nb-search type=\"rotate-layout\" (click)=\"handleKeyUp($event)\"  tag=\"rotate-layout\"></nb-search>\r\n    </nb-card-body>\r\n  </nb-card>\r\n</div>\r\n<div>{{search}}</div>\r\n<div class=\"col-md-12\" *ngIf=\"search !== '' && !!search\">\r\n  <div style=\"display: flex\">\r\n    <!--<nb-action class=\"control-item\">\r\n      <nb-search type=\"rotate-layout\" (click)=\"startSearch()\"></nb-search>\r\n    </nb-action>-->\r\n\r\n    <div style=\"flex-basis: 100%; padding-right: 5px;\">\r\n      <ngx-contacts search=\"{{search}}\" isList=\"{{false}}\" isStatus=\"{{true}}\"></ngx-contacts>\r\n    </div>\r\n\r\n  </div>\r\n</div>\r\n<div *ngIf=\"search === '' || !search\" style=\"display: flex\">\r\n  <h1 style=\"text-align: center\">Please Pick a skill and come back!</h1>\r\n</div>\r\n"
+module.exports = "\r\n<div class=\"col-md-12\" >\r\n  <nb-card>\r\n    <nb-card-header>\r\n      Search for mentor ...\r\n    </nb-card-header>\r\n    <nb-card-body>\r\n      <nb-search type=\"rotate-layout\" (click)=\"handleKeyUp($event)\"  tag=\"rotate-layout\"></nb-search>\r\n    </nb-card-body>\r\n  </nb-card>\r\n</div>\r\n<div>{{search}}</div>\r\n<div class=\"col-md-12\" *ngIf=\"search !== '' && !!search\">\r\n  <div style=\"display: flex\">\r\n    <!--<nb-action class=\"control-item\">\r\n      <nb-search type=\"rotate-layout\" (click)=\"startSearch()\"></nb-search>\r\n    </nb-action>-->\r\n\r\n    <div style=\"flex-basis: 100%; padding-right: 5px;\">\r\n      <ngx-contacts search=\"{{search}}\" isList=\"{{false}}\" isStatus=\"{{true}}\"></ngx-contacts>\r\n    </div>\r\n\r\n  </div>\r\n</div>\r\n<div *ngIf=\"search === '' || !search\" style=\"display: flex; flex-direction: column; justify-content: center; align-items: center; height: 80%\">\r\n  <h1 style=\"text-align: center\">Please Pick a skill and come back!</h1>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -27303,12 +27307,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__smart_table_smart_table_component__ = __webpack_require__("./src/app/pages/tables/smart-table/smart-table.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__mentor_skill_mentor_skill_component__ = __webpack_require__("./src/app/pages/tables/mentor-skill/mentor-skill.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__matching_matching_component__ = __webpack_require__("./src/app/pages/tables/matching/matching.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__charts_charts_module__ = __webpack_require__("./src/app/pages/charts/charts.module.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -27326,6 +27332,7 @@ var TablesModule = /** @class */ (function () {
             imports: [
                 __WEBPACK_IMPORTED_MODULE_2__theme_theme_module__["a" /* ThemeModule */], __WEBPACK_IMPORTED_MODULE_5__dashboard_dashboard_module__["a" /* DashboardModule */],
                 __WEBPACK_IMPORTED_MODULE_3__tables_routing_module__["a" /* TablesRoutingModule */],
+                __WEBPACK_IMPORTED_MODULE_9__charts_charts_module__["ChartsModule"],
                 __WEBPACK_IMPORTED_MODULE_1_ng2_smart_table__["b" /* Ng2SmartTableModule */],
             ],
             declarations: __WEBPACK_IMPORTED_MODULE_3__tables_routing_module__["b" /* routedComponents */].concat([

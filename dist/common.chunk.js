@@ -65813,7 +65813,7 @@ var ChartsModule = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             imports: [__WEBPACK_IMPORTED_MODULE_4__theme_theme_module__["a" /* ThemeModule */], __WEBPACK_IMPORTED_MODULE_5__charts_routing_module__["a" /* ChartsRoutingModule */], __WEBPACK_IMPORTED_MODULE_1_ngx_echarts__["a" /* NgxEchartsModule */], __WEBPACK_IMPORTED_MODULE_2__swimlane_ngx_charts__["NgxChartsModule"], __WEBPACK_IMPORTED_MODULE_3_angular2_chartjs__["ChartModule"]],
             declarations: __WEBPACK_IMPORTED_MODULE_5__charts_routing_module__["b" /* routedComponents */].concat(components),
-            exports: [__WEBPACK_IMPORTED_MODULE_19__echarts_echarts_pie_component__["a" /* EchartsPieComponent */], __WEBPACK_IMPORTED_MODULE_20__echarts_echarts_bar_component__["a" /* EchartsBarComponent */]],
+            exports: [__WEBPACK_IMPORTED_MODULE_19__echarts_echarts_pie_component__["a" /* EchartsPieComponent */], __WEBPACK_IMPORTED_MODULE_20__echarts_echarts_bar_component__["a" /* EchartsBarComponent */], __WEBPACK_IMPORTED_MODULE_17__d3_d3_advanced_pie_component__["a" /* D3AdvancedPieComponent */]],
         })
     ], ChartsModule);
     return ChartsModule;
@@ -65845,20 +65845,6 @@ var D3AdvancedPieComponent = /** @class */ (function () {
     function D3AdvancedPieComponent(theme) {
         var _this = this;
         this.theme = theme;
-        this.single = [
-            {
-                name: 'Germany',
-                value: 8940000,
-            },
-            {
-                name: 'USA',
-                value: 5000000,
-            },
-            {
-                name: 'France',
-                value: 7200000,
-            },
-        ];
         this.themeSubscription = this.theme.getJsTheme().subscribe(function (config) {
             var colors = config.variables;
             _this.colorScheme = {
@@ -65866,9 +65852,16 @@ var D3AdvancedPieComponent = /** @class */ (function () {
             };
         });
     }
+    D3AdvancedPieComponent.prototype.ngOnInit = function () {
+        this.single = this.data[0];
+    };
     D3AdvancedPieComponent.prototype.ngOnDestroy = function () {
         this.themeSubscription.unsubscribe();
     };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Array)
+    ], D3AdvancedPieComponent.prototype, "data", void 0);
     D3AdvancedPieComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'ngx-d3-advanced-pie',
@@ -67488,7 +67481,7 @@ var ContactsComponent = /** @class */ (function () {
 /***/ "./src/app/pages/dashboard/dashboard.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--<div class=\"row\">\r\n  <div class=\"col-xxxl-3 col-md-6\">\r\n    <ngx-status-card title=\"Light\" type=\"primary\">\r\n      <i class=\"nb-lightbulb\"></i>\r\n    </ngx-status-card>\r\n  </div>\r\n\r\n  <div class=\"col-xxxl-3 col-md-6\">\r\n    <ngx-status-card title=\"Roller Shades\" type=\"success\">\r\n      <i class=\"nb-roller-shades\"></i>\r\n    </ngx-status-card>\r\n  </div>\r\n\r\n  <div class=\"col-xxxl-3 col-md-6\">\r\n    <ngx-status-card title=\"Wireless Audio\" type=\"info\">\r\n      <i class=\"nb-audio\"></i>\r\n    </ngx-status-card>\r\n  </div>\r\n\r\n  <div class=\"col-xxxl-3 col-md-6\">\r\n    <ngx-status-card title=\"Coffee Maker\" type=\"warning\">\r\n      <i class=\"nb-coffee-maker\"></i>\r\n    </ngx-status-card>\r\n  </div>\r\n</div>-->\r\n\r\n<div class=\"row\">\r\n  <div class=\"col-lg-6\">\r\n    <nb-card>\r\n      <nb-card-header>Skill categories</nb-card-header>\r\n      <nb-card-body>\r\n        <ngx-echarts-pie></ngx-echarts-pie>\r\n      </nb-card-body>\r\n    </nb-card>\r\n  </div>\r\n  <div class=\"col-lg-6\">\r\n    <nb-card>\r\n      <nb-card-header>Mentors age</nb-card-header>\r\n      <nb-card-body>\r\n        <ngx-echarts-bar></ngx-echarts-bar>\r\n      </nb-card-body>\r\n    </nb-card>\r\n  </div>\r\n</div>\r\n\r\n<!--<div class=\"row\">\r\n  <div class=\"col-xxxl-3 col-xxl-4 col-lg-5 col-md-6\">\r\n    <ngx-temperature></ngx-temperature>\r\n  </div>\r\n\r\n  <div class=\"col-xxxl-9 col-xxl-8 col-lg-7 col-md-6\">\r\n    <ngx-electricity></ngx-electricity>\r\n  </div>\r\n</div>-->\r\n\r\n<div class=\"row\">\r\n  <div class=\"col-lg-6\">\r\n    <ngx-rooms></ngx-rooms>\r\n  </div>\r\n\r\n  <!--<div class=\"col-xxxl-3 col-xxl-4 col-lg-7 col-md-6\">\r\n    <ngx-contacts title=\"Users?\"></ngx-contacts>\r\n  </div>\r\n\r\n  <div class=\"col-xxxl-3 col-xxl-4 col-lg-5 col-md-6\">\r\n    <ngx-solar [chartValue]=\"72\"></ngx-solar>\r\n\r\n    <ngx-kitten></ngx-kitten>\r\n  </div>\r\n\r\n  <div class=\"col-xxxl-3 col-xxl-4 col-md-5\">\r\n    <ngx-traffic></ngx-traffic>\r\n    <ngx-weather></ngx-weather>\r\n  </div>-->\r\n\r\n  <div class=\"col-lg-6\">\r\n    <ngx-security-cameras></ngx-security-cameras>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<!--<div class=\"row\">\r\n  <div class=\"col-xxxl-3 col-md-6\">\r\n    <ngx-status-card title=\"Light\" type=\"primary\">\r\n      <i class=\"nb-lightbulb\"></i>\r\n    </ngx-status-card>\r\n  </div>\r\n\r\n  <div class=\"col-xxxl-3 col-md-6\">\r\n    <ngx-status-card title=\"Roller Shades\" type=\"success\">\r\n      <i class=\"nb-roller-shades\"></i>\r\n    </ngx-status-card>\r\n  </div>\r\n\r\n  <div class=\"col-xxxl-3 col-md-6\">\r\n    <ngx-status-card title=\"Wireless Audio\" type=\"info\">\r\n      <i class=\"nb-audio\"></i>\r\n    </ngx-status-card>\r\n  </div>\r\n\r\n  <div class=\"col-xxxl-3 col-md-6\">\r\n    <ngx-status-card title=\"Coffee Maker\" type=\"warning\">\r\n      <i class=\"nb-coffee-maker\"></i>\r\n    </ngx-status-card>\r\n  </div>\r\n</div>-->\r\n\r\n<div class=\"row\">\r\n  <div class=\"col-lg-4\">\r\n    <nb-card>\r\n      <nb-card-header>School People</nb-card-header>\r\n      <nb-card-body>\r\n        <ngx-d3-advanced-pie style=\"display: flex; justify-content: center; height: 100%;\" [data]=[matchingData]></ngx-d3-advanced-pie>\r\n      </nb-card-body>\r\n    </nb-card>\r\n  </div>\r\n  <div class=\"col-lg-4\">\r\n    <nb-card>\r\n      <nb-card-header>Students Enrollment status</nb-card-header>\r\n      <nb-card-body>\r\n        <ngx-d3-advanced-pie style=\"display: flex; justify-content: center; height: 100%;\" [data]=\"[enrolmentData]\"></ngx-d3-advanced-pie>\r\n      </nb-card-body>\r\n    </nb-card>\r\n  </div>\r\n  <div class=\"col-lg-4\">\r\n    <nb-card>\r\n      <nb-card-header>Menteengs approvement status</nb-card-header>\r\n      <nb-card-body>\r\n        <ngx-d3-advanced-pie style=\"display: flex; justify-content: center; height: 100%;\" [data]=\"[approvedMenteengsData]\"></ngx-d3-advanced-pie>\r\n      </nb-card-body>\r\n    </nb-card>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\">\r\n  <div class=\"col-lg-6\">\r\n    <nb-card>\r\n      <nb-card-header>Skill categories</nb-card-header>\r\n      <nb-card-body>\r\n        <ngx-echarts-pie></ngx-echarts-pie>\r\n      </nb-card-body>\r\n    </nb-card>\r\n  </div>\r\n  <div class=\"col-lg-6\">\r\n    <nb-card>\r\n      <nb-card-header>Mentors age</nb-card-header>\r\n      <nb-card-body>\r\n        <ngx-echarts-bar></ngx-echarts-bar>\r\n      </nb-card-body>\r\n    </nb-card>\r\n  </div>\r\n</div>\r\n\r\n<!--<div class=\"row\">\r\n  <div class=\"col-xxxl-3 col-xxl-4 col-lg-5 col-md-6\">\r\n    <ngx-temperature></ngx-temperature>\r\n  </div>\r\n\r\n  <div class=\"col-xxxl-9 col-xxl-8 col-lg-7 col-md-6\">\r\n    <ngx-electricity></ngx-electricity>\r\n  </div>\r\n</div>-->\r\n\r\n<div class=\"row\">\r\n\r\n\r\n  <!--<div class=\"col-xxxl-3 col-xxl-4 col-lg-7 col-md-6\">\r\n    <ngx-contacts title=\"Users?\"></ngx-contacts>\r\n  </div>\r\n\r\n  <div class=\"col-xxxl-3 col-xxl-4 col-lg-5 col-md-6\">\r\n    <ngx-solar [chartValue]=\"72\"></ngx-solar>\r\n\r\n    <ngx-kitten></ngx-kitten>\r\n  </div>\r\n\r\n  <div class=\"col-xxxl-3 col-xxl-4 col-md-5\">\r\n    <ngx-traffic></ngx-traffic>\r\n    <ngx-weather></ngx-weather>\r\n  </div>-->\r\n\r\n  <div class=\"col-lg-6\">\r\n    <ngx-security-cameras></ngx-security-cameras>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -67505,22 +67498,96 @@ module.exports = "/**\n * @license\n * Copyright Akveo. All Rights Reserved.\n *
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DashboardComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__core_data_users_service__ = __webpack_require__("./src/app/@core/data/users.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
 
 var DashboardComponent = /** @class */ (function () {
-    function DashboardComponent() {
+    function DashboardComponent(userService) {
+        var _this = this;
+        this.userService = userService;
+        this.approvedMenteengsCount = 0;
+        this.pendingMenteengsCount = 0;
+        this.rejectedMenteengsCount = 0;
+        this.studentCount = 0;
+        this.mentorsCount = 0;
+        this.enrolledStudentCount = 0;
+        this.userService.getUsers().subscribe(function (users) {
+            for (var curUser in users) {
+                if (users.hasOwnProperty(curUser)) {
+                    if (users[curUser].position === 'student'
+                        || !!users[curUser].courses && users[curUser].courses.length > 0) {
+                        _this.studentCount++;
+                        if (!!users[curUser].courses && users[curUser].courses.length > 0) {
+                            _this.enrolledStudentCount++;
+                        }
+                    }
+                    if (users[curUser].position === 'mentor'
+                        || !!users[curUser].skills && users[curUser].skills.length > 0) {
+                        _this.mentorsCount++;
+                        if (users[curUser].skills[0].status === 'approved') {
+                            _this.approvedMenteengsCount++;
+                        }
+                        else if (users[curUser].skills[0].status === 'pending') {
+                            _this.pendingMenteengsCount++;
+                        }
+                        else {
+                            _this.rejectedMenteengsCount++;
+                        }
+                    }
+                }
+            }
+            _this.matchingData = [
+                {
+                    name: 'Students',
+                    value: _this.studentCount,
+                },
+                {
+                    name: 'Mentors',
+                    value: _this.mentorsCount,
+                }
+            ];
+            _this.enrolmentData = [
+                {
+                    name: 'Enrolled Students',
+                    value: _this.enrolledStudentCount,
+                },
+                {
+                    name: 'Unrolled students',
+                    value: _this.studentCount - _this.enrolledStudentCount,
+                }
+            ];
+            _this.approvedMenteengsData = [
+                {
+                    name: 'Approved',
+                    value: _this.approvedMenteengsCount,
+                },
+                {
+                    name: 'Pending',
+                    value: _this.pendingMenteengsCount,
+                },
+                {
+                    name: 'Rejected',
+                    value: _this.rejectedMenteengsCount,
+                }
+            ];
+        });
     }
     DashboardComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'ngx-dashboard',
             styles: [__webpack_require__("./src/app/pages/dashboard/dashboard.component.scss")],
             template: __webpack_require__("./src/app/pages/dashboard/dashboard.component.html"),
-        })
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__core_data_users_service__["a" /* UserService */]])
     ], DashboardComponent);
     return DashboardComponent;
 }());
@@ -68279,7 +68346,7 @@ var RoomsComponent = /** @class */ (function () {
 /***/ "./src/app/pages/dashboard/security-cameras/security-cameras.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nb-card size=\"xlarge\">\r\n  <nb-card-header>\r\n    <div class=\"cameras-card-header\">\r\n      <span class=\"cameras-card-title\">School mentoring places camera's</span>\r\n      <span class=\"cameras-filter\">\r\n        <a [class.active]=\"isSingleView\" (click)=\"isSingleView = true\">\r\n          <i class=\"nb-square\"></i>\r\n        </a>\r\n        <a [class.active]=\"!isSingleView\" (click)=\"isSingleView = false\">\r\n          <i class=\"nb-grid-a\"></i>\r\n        </a>\r\n      </span>\r\n    </div>\r\n  </nb-card-header>\r\n  <nb-card-body>\r\n    <div class=\"cameras single-view\" *ngIf=\"isSingleView\">\r\n      <div class=\"camera\" [style.background-image]=\"'url(' + selectedCamera.source + ')'\">\r\n        <span>{{ selectedCamera.title }}</span>\r\n      </div>\r\n    </div>\r\n    <div class=\"cameras\" *ngIf=\"!isSingleView\">\r\n      <div class=\"camera col-sm-6\" *ngFor=\"let camera of cameras\" [style.background-image]=\"'url(' + camera.source + ')'\"\r\n           (click)=\"selectCamera(camera)\">\r\n        <span>{{ camera.title }}</span>\r\n      </div>\r\n    </div>\r\n  </nb-card-body>\r\n  <nb-card-footer>\r\n    <nb-actions size=\"medium\" fullWidth>\r\n      <nb-action>\r\n        <i class=\"nb-pause-outline\"></i><span>Pause</span>\r\n      </nb-action>\r\n      <nb-action>\r\n        <i class=\"nb-list\"></i><span>Logs</span>\r\n      </nb-action>\r\n      <nb-action>\r\n        <i class=\"nb-search\"></i><span>Search</span>\r\n      </nb-action>\r\n      <nb-action>\r\n        <i class=\"nb-gear\"></i><span>Setup</span>\r\n      </nb-action>\r\n    </nb-actions>\r\n  </nb-card-footer>\r\n</nb-card>\r\n"
+module.exports = "<nb-card size=\"xlarge\">\r\n  <nb-card-header>\r\n    <div class=\"cameras-card-header\">\r\n      <span class=\"cameras-card-title\">School mentoring places camera's</span>\r\n      <span class=\"cameras-filter\">\r\n        <a [class.active]=\"isSingleView\" (click)=\"isSingleView = true\">\r\n          <i class=\"nb-square\"></i>\r\n        </a>\r\n        <a [class.active]=\"!isSingleView\" (click)=\"isSingleView = false\">\r\n          <i class=\"nb-grid-a\"></i>\r\n        </a>\r\n      </span>\r\n    </div>\r\n  </nb-card-header>\r\n  <nb-card-body>\r\n    <div class=\"cameras single-view\" *ngIf=\"isSingleView\">\r\n      <div class=\"camera\" [style.background-image]=\"'url(' + selectedCamera.source + ')'\">\r\n        <span>{{ selectedCamera.title }}</span>\r\n      </div>\r\n    </div>\r\n    <div class=\"cameras\" *ngIf=\"!isSingleView\">\r\n      <div class=\"camera col-sm-6\" *ngFor=\"let camera of cameras\" [style.background-image]=\"'url(' + camera.source + ')'\"\r\n           (click)=\"selectCamera(camera)\">\r\n        <span>{{ camera.title }}</span>\r\n      </div>\r\n    </div>\r\n  </nb-card-body>\r\n  <nb-card-footer>\r\n    <nb-actions size=\"medium\" fullWidth>\r\n      <nb-action>\r\n        <i class=\"nb-pause-outline\"></i><span>Pause</span>\r\n      </nb-action>\r\n      <nb-action>\r\n        <i class=\"nb-gear\"></i><span>Setup</span>\r\n      </nb-action>\r\n    </nb-actions>\r\n  </nb-card-footer>\r\n</nb-card>\r\n"
 
 /***/ }),
 
