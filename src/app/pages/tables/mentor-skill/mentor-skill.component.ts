@@ -25,8 +25,8 @@ export class MentorSkillComponent implements OnInit {
               private breakpointService: NbMediaBreakpointsService,
               private authService: NbAuthService,
               private toasterService: ToasterService) {
-    this.model = {name : '', isStudent :  true, picture : '', category: '1', remark: '',
-      class: '1', sub_category: ''};
+    this.model = {name : '', isStudent :  true, picture : '', category: 'Sport', remark: '',
+      class: '1', sub_category: '', maxNumOfStudents: 10, numberOfMeetings: 1};
     this.authService.onTokenChange()
       .subscribe((token: NbAuthJWTToken) => {
         if (token.isValid()) {
@@ -40,12 +40,14 @@ export class MentorSkillComponent implements OnInit {
               this.model.category = this.user.category;
               this.model.isStudent = this.user.isStudent;
               this.model.remark = this.user.remark;
+              this.model.maxNumOfStudents = this.user.maxNumOfStudents;
+              this.model.numberOfMeetings = this.user.numberOfMeetings;
             });
         }
 
       });
     this.categories = [ {name: 'Sport', id: 1}, {name: 'Music', id: 2},
-      {name: 'Board Games', id: 3} , {name: 'Math', id: 4} , {name: 'Gaming', id: 5} 
+      {name: 'Board Games', id: 3} , {name: 'Math', id: 4} , {name: 'Gaming', id: 5}
       , {name: 'Computer games', id: 6} , {name: 'Other', id: 7}];
     this.classes = [{name: 'א' , id: 1} , {name: 'ב', id: 2} , {name: 'ג', id: 3} ,
       {name: 'ד' , id: 4} , {name: 'ה' , id: 5} , {name: 'ו'  , id: 6}];

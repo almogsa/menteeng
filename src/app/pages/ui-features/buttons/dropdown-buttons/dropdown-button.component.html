@@ -1,44 +1,28 @@
-<nb-card>
-  <nb-card-header>Button Dropdowns</nb-card-header>
-  <nb-card-body>
-    <div class="dropdown btn-group" ngbDropdown>
-      <button type="button" class="btn btn-primary">Dropdown</button>
-      <button type="button" class="btn btn-primary" ngbDropdownToggle></button>
-      <ul class="dropdown-menu" ngbDropdownMenu>
-        <li class="dropdown-item">Icon Button</li>
-        <li class="dropdown-item">Hero Button</li>
-        <li class="dropdown-item">Default</li>
-      </ul>
-    </div>
-    <div class="dropdown" ngbDropdown>
-      <button class="btn btn-primary" type="button" ngbDropdownToggle>
-        Dropdown
+    <div style="display: inline-block; margin-bottom: 0px; margin-top: 8px; width: 300px;" class="dropdown ghost-dropdown" ngbDropdown>
+      <button class="btn btn-primary" type="button" ngbDropdownToggle style="margin-bottom: 0px">
+        {{selectedGrade}}
       </button>
       <ul class="dropdown-menu" ngbDropdownMenu>
-        <li class="dropdown-item">Icon Button</li>
-        <li class="dropdown-item">Hero Button</li>
-        <li class="dropdown-item">Default</li>
+        <li class="dropdown-item" on-click="changeGrade('No filter')">Choose grade for filtering</li>
+        <li class="dropdown-item" on-click="changeGrade('1st Grade')">1st Grade</li>
+        <li class="dropdown-item" on-click="changeGrade('2nd Grade')">2nd Grade</li>
+        <li class="dropdown-item" on-click="changeGrade('3rd Grade')">3rd Grade</li>
+        <li class="dropdown-item" on-click="changeGrade('4th Grade')">4th Grade</li>
+        <li class="dropdown-item" on-click="changeGrade('5th Grade')">5th Grade</li>
       </ul>
     </div>
-    <div class="dropdown" placement="top" ngbDropdown>
-      <button class="btn btn-outline-primary" type="button" ngbDropdownToggle>
-        Dropup
+
+    <div style="display: inline-block; margin-bottom: 0px; margin-top: 8px; width: 300px;" class="dropdown ghost-dropdown" ngbDropdown>
+      <button class="btn btn-primary" type="button" ngbDropdownToggle style="margin-bottom: 0px">
+        {{selectedClass}}
       </button>
       <ul class="dropdown-menu" ngbDropdownMenu>
-        <li class="dropdown-item">Icon Button</li>
-        <li class="dropdown-item">Hero Button</li>
-        <li class="dropdown-item">Default</li>
+        <li class="dropdown-item" on-click="changeClass('No filter')">Choose class</li>
+        <li class="dropdown-item" on-click="changeClass('Class 1')">Class 1</li>
+        <li class="dropdown-item" on-click="changeClass('Class 2')">Class 2</li>
+        <li class="dropdown-item" on-click="changeClass('Class 3')">Class 3</li>
+        <li class="dropdown-item" on-click="changeClass('Class 4')">Class 4</li>
+        <li class="dropdown-item" on-click="changeClass('Class 5')">Class 5</li>
       </ul>
     </div>
-    <div class="dropdown ghost-dropdown" ngbDropdown>
-      <button class="btn btn-primary" type="button" ngbDropdownToggle>
-        Dropdown
-      </button>
-      <ul class="dropdown-menu" ngbDropdownMenu>
-        <li class="dropdown-item">Icon Button</li>
-        <li class="dropdown-item">Hero Button</li>
-        <li class="dropdown-item">Default</li>
-      </ul>
-    </div>
-  </nb-card-body>
-</nb-card>
+    <div style="padding-right: 10px; padding-left: 10px;"><button class="btn btn-primary" style="display: inline-block; margin-bottom: 0px; margin-top: 8px;">Load filter</button></div>

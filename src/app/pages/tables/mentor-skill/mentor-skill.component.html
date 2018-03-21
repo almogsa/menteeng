@@ -22,7 +22,7 @@
           <select class="form-control" id="category"
                   required
                   [(ngModel)]="model.category" name="power">
-            <option *ngFor="let cat of categories" [value]="cat?.name">{{cat?.name}}</option>
+            <option [selected]="1" *ngFor="let cat of categories" [value]="cat?.name">{{cat?.name}}</option>
           </select>
 
         </nb-card-body>
@@ -65,7 +65,7 @@
       <nb-card-body>
         <select class="form-control" id="maxStudents"
                 required
-                [(ngModel)]="model.category" name="power">
+                [(ngModel)]="model.maxNumOfStudents" name="power">
           <option *ngFor="let number of maxStudents" [value]="number">{{number}}</option>
         </select>
 
@@ -76,7 +76,7 @@
       <nb-card-body>
         <select class="form-control" id="numOfMenteengs"
                 required
-                [(ngModel)]="model.category" name="power">
+                [(ngModel)]="model.numberOfMeetings" name="power">
           <option *ngFor="let number of maxStudents" [value]="number">{{number}}</option>
         </select>
 

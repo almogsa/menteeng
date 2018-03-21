@@ -21,6 +21,8 @@ import { PlayerComponent } from './rooms/player/player.component';
 import { TrafficComponent } from './traffic/traffic.component';
 import { TrafficChartComponent } from './traffic/traffic-chart.component';
 import {ChartsModule} from '../charts/charts.module';
+import { HeaderComponent } from './filterbar/header/header.component';
+import {ButtonsModule} from "../ui-features/buttons/buttons.module";
 
 
 @NgModule({
@@ -28,6 +30,7 @@ import {ChartsModule} from '../charts/charts.module';
     ThemeModule,
     NgxEchartsModule,
     ChartsModule,
+    ButtonsModule
   ],
   declarations: [
     DashboardComponent,
@@ -47,6 +50,7 @@ import {ChartsModule} from '../charts/charts.module';
     SolarComponent,
     TrafficComponent,
     TrafficChartComponent,
+    HeaderComponent,
   ],
   exports: [ContactsComponent, RoomsComponent],
 })

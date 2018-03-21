@@ -36,8 +36,8 @@ export interface UserInterface {
 }
 @Injectable()
 export class UserService {
-
-  private users = {
+  private settings = {gradeFilter: 0, classFilter: 0};
+  public users = {
     'nick@gmail.com': {
       name: 'Nick Jones', email: 'nick@gmail.com', picture: 'assets/images/nick.png',
       skills: [
@@ -142,6 +142,13 @@ export class UserService {
 
   getUsers(): Observable<any> {
     return Observable.of(this.users);
+  }
+
+  getSettings(): Observable<any> {
+    return Observable.of(this.settings);
+  }
+  changeSettings(filter, value) {
+    this.settings[filter] = value;
   }
 
   updateUser(user: any) {
