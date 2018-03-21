@@ -42,13 +42,13 @@ export class UserService {
       name: 'Nick Jones', email: 'nick@gmail.com', picture: 'assets/images/nick.png',
       skills: [
         {
-          category: 'photography', sub_category: 'photography',
+          category: 'photography', sub_category: 'Photography',
           image: 'assets/images/sport.png' , icon: 'fa fa-camera-retro fa-lg' ,
           color: 'tomato', status: 'pending',
         }],
       courses: [
         {
-          category: 'Gaming', sub_category: 'hide & seek',
+          category: 'Gaming', sub_category: 'Hide & Seek',
           image: 'assets/images/sport.png' , icon: 'fa fa-camera-retro fa-lg' , color: 'tomato', status: 'pending',
           mentorName: 'Lee Wong', mentorEmail: 'lee@gmail.com',
         },
@@ -65,7 +65,7 @@ export class UserService {
       }],
       courses: [
         {
-          category: 'photography', sub_category: 'photography',
+          category: 'photography', sub_category: 'Photography',
           image: 'assets/images/sport.png' , icon: 'fa fa-camera-retro fa-lg' , color: 'gray', status: 'pending',
           mentorName: 'Nick Jones', mentorEmail: 'nick@gmail.com',
         }]},
@@ -89,17 +89,20 @@ export class UserService {
     'lee@gmail.com': {
       name: 'Lee Wong', email: 'lee@gmail.com', picture: 'assets/images/lee.png',
       skills: [{
-      category: 'Gaming', sub_category: 'hide & seek',
+      category: 'Gaming', sub_category: 'Hide & Seek',
         image: 'assets/images/sport.png' , icon: 'fa fa fa-gamepad fa-lg' , color: 'green', status: 'approved'
       }]},
     'alan@gmail.com': {
       name: 'Alan Thompson', email: 'alan@gmail.com', picture: 'assets/images/alan.png',
       skills: [{
-        category: 'Videp', sub_category: 'video',
+        category: 'Video', sub_category: 'Video',
         image: 'assets/images/sport.png' , icon: 'fa fa fa-video fa-lg' , color: '#ffc107', status: 'approved'
       }]},
     'kate@gmail.com': {name: 'Kate Martinez', email: 'kate@gmail.com', picture: 'assets/images/kate.png',
-      skills: []},
+      skills: [{
+      category: 'Social Media', sub_category: 'Instagram',
+        image: 'assets/images/sport.png' , icon: 'fa fa fa-gamepad fa-lg' , color: 'green', status: 'approved'
+      }]},
     'almog@gmail.com': {
       name: 'Almog Sade', isStudent: true, class: 4,
       email: 'almog@gmail.com', picture: 'assets/images/almog.jpg',
@@ -108,7 +111,7 @@ export class UserService {
     'tom@gmail.com': {
       name: 'Tom Vaingart', isStudent: true,
       email: 'tom@gmail.com', picture: 'assets/images/nick.png',
-      skills: [{category: 'Computer', sub_category: 'computer',
+      skills: [{category: 'Computer', sub_category: 'Computer',
         image: 'assets/images/sport.png' , icon: 'fa fa fa-keyboard fa-lg' , color: '#72c3fc'}]},
     't@gmail.com': {
       name: 'Tomi Moreno', isStudent: true, class: '1', category: '3',
@@ -118,16 +121,17 @@ export class UserService {
     'alon@gmail.com': {
       name: 'Alon Sade', isStudent: true,
       email: 'alon@gmail.com', picture: 'assets/images/alon.jpg',
-      skills: [{category: 'Music', sub_category: 'music',
+      skills: [{category: 'Music', sub_category: 'Music',
         image: 'assets/images/sport.png' , icon: 'fa fa fa-headphones fa-lg' , color: 'green'}]},
     'or@gmail.com': {
       name: 'Or Sade', isStudent: true,
       email: 'or@gmail.com', picture: 'assets/images/or3.jpg',
-      skills: []},
+      skills: [{category: 'Gaming', sub_category: 'Gaming',
+        image: 'assets/images/sport.png' , icon: 'fa fa fa-gamepad' , color: '#228ae6'}]},
     'amit@gmail.com': {
       name: 'Amit Sade', isStudent: true,
       email: 'amit@gmail.com', picture: 'assets/images/amit.jpg',
-      skills: [{category: 'Gaming', sub_category: 'gaming',
+      skills: [{category: 'Gaming', sub_category: 'Gaming',
         image: 'assets/images/sport.png' , icon: 'fa fa fa-gamepad' , color: '#228ae6'}]},
 
   };
