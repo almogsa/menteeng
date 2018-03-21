@@ -39,7 +39,7 @@ export class FormInputsComponent {
               private authService: NbAuthService) {
 
     this.model = {name : '', isStudent :  true, picture : '', category: '1', remark: '',
-      class: '1', sub_category: 'Tennis'};
+      class: '1', sub_category: 'Tennis', numberOfMeetings: 1, maxNumOfStudents: 10};
     this.authService.onTokenChange()
       .subscribe((token: NbAuthJWTToken) => {
         if (token.isValid()) {
