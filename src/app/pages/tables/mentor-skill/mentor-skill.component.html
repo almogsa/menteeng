@@ -17,7 +17,7 @@
 
 
       <nb-card>
-        <nb-card-header>Choose menteeng category:</nb-card-header>
+        <nb-card-header>Choose Skill Category</nb-card-header>
         <nb-card-body>
           <select class="form-control" id="category"
                   required
@@ -28,20 +28,20 @@
         </nb-card-body>
       </nb-card>
       <nb-card>
-        <nb-card-header>Add new skill</nb-card-header>
+        <nb-card-header>Add Tags</nb-card-header>
         <nb-card-body>
           <div class="input-group input-group-fill-only">
-            <input type="text" [(ngModel)]="model.sub_category" placeholder="Sub Category (please write your skill)" class="form-control">
+            <input type="text" [(ngModel)]="model.sub_category" placeholder="For example: #youtube" class="form-control">
             <!--button (click)="addSkill()" class="btn btn-info btn-tn "><i class="ion-plus-round"></i></button-->
           </div>
         </nb-card-body>
       </nb-card>
 
       <nb-card>
-        <nb-card-header>Menteeng description</nb-card-header>
+        <nb-card-header>Skill Description</nb-card-header>
         <nb-card-body>
           <div class="input-group">
-            <textarea rows="5" [(ngModel)]="model.remark" placeholder="Text Area" class="form-control"></textarea>
+            <textarea rows="5" [(ngModel)]="model.remark" placeholder="Please add a short description, for example:&#x0a;In this course we'll learn how to upload videos to youtube" class="form-control"></textarea>
           </div>
         </nb-card-body>
       </nb-card>
@@ -61,7 +61,7 @@
   </div>
   <div style="flex-basis: 50%;">
     <nb-card>
-      <nb-card-header>Max number of students:</nb-card-header>
+      <nb-card-header>Maximum Number of Students</nb-card-header>
       <nb-card-body>
         <select class="form-control" id="maxStudents"
                 required
@@ -72,7 +72,7 @@
       </nb-card-body>
     </nb-card>
     <nb-card>
-      <nb-card-header>Preferred number of meetings:</nb-card-header>
+      <nb-card-header>Preferred Number of Meetings</nb-card-header>
       <nb-card-body>
         <select class="form-control" id="numOfMenteengs"
                 required
