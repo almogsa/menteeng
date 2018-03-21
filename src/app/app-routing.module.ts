@@ -42,7 +42,7 @@ const routes: Routes = [
       },
     ],
   },
-  { path: '', canActivate: [AuthGuard], redirectTo: 'pages', pathMatch: 'full' },
+  { path: '', canActivate: [AuthGuard], redirectTo: 'auth', pathMatch: 'full' },
   { path: '**', redirectTo: 'pages' },
 ];
 
