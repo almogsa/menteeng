@@ -46,13 +46,13 @@ export class SmartTableService {
   private getCourseData(userData: UserData) {
     const courseData: any = {};
     courseData.id = Math.floor(Math.round(Math.random() * 100));
-    courseData.category = userData.skills[0].category;
-    courseData.skill = userData.skills[0].sub_category;
+    courseData.category = userData.skills.length > 0  ? userData.skills[0].category : '';
+    courseData.skill = userData.skills.length > 0  ? userData.skills[0].sub_category : '';
     courseData.mentor = userData.name;
     courseData.email = userData.email;
     let status = 'unavailable';
     if (!!userData.skills &&
-      !!userData.skills[0].status && userData.skills[0].status !== '') {
+      !! userData.skills[0] && userData.skills[0].status && userData.skills[0].status !== '') {
       status = userData.skills[0].status;
 
     }

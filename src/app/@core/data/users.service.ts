@@ -26,7 +26,7 @@ export interface UserData {
   name: string;
   email: string;
   picture: string;
-  skills: Skill;
+  skills: Skill[];
   status?: string;
   courses: CourseData[]; // the courses that this user enrolled to and the status of the enrollment.
   position: string;
@@ -99,8 +99,7 @@ export class UserService {
         image: 'assets/images/sport.png' , icon: 'fa fa fa-video fa-lg' , color: '#ffc107', status: 'approved'
       }]},
     'kate@gmail.com': {name: 'Kate Martinez', email: 'kate@gmail.com', picture: 'assets/images/kate.png',
-      skills: [{category: 'Youtube', sub_category: 'Youtube',
-        image: 'assets/images/sport.png' , icon: 'fa fa fa-music fa-lg' , color: '#dc3545'}]},
+      skills: []},
     'almog@gmail.com': {
       name: 'Almog Sade', isStudent: true, class: 4,
       email: 'almog@gmail.com', picture: 'assets/images/almog.jpg',
@@ -124,8 +123,7 @@ export class UserService {
     'or@gmail.com': {
       name: 'Or Sade', isStudent: true,
       email: 'or@gmail.com', picture: 'assets/images/or3.jpg',
-      skills: [{category: 'Dancing', sub_category: 'dancing',
-        image: 'assets/images/sport.png' , icon: 'fa fa fa-hand-scissors fa-lg' , color: 'green'}]},
+      skills: []},
     'amit@gmail.com': {
       name: 'Amit Sade', isStudent: true,
       email: 'amit@gmail.com', picture: 'assets/images/amit.jpg',

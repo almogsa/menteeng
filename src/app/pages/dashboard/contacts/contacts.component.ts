@@ -18,6 +18,8 @@ export class ContactsComponent implements OnInit, OnDestroy {
   users:any;
   user:any;
   themeSubscription: any;
+  notRegiteredMentors:any[];
+  notRegiteredStudents:any[];
   @Input() title: string;
   @Input() search: string;
   @Input() userType: string;
@@ -41,6 +43,7 @@ export class ContactsComponent implements OnInit, OnDestroy {
           this.userService.getUsers()
             .subscribe((users: any) => {
               this.user = users[token.token];
+            //  alert('cahnge')
             });
           // here we receive a payload from the token and assigne it to our `user` variable
           //  this.user = token;
@@ -56,6 +59,8 @@ export class ContactsComponent implements OnInit, OnDestroy {
         this.contacts = [];
         this.users = users;
         this.recent = [];
+        this.notRegiteredStudents = [];
+        this.notRegiteredMentors = [];
         if (typeof this.isList === 'undefined') {
           this.isList = false;
         };
@@ -70,12 +75,16 @@ export class ContactsComponent implements OnInit, OnDestroy {
                 if (users[curUser].position === 'student'
                   || !!users[curUser].courses && users[curUser].courses.length > 0) {
                   this.contacts.push(users[curUser])
+                }else{
+                  this.notRegiteredStudents.push(users[curUser]);
                 }
               }
               if (this.userType === 'mentors') {
                 if (users[curUser].position === 'mentor'
                   || !!users[curUser].skills && users[curUser].skills.length > 0) {
                   this.contacts.push(users[curUser])
+                }else{
+                  this.notRegiteredMentors.push(users[curUser]);
                 }
               }
             } else {
@@ -172,5 +181,12 @@ export class ContactsComponent implements OnInit, OnDestroy {
         return courses[0].status;
       } else return null;
     }else return null;
+  }
+  getNotRegiterd(type:string){
+    if(type ==='Students'){
+      return this.notRegiteredStudents;
+    }else{
+      return this.notRegiteredMentors;
+    }
   }
 }

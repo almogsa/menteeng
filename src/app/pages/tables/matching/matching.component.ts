@@ -18,7 +18,7 @@ export class MatchingComponent implements OnInit {
               private router: Router) {
     this.cb = (percent: number) : string => {
      this.counter = percent;
-     return percent;
+     return percent.toString();
     }
   }
 
@@ -74,7 +74,7 @@ export class MatchingComponent implements OnInit {
       type: 'success',
       title: null,
       body: defaultBody,
-      timeout: this.timeout,
+    //  timeout: this.timeout,
       showCloseButton: true,
       bodyOutputType: BodyOutputType.TrustedHtml,
     };
