@@ -10,7 +10,7 @@
   </nb-card>
 </div>
 <div>{{search}}</div>
-<div class="col-md-12" *ngIf="search !== '' && !!search">
+<div class="col-md-12" *ngIf="true">
   <div style="display: flex">
     <!--<nb-action class="control-item">
       <nb-search type="rotate-layout" (click)="startSearch()"></nb-search>
@@ -22,6 +22,6 @@
 
   </div>
 </div>
-<div *ngIf="search === '' || !search" style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 80%">
+<div *ngIf="false" style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 80%">
   <h1 style="text-align: center">Please Pick a skill and come back!</h1>
 </div>

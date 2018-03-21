@@ -41,7 +41,7 @@ webpackJsonp(["tables.module"],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__("./node_modules/rxjs/_esm5/Observable.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__ = __webpack_require__("./node_modules/@angular/platform-browser/esm5/platform-browser.js");
 /**
- * @license Angular v5.2.6
+ * @license Angular v5.2.8
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -2761,7 +2761,7 @@ var JsonpModule = /** @class */ (function () {
 /**
  * @deprecated use \@angular/common/http instead
  */
-var VERSION = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["Version"]('5.2.6');
+var VERSION = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["Version"]('5.2.8');
 
 /**
  * @fileoverview added by tsickle
@@ -45188,7 +45188,6 @@ var MentorSkillComponent = /** @class */ (function () {
         });
         this.categories = [{ name: 'Sport', id: 1 }, { name: 'Music', id: 2 },
             { name: 'Board Games', id: 3 }, { name: 'Math', id: 4 }, { name: 'Gaming', id: 5 },
-            ,
             { name: 'Computer games', id: 6 }, { name: 'Other', id: 7 }];
         this.classes = [{ name: 'א', id: 1 }, { name: 'ב', id: 2 }, { name: 'ג', id: 3 },
             { name: 'ד', id: 4 }, { name: 'ה', id: 5 }, { name: 'ו', id: 6 }];
@@ -45467,7 +45466,7 @@ var SmartTableComponent = /** @class */ (function () {
 /***/ "./src/app/pages/tables/student-status/student-status.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<div class=\"col-md-12\" >\r\n  <nb-card>\r\n    <nb-card-header>\r\n      Search for mentor ...\r\n    </nb-card-header>\r\n    <nb-card-body>\r\n      <nb-search type=\"rotate-layout\" (click)=\"handleKeyUp($event)\"  tag=\"rotate-layout\"></nb-search>\r\n    </nb-card-body>\r\n  </nb-card>\r\n</div>\r\n<div>{{search}}</div>\r\n<div class=\"col-md-12\" *ngIf=\"search !== '' && !!search\">\r\n  <div style=\"display: flex\">\r\n    <!--<nb-action class=\"control-item\">\r\n      <nb-search type=\"rotate-layout\" (click)=\"startSearch()\"></nb-search>\r\n    </nb-action>-->\r\n\r\n    <div style=\"flex-basis: 100%; padding-right: 5px;\">\r\n      <ngx-contacts search=\"{{search}}\" isList=\"{{false}}\" isStatus=\"{{true}}\"></ngx-contacts>\r\n    </div>\r\n\r\n  </div>\r\n</div>\r\n<div *ngIf=\"search === '' || !search\" style=\"display: flex; flex-direction: column; justify-content: center; align-items: center; height: 80%\">\r\n  <h1 style=\"text-align: center\">Please Pick a skill and come back!</h1>\r\n</div>\r\n"
+module.exports = "\r\n<div class=\"col-md-12\" >\r\n  <nb-card>\r\n    <nb-card-header>\r\n      Search for mentor ...\r\n    </nb-card-header>\r\n    <nb-card-body>\r\n      <nb-search type=\"rotate-layout\" (click)=\"handleKeyUp($event)\"  tag=\"rotate-layout\"></nb-search>\r\n    </nb-card-body>\r\n  </nb-card>\r\n</div>\r\n<div>{{search}}</div>\r\n<div class=\"col-md-12\" *ngIf=\"true\">\r\n  <div style=\"display: flex\">\r\n    <!--<nb-action class=\"control-item\">\r\n      <nb-search type=\"rotate-layout\" (click)=\"startSearch()\"></nb-search>\r\n    </nb-action>-->\r\n\r\n    <div style=\"flex-basis: 100%; padding-right: 5px;\">\r\n      <ngx-contacts search=\"{{search}}\" isList=\"{{false}}\" isStatus=\"{{true}}\"></ngx-contacts>\r\n    </div>\r\n\r\n  </div>\r\n</div>\r\n<div *ngIf=\"false\" style=\"display: flex; flex-direction: column; justify-content: center; align-items: center; height: 80%\">\r\n  <h1 style=\"text-align: center\">Please Pick a skill and come back!</h1>\r\n</div>\r\n"
 
 /***/ }),
 

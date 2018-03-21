@@ -36,7 +36,7 @@
               <div class="" style="min-width:200px">
                 <div style="display: inline-block" [class]="skill.icon" [style.color]="skill.color"></div>
                 <!--img style="width:50px;height:50px;" [src]="skill?.image"-->
-                <div   style="display: inline-block;font-family: Exo;font-weight: 400;color: #2a2a2a;font-size: 1.25rem;">{{skill.sub_category}}</div>
+                <div  class="text-body" style="display:inline-block;font-size: 1.5rem;padding-left:2px" >{{skill.sub_category}}</div>
                  <!--span style="border-left: 1px dashed #a4abb3;
                 height: 12px;
                 width: 1px;
@@ -110,6 +110,9 @@
           </div>
         </nb-card-body>
       </nb-card>
+    </div>
+    <div *ngIf="!user.courses" style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 80%">
+      <h1 style="text-align: center">Please Pick a skill and come back!</h1>
     </div>
   </div>
 

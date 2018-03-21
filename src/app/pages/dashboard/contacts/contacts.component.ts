@@ -107,6 +107,10 @@ export class ContactsComponent implements OnInit, OnDestroy {
           console.log(curUser);
           let user = this.users[curUser];
           if (user && user.skills && user.skills.length > 0 ) {
+          //  if (user.name.toLowerCase().indexOf(changes.search.currentValue.toLowerCase() > -1)) {
+           //   this.contacts.push(user) ;
+           //   break;
+          //  }
             for (const cat of user.skills) {
               if (cat.category.toLowerCase().indexOf(changes.search.currentValue.toLowerCase()) > -1
                 || cat.sub_category.toLowerCase().indexOf(changes.search.currentValue.toLowerCase()) > -1 ||
