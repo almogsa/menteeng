@@ -70036,6 +70036,7 @@ var EchartsMultipleXaxisComponent = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EchartsPieComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__nebular_theme__ = __webpack_require__("./node_modules/@nebular/theme/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__core_data_users_service__ = __webpack_require__("./src/app/@core/data/users.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -70047,10 +70048,39 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var EchartsPieComponent = /** @class */ (function () {
-    function EchartsPieComponent(theme) {
+    function EchartsPieComponent(theme, userService) {
+        var _this = this;
         this.theme = theme;
+        this.userService = userService;
         this.options = {};
+        this.catMap = {};
+        this.categories = [];
+        this.data = [];
+        this.userService.getUsers().subscribe(function (users) {
+            for (var curUser in users) {
+                if (users.hasOwnProperty(curUser)) {
+                    if (users[curUser].position === 'mentor'
+                        || !!users[curUser].skills && users[curUser].skills.length > 0) {
+                        var category = users[curUser].skills[0].category;
+                        if (!_this.catMap[category]) {
+                            _this.catMap[category] = 1;
+                        }
+                        else {
+                            _this.catMap[category] = _this.catMap[category] + 1;
+                        }
+                    }
+                }
+            }
+            for (var cat in _this.catMap) {
+                if (_this.catMap.hasOwnProperty(cat)) {
+                    _this.categories.push(cat);
+                    var thisData = { value: _this.catMap[cat], name: cat };
+                    _this.data.push(thisData);
+                }
+            }
+        });
     }
     EchartsPieComponent.prototype.ngAfterViewInit = function () {
         var _this = this;
@@ -70067,7 +70097,7 @@ var EchartsPieComponent = /** @class */ (function () {
                 legend: {
                     orient: 'vertical',
                     left: 'left',
-                    data: ['Sport', 'Music', 'Board Games', 'Gaming', 'Other'],
+                    data: _this.categories,
                     textStyle: {
                         color: echarts.textColor,
                     },
@@ -70078,13 +70108,7 @@ var EchartsPieComponent = /** @class */ (function () {
                         type: 'pie',
                         radius: '80%',
                         center: ['50%', '50%'],
-                        data: [
-                            { value: 335, name: 'Sport' },
-                            { value: 310, name: 'Music' },
-                            { value: 234, name: 'Board Games' },
-                            { value: 135, name: 'Gaming' },
-                            { value: 1548, name: 'Other' },
-                        ],
+                        data: _this.data,
                         itemStyle: {
                             emphasis: {
                                 shadowBlur: 10,
@@ -70119,7 +70143,7 @@ var EchartsPieComponent = /** @class */ (function () {
             selector: 'ngx-echarts-pie',
             template: "\n    <div echarts [options]=\"options\" class=\"echart\"></div>\n  ",
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__nebular_theme__["r" /* NbThemeService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__nebular_theme__["r" /* NbThemeService */], __WEBPACK_IMPORTED_MODULE_2__core_data_users_service__["a" /* UserService */]])
     ], EchartsPieComponent);
     return EchartsPieComponent;
 }());

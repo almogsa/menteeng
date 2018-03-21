@@ -41,7 +41,7 @@ webpackJsonp(["tables.module"],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__("./node_modules/rxjs/_esm5/Observable.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__ = __webpack_require__("./node_modules/@angular/platform-browser/esm5/platform-browser.js");
 /**
- * @license Angular v5.2.8
+ * @license Angular v5.2.6
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -2761,7 +2761,7 @@ var JsonpModule = /** @class */ (function () {
 /**
  * @deprecated use \@angular/common/http instead
  */
-var VERSION = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["Version"]('5.2.8');
+var VERSION = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["Version"]('5.2.6');
 
 /**
  * @fileoverview added by tsickle

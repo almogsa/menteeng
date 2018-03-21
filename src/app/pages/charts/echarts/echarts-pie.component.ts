@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, OnDestroy } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
+import {UserService} from '../../../@core/data/users.service';
 
 @Component({
   selector: 'ngx-echarts-pie',
@@ -10,8 +11,33 @@ import { NbThemeService } from '@nebular/theme';
 export class EchartsPieComponent implements AfterViewInit, OnDestroy {
   options: any = {};
   themeSubscription: any;
+  private catMap = {};
+  private categories = [];
+  private data = [];
 
-  constructor(private theme: NbThemeService) {
+  constructor(private theme: NbThemeService, private userService: UserService) {
+    this.userService.getUsers().subscribe((users: any) => {
+      for (const curUser in users) {
+        if (users.hasOwnProperty(curUser)) {
+          if (users[curUser].position === 'mentor'
+            || !!users[curUser].skills && users[curUser].skills.length > 0) {
+            const category = users[curUser].skills[0].category;
+            if (!this.catMap[category]) {
+              this.catMap[category] = 1;
+            } else {
+              this.catMap[category] = this.catMap[category] + 1;
+            }
+          }
+        }
+      }
+      for (const cat in this.catMap) {
+        if (this.catMap.hasOwnProperty(cat)) {
+          this.categories.push(cat);
+          const thisData = {value: this.catMap[cat], name: cat};
+          this.data.push(thisData);
+        }
+      }
+    });
   }
 
   ngAfterViewInit() {
@@ -30,7 +56,7 @@ export class EchartsPieComponent implements AfterViewInit, OnDestroy {
         legend: {
           orient: 'vertical',
           left: 'left',
-          data: ['Sport', 'Music', 'Board Games', 'Gaming', 'Other'],
+          data: this.categories,
           textStyle: {
             color: echarts.textColor,
           },
@@ -41,13 +67,7 @@ export class EchartsPieComponent implements AfterViewInit, OnDestroy {
             type: 'pie',
             radius: '80%',
             center: ['50%', '50%'],
-            data: [
-              { value: 335, name: 'Sport' },
-              { value: 310, name: 'Music' },
-              { value: 234, name: 'Board Games' },
-              { value: 135, name: 'Gaming' },
-              { value: 1548, name: 'Other' },
-            ],
+            data: this.data,
             itemStyle: {
               emphasis: {
                 shadowBlur: 10,
