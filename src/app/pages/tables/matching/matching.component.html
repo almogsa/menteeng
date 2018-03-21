@@ -1,3 +1,4 @@
+<toaster-container [toasterconfig]="config"></toaster-container>
 <div><button (click)="startMatch()"  [class]="startMatching? 'btn btn-outline-warning btn-block' : 'btn btn-outline-info btn-warning'" >{{title}}</button></div>
 <div style="display: flex;align-items: center;justify-content: center;height: 100%">
   <div *ngIf="startMatching">
@@ -8,6 +9,7 @@
       [titleFontSize]="30"
       [subtitleFontSize]="30"
       [subtitleFormat]="formatSubtitle"
+
       [unitsFontSize]="30"
       [innerStrokeWidth]="30"
       [space]="12"

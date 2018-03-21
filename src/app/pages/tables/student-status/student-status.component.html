@@ -2,14 +2,13 @@
 <div class="col-md-12" >
   <nb-card>
     <nb-card-header>
-      Search for mentor ...
+      Search for a skill or mentor ...
     </nb-card-header>
     <nb-card-body>
       <nb-search type="rotate-layout" (click)="handleKeyUp($event)"  tag="rotate-layout"></nb-search>
     </nb-card-body>
   </nb-card>
 </div>
-<div>{{search}}</div>
 <div class="col-md-12" *ngIf="true">
   <div style="display: flex; justify-content: center; width: 100%;">
     <!--<nb-action class="control-item">
@@ -23,5 +22,5 @@
   </div>
 </div>
 <div *ngIf="false" style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 80%; width: 100%;">
-  <h1 style="text-align: center">Please Pick a skill and come back!</h1>
+  <h1 style="text-align: center">Please pick a skill and come back!</h1>
 </div>
