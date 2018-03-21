@@ -527,7 +527,9 @@ export class BubbleMapComponent implements OnDestroy {
   }
 
   ngOnDestroy() {
-    this.themeSubscription.unsubscribe();
+    if (!!this.themeSubscription) {
+      this.themeSubscription.unsubscribe();
+    }
   }
 
   private getRandomGeoColor() {

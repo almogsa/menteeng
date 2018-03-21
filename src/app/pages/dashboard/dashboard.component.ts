@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {UserService} from "../../@core/data/users.service";
 
 @Component({
@@ -6,7 +6,8 @@ import {UserService} from "../../@core/data/users.service";
   styleUrls: ['./dashboard.component.scss'],
   templateUrl: './dashboard.component.html',
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
+  public needRefresh = true;
   private lastSettings;
   private lastUsers;
 
@@ -24,12 +25,18 @@ export class DashboardComponent {
     if (!users || !settings) {
       return;
     }
+    this.approvedMenteengsCount = 0;
+    this.pendingMenteengsCount = 0;
+    this.rejectedMenteengsCount = 0;
+    this.enrolledStudentCount = 0;
+    this.studentCount = 0;
+    this.mentorsCount = 0;
     const grade = settings['gradeFilter'];
     const chosenClass = settings['classFilter'];
     for (const curUser in users) {
       if (users.hasOwnProperty(curUser)) {
-        if ((users[curUser].grade === grade || grade === 0) &&
-          (chosenClass === 0 || users[curUser].class === chosenClass)) {
+        if ((users[curUser].grade === grade || grade === 0 || grade === '0') &&
+          (chosenClass === 0 || chosenClass === '0' || users[curUser].class === chosenClass)) {
           if (users[curUser].position === 'student'
             || !!users[curUser].courses && users[curUser].courses.length > 0) {
             this.studentCount++;
@@ -51,7 +58,8 @@ export class DashboardComponent {
         }
       }
     }
-    this.matchingData = [
+    let newMatchingData = [];
+    Object.assign(newMatchingData, [
       {
         name: 'Students',
         value: this.studentCount,
@@ -60,8 +68,9 @@ export class DashboardComponent {
         name: 'Mentors',
         value: this.mentorsCount,
       }
-    ];
-    this.enrolmentData = [
+    ]);
+    this.matchingData = newMatchingData;
+      this.enrolmentData = [
       {
         name: 'Enrolled Students',
         value: this.enrolledStudentCount,
@@ -87,6 +96,22 @@ export class DashboardComponent {
     ];
   }
   constructor(private userService: UserService) {
+
+  }
+  ngOnInit() {
+    this.userService.getSettings().subscribe((settings: any) => {
+      if (settings.hasOwnProperty('gradeFilter') && settings.hasOwnProperty('classFilter')) {
+        this.lastSettings = settings;
+        this.loadData(this.lastUsers, this.lastSettings);
+      }
+    });
+    this.userService.getUsers().subscribe((users: any) => {
+      this.lastUsers = users;
+      this.loadData(this.lastUsers, this.lastSettings);
+    });
+  }
+
+  onHeaderRefresh() {
     this.userService.getSettings().subscribe((settings: any) => {
       if (settings.hasOwnProperty('gradeFilter') && settings.hasOwnProperty('classFilter')) {
         this.lastSettings = settings;

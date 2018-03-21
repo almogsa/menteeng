@@ -141,7 +141,9 @@ export class ContactsComponent implements OnInit, OnDestroy {
     }
   }
   ngOnDestroy() {
-    this.themeSubscription.unsubscribe();
+    if (!!this.themeSubscription) {
+      this.themeSubscription.unsubscribe();
+    }
   }
   changeStatus(contact) {
     contact.status = 'Pending...';

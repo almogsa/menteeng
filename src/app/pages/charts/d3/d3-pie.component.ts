@@ -33,6 +33,8 @@ export class D3PieComponent implements OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.themeSubscription.unsubscribe();
+    if (!!this.themeSubscription) {
+      this.themeSubscription.unsubscribe();
+    }
   }
 }

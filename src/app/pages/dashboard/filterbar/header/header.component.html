@@ -3,6 +3,6 @@
     <nb-card-header style="display: flex; flex-direction: row; flex-grow: 5;">My custom filter</nb-card-header>
   </span>
   <span style="display: flex; justify-content: flex-end">
-    <ngx-dropdown-buttons style="display: flex"></ngx-dropdown-buttons>
+    <ngx-dropdown-buttons (onRefreshClick)="onRefreshClick($event)" style="display: flex"></ngx-dropdown-buttons>
   </span>
 </nb-card>

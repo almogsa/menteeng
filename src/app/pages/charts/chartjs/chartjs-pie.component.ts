@@ -51,6 +51,8 @@ export class ChartjsPieComponent implements OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.themeSubscription.unsubscribe();
+    if (!!this.themeSubscription) {
+      this.themeSubscription.unsubscribe();
+    }
   }
 }

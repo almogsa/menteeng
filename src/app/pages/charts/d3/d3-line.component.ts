@@ -79,6 +79,8 @@ export class D3LineComponent implements OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.themeSubscription.unsubscribe();
+    if (!!this.themeSubscription) {
+      this.themeSubscription.unsubscribe();
+    }
   }
 }

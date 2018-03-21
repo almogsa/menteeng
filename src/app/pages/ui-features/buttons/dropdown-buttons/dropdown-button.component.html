@@ -1,6 +1,6 @@
     <div style="display: inline-block; margin-bottom: 0px; margin-top: 8px; width: 300px;" class="dropdown ghost-dropdown" ngbDropdown>
       <button class="btn btn-primary" type="button" ngbDropdownToggle style="margin-bottom: 0px">
-        {{selectedGrade}}
+        {{selectedGradeTitle}}
       </button>
       <ul class="dropdown-menu" ngbDropdownMenu>
         <li class="dropdown-item" on-click="changeGrade('No filter')">Choose grade for filtering</li>
@@ -14,7 +14,7 @@
 
     <div style="display: inline-block; margin-bottom: 0px; margin-top: 8px; width: 300px;" class="dropdown ghost-dropdown" ngbDropdown>
       <button class="btn btn-primary" type="button" ngbDropdownToggle style="margin-bottom: 0px">
-        {{selectedClass}}
+        {{selectedClassTitle}}
       </button>
       <ul class="dropdown-menu" ngbDropdownMenu>
         <li class="dropdown-item" on-click="changeClass('No filter')">Choose class</li>
@@ -25,4 +25,4 @@
         <li class="dropdown-item" on-click="changeClass('Class 5')">Class 5</li>
       </ul>
     </div>
-    <div style="padding-right: 10px; padding-left: 10px;"><button class="btn btn-primary" style="display: inline-block; margin-bottom: 0px; margin-top: 8px;">Load filter</button></div>
+    <div style="padding-right: 10px; padding-left: 10px;"><button on-click="refresh()" class="btn btn-primary" style="display: inline-block; margin-bottom: 0px; margin-top: 8px;">Load filter</button></div>

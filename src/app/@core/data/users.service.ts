@@ -148,7 +148,7 @@ export class UserService {
     return Observable.of(this.settings);
   }
   changeSettings(filter, value) {
-    this.settings[filter] = value;
+    this.settings[filter] = value
   }
 
   updateUser(user: any) {

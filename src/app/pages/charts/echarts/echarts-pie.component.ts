@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnDestroy } from '@angular/core';
+import {AfterViewInit, Component, Input, OnDestroy} from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 import {UserService} from '../../../@core/data/users.service';
 
@@ -96,6 +96,10 @@ export class EchartsPieComponent implements AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.themeSubscription.unsubscribe();
+    if (!!this.themeSubscription) {
+      if (!!this.themeSubscription) {
+        this.themeSubscription.unsubscribe();
+      }
+    }
   }
 }

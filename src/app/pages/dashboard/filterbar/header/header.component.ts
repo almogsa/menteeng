@@ -1,5 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {UserService} from "../../../../@core/data/users.service";
+import {Router} from "@angular/router";
+import {DashboardComponent} from "../../dashboard.component";
 
 @Component({
   selector: 'ngx-filter-header',
@@ -7,12 +9,13 @@ import {UserService} from "../../../../@core/data/users.service";
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  model: any;
-
-  constructor(private userService: UserService) {
+  @Output() onHeaderRefresh = new EventEmitter<boolean>();
+  constructor() {
   }
 
   ngOnInit() {
   }
-
+  onRefreshClick(value: boolean) {
+    this.onHeaderRefresh.emit(true);
+  }
 }
