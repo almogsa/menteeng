@@ -153,7 +153,7 @@ export class ContactsComponent implements OnInit, OnDestroy {
     this.themeSubscription.unsubscribe();
   }
   changeStatus(contact) {
-    contact.status = 'Pending...';
+    contact.status = 'pending';
     if (typeof this.user.courses === 'undefined') {
       this.user.courses = [];
     }
@@ -174,6 +174,19 @@ export class ContactsComponent implements OnInit, OnDestroy {
     course.picture = contact.picture;
     return course;
   }
+  getColorByStatus(status:string){
+    let icon = 'btn btn-success'
+    switch (status) {
+      case 'pending' : icon = 'btn btn-warning';
+        break;
+      case 'approved' : icon = 'btn btn-success';
+      break;
+      case 'rejected' : icon = 'btn btn-danger';
+      break;
+    }
+    return icon;
+  }
+
   public getCourseStatus(contact){
     if (this.user && this.user.courses) {
       let courses = this.user.courses.filter(x => x.mentorEmail === contact.email);

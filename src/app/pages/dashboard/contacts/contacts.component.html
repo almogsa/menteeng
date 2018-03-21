@@ -104,7 +104,7 @@
 
             </div>
             <button style="display:inline-block;" (click)="changeStatus(c)"
-                    [class]="c.status? 'btn btn-warning' : 'btn btn-success'">{{c.status? c.status : 'Add' }}
+                    [class]="getColorByStatus(c.status)">{{c.status? c.status : 'Add' }}
             </button>
 
           </div>

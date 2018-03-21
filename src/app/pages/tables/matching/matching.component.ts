@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {BodyOutputType, Toast, ToasterConfig, ToasterService} from "angular2-toaster";
 import {Router} from "@angular/router";
+import {UserService} from "../../../@core/data/users.service";
 @Component({
   selector: 'matching',
   templateUrl: './matching.component.html',
@@ -15,7 +16,8 @@ export class MatchingComponent implements OnInit {
   config:any;
 
   constructor( private toasterService: ToasterService,
-              private router: Router) {
+              private router: Router,
+               private userService: UserService) {
     this.cb = (percent: number) : string => {
      this.counter = percent;
      return percent.toString();
@@ -32,6 +34,7 @@ export class MatchingComponent implements OnInit {
         this.router.navigate(['dashboard']);
       },6000);
       this.showToast();
+      this.approveCourses();
       this.title = "Done!"
     // startMatching = true;
       return "Congratulations!"
@@ -55,7 +58,27 @@ export class MatchingComponent implements OnInit {
       return "Not started"
     }
   }
-
+  approveCourses() {
+    this.userService.getUsers()
+      .subscribe((users: any) => {
+        for (const curUser in users) {
+          if (users.hasOwnProperty(curUser)) {
+            let user = users[curUser];
+            if (user && user.courses && user.courses.length > 0) {
+              user.courses.forEach((c, index) => {
+                if ( index === 0 ) {
+                  c.status = 'approved';
+                }else {
+                  c.status = 'rejected';
+                }
+              })
+        //      user.courses[0].status = 'approved';
+              this.userService.updateUser(user);
+            }
+          }
+        }
+      });
+  }
   startMatch() {
     this.startMatching = true;
     this.counter = 0;
