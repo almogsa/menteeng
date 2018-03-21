@@ -44840,7 +44840,7 @@ function not(pred, thisArg) {
 /***/ "./src/app/pages/tables/all-students/all-students.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<div class=\"col-md-12\" >\r\n  <nb-card>\r\n    <nb-card-header>\r\n      Search for mentor ...\r\n    </nb-card-header>\r\n    <nb-card-body>\r\n      <nb-search type=\"rotate-layout\" (click)=\"handleKeyUp($event)\"  tag=\"rotate-layout\"></nb-search>\r\n    </nb-card-body>\r\n  </nb-card>\r\n</div>\r\n<div class=\"col-md-12\">\r\n<div style=\"display: flex\">\r\n  <!--<nb-action class=\"control-item\">\r\n    <nb-search type=\"rotate-layout\" (click)=\"startSearch()\"></nb-search>\r\n  </nb-action>-->\r\n\r\n    <div style=\"flex-basis: 100%; padding-right: 5px;\">\r\n      <ngx-contacts search=\"{{search}}\" is-list='true' ></ngx-contacts>\r\n    </div>\r\n\r\n</div>\r\n\r\n</div>\r\n"
+module.exports = "\r\n<div class=\"col-md-12\" >\r\n  <nb-card>\r\n    <nb-card-header>\r\n      Search for mentor ...\r\n    </nb-card-header>\r\n    <nb-card-body>\r\n      <nb-search type=\"rotate-layout\" (click)=\"handleKeyUp($event)\"  tag=\"rotate-layout\"></nb-search>\r\n    </nb-card-body>\r\n  </nb-card>\r\n</div>\r\n<div class=\"col-md-12\">\r\n<div style=\"display: flex\">\r\n  <!--<nb-action class=\"control-item\">\r\n    <nb-search type=\"rotate-layout\" (click)=\"startSearch()\"></nb-search>\r\n  </nb-action>-->\r\n\r\n    <div style=\"flex-basis: 100%; padding-right: 5px;\">\r\n      <ngx-contacts search=\"{{search}}\" userType=\"mentors\" is-list='true' ></ngx-contacts>\r\n    </div>\r\n\r\n</div>\r\n\r\n</div>\r\n"
 
 /***/ }),
 
@@ -44957,7 +44957,7 @@ var AllStudentsComponent = /** @class */ (function () {
 /***/ "./src/app/pages/tables/all-users/all-users.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div style=\"display: flex\">\r\n    <div style=\"flex-basis: 50%; padding-right: 5px;\">\r\n      <ngx-contacts title=\"Mentors\" userType=\"mentors\"></ngx-contacts>\r\n    </div>\r\n  <div style=\"flex-basis: 50%; padding-left: 5px;\">\r\n    <ngx-contacts title=\"Students\" userType=\"students\"></ngx-contacts>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div style=\"display: flex\">\r\n    <div style=\"flex-basis: 50%; padding-right: 5px;\">\r\n      <ngx-contacts title=\"Mentors\" userType=\"mentors\"></ngx-contacts>\r\n\r\n    </div>\r\n  <div style=\"flex-basis: 50%; padding-left: 5px;\">\r\n    <ngx-contacts title=\"Students\" userType=\"students\"></ngx-contacts>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -45056,7 +45056,7 @@ var AllUsersComponent = /** @class */ (function () {
 /***/ "./src/app/pages/tables/matching/matching.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div><button (click)=\"startMatch()\"  [class]=\"startMatching? 'btn btn-outline-warning btn-block' : 'btn btn-outline-info btn-warning'\" >{{title}}</button></div>\r\n<div style=\"display: flex;align-items: center;justify-content: center;height: 100%\">\r\n  <div *ngIf=\"startMatching\">\r\n    <circle-progress\r\n      [percent]=\"100\"\r\n      [radius]=\"200\"\r\n      [outerStrokeWidth]=\"16\"\r\n      [titleFontSize]=\"30\"\r\n      [subtitleFontSize]=\"30\"\r\n      [subtitleFormat]=\"formatSubtitle\"\r\n      [unitsFontSize]=\"30\"\r\n      [innerStrokeWidth]=\"30\"\r\n      [space]=\"12\"\r\n      [outerStrokeColor]=\"'#78C000'\"\r\n      [innerStrokeColor]=\"'#C7E596'\"\r\n      [animation]=\"true\"\r\n      [animationDuration]=\"15000\"\r\n    ></circle-progress>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<toaster-container [toasterconfig]=\"config\"></toaster-container>\n<div><button (click)=\"startMatch()\"  [class]=\"startMatching? 'btn btn-outline-warning btn-block' : 'btn btn-outline-info btn-warning'\" >{{title}}</button></div>\n<div style=\"display: flex;align-items: center;justify-content: center;height: 100%\">\n  <div *ngIf=\"startMatching\">\n    <circle-progress\n      [percent]=\"100\"\n      [radius]=\"200\"\n      [outerStrokeWidth]=\"16\"\n      [titleFontSize]=\"30\"\n      [subtitleFontSize]=\"30\"\n      [subtitleFormat]=\"formatSubtitle\"\n\n      [unitsFontSize]=\"30\"\n      [innerStrokeWidth]=\"30\"\n      [space]=\"12\"\n      [outerStrokeColor]=\"'#78C000'\"\n      [innerStrokeColor]=\"'#C7E596'\"\n      [animation]=\"true\"\n      [animationDuration]=\"15000\"\n    ></circle-progress>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -45073,6 +45073,9 @@ module.exports = ""
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MatchingComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular2_toaster__ = __webpack_require__("./node_modules/angular2-toaster/angular2-toaster.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__core_data_users_service__ = __webpack_require__("./src/app/@core/data/users.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -45083,27 +45086,106 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
 var MatchingComponent = /** @class */ (function () {
-    function MatchingComponent() {
+    function MatchingComponent(toasterService, router, userService) {
+        var _this = this;
+        this.toasterService = toasterService;
+        this.router = router;
+        this.userService = userService;
         this.startMatching = false;
         this.title = 'Start matching !';
+        this.counter = 0;
+        this.formatSubtitle = function (percent) {
+            _this.counter = _this.counter + 1;
+            percent = _this.counter;
+            if (percent === 100) {
+                setTimeout(function () {
+                    _this.router.navigate(['dashboard']);
+                }, 6000);
+                _this.showToast();
+                _this.approveCourses();
+                _this.title = "Done!";
+                // startMatching = true;
+                return "Congratulations!";
+            }
+            else if (percent > 100) {
+                return "Congratulations!";
+            }
+            else if (percent >= 70) {
+                return "Preparing results";
+            }
+            else if (percent >= 40) {
+                return "Analyzing Matching";
+            }
+            else if (percent >= 20) {
+                return "Fetch Students";
+            }
+            else if (percent >= 10) {
+                return "Fetch Mentors";
+            }
+            else if (percent > 0) {
+                return "Start matching";
+            }
+            else {
+                return "Not started";
+            }
+        };
+        this.cb = function (percent) {
+            _this.counter = percent;
+            return percent.toString();
+        };
     }
     MatchingComponent.prototype.ngOnInit = function () {
     };
-    /*formatSubtitle = (percent: number) : string => {
-      if(percent >= 100){
-        return "Congratulations!"
-      }else if(percent >= 50){
-        return "Half"
-      }else if(percent > 0){
-        return "Just began"
-      }else {
-        return "Not started"
-      }
-    }*/
+    MatchingComponent.prototype.approveCourses = function () {
+        var _this = this;
+        this.userService.getUsers()
+            .subscribe(function (users) {
+            for (var curUser in users) {
+                if (users.hasOwnProperty(curUser)) {
+                    var user = users[curUser];
+                    if (user && user.courses && user.courses.length > 0) {
+                        user.courses.forEach(function (c, index) {
+                            if (index === 0) {
+                                c.status = 'approved';
+                            }
+                            else {
+                                c.status = 'rejected';
+                            }
+                        });
+                        //      user.courses[0].status = 'approved';
+                        _this.userService.updateUser(user);
+                    }
+                }
+            }
+        });
+    };
     MatchingComponent.prototype.startMatch = function () {
         this.startMatching = true;
+        this.counter = 0;
         this.title = 'in progress ...';
+    };
+    MatchingComponent.prototype.showToast = function (body) {
+        var defaultBody = 'Matching has been successfully finished';
+        if (body && body.length > 0) {
+            defaultBody = body;
+        }
+        this.config = new __WEBPACK_IMPORTED_MODULE_1_angular2_toaster__["b" /* ToasterConfig */]({
+            positionClass: 'toast-top-center',
+            animation: 'fade'
+        });
+        var toast = {
+            type: 'success',
+            title: null,
+            body: defaultBody,
+            //  timeout: this.timeout,
+            showCloseButton: true,
+            bodyOutputType: __WEBPACK_IMPORTED_MODULE_1_angular2_toaster__["a" /* BodyOutputType */].TrustedHtml,
+        };
+        this.toasterService.popAsync(toast);
     };
     MatchingComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
@@ -45111,7 +45193,9 @@ var MatchingComponent = /** @class */ (function () {
             template: __webpack_require__("./src/app/pages/tables/matching/matching.component.html"),
             styles: [__webpack_require__("./src/app/pages/tables/matching/matching.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_angular2_toaster__["d" /* ToasterService */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_3__core_data_users_service__["a" /* UserService */]])
     ], MatchingComponent);
     return MatchingComponent;
 }());
@@ -45123,7 +45207,7 @@ var MatchingComponent = /** @class */ (function () {
 /***/ "./src/app/pages/tables/mentor-skill/mentor-skill.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<toaster-container [toasterconfig]=\"config\"></toaster-container>\r\n<div class=\"row\" style=\"display: flex\">\r\n  <div class=\"\" style=\"flex-basis: 50%;\">\r\n\r\n    <div style=\"padding-right: 10px;\">\r\n      <nb-card style=\"height: 152px;\">\r\n        <nb-tabset fullWidth>\r\n          <nb-tab tabTitle='Mentor'>\r\n            <div class=\"contact\">\r\n              <nb-user [picture]=\"user.picture\" [name]=\"user.name\"></nb-user>\r\n              <i class=\"i-contact nb-phone\"></i>\r\n            </div>\r\n          </nb-tab>\r\n        </nb-tabset>\r\n      </nb-card>\r\n\r\n\r\n      <nb-card>\r\n        <nb-card-header>Choose menteeng category:</nb-card-header>\r\n        <nb-card-body>\r\n          <select class=\"form-control\" id=\"category\"\r\n                  required\r\n                  [(ngModel)]=\"model.category\" name=\"power\">\r\n            <option *ngFor=\"let cat of categories\" [value]=\"cat?.name\">{{cat?.name}}</option>\r\n          </select>\r\n\r\n        </nb-card-body>\r\n      </nb-card>\r\n      <nb-card>\r\n        <nb-card-header>Add new skill</nb-card-header>\r\n        <nb-card-body>\r\n          <div class=\"input-group input-group-fill-only\">\r\n            <input type=\"text\" [(ngModel)]=\"model.sub_category\" placeholder=\"Sub Category (please write your skill)\" class=\"form-control\">\r\n            <!--button (click)=\"addSkill()\" class=\"btn btn-info btn-tn \"><i class=\"ion-plus-round\"></i></button-->\r\n          </div>\r\n        </nb-card-body>\r\n      </nb-card>\r\n\r\n      <nb-card>\r\n        <nb-card-header>Menteeng description</nb-card-header>\r\n        <nb-card-body>\r\n          <div class=\"input-group\">\r\n            <textarea rows=\"5\" [(ngModel)]=\"model.remark\" placeholder=\"Text Area\" class=\"form-control\"></textarea>\r\n          </div>\r\n        </nb-card-body>\r\n      </nb-card>\r\n    </div>\r\n\r\n    <div class=\"input-group\" style=\"width:100%; display: flex; justify-content: center; padding-right: 10px; height: 92px;\">\r\n\r\n        <button (click)=\"submit()\" class=\"btn btn-warning\" style=\"width:45%; align-content: center; align-items: center; height: 100%\">\r\n          SUBMIT\r\n        </button>\r\n      <div style=\"width:10%\"></div>\r\n                <button class=\"btn btn-danger\" style=\"width:45%; align-content: center; align-items: center; height: 100%\">\r\n          RESET\r\n        </button>\r\n    </div>\r\n\r\n  </div>\r\n  <div style=\"flex-basis: 50%;\">\r\n    <nb-card>\r\n      <nb-card-header>Max number of students:</nb-card-header>\r\n      <nb-card-body>\r\n        <select class=\"form-control\" id=\"maxStudents\"\r\n                required\r\n                [(ngModel)]=\"model.category\" name=\"power\">\r\n          <option *ngFor=\"let number of maxStudents\" [value]=\"number\">{{number}}</option>\r\n        </select>\r\n\r\n      </nb-card-body>\r\n    </nb-card>\r\n    <nb-card>\r\n      <nb-card-header>Preferred number of meetings:</nb-card-header>\r\n      <nb-card-body>\r\n        <select class=\"form-control\" id=\"numOfMenteengs\"\r\n                required\r\n                [(ngModel)]=\"model.category\" name=\"power\">\r\n          <option *ngFor=\"let number of maxStudents\" [value]=\"number\">{{number}}</option>\r\n        </select>\r\n\r\n      </nb-card-body>\r\n\r\n    </nb-card>\r\n    <ngx-rooms></ngx-rooms>\r\n  </div>\r\n\r\n</div>\r\n"
+module.exports = "\r\n<toaster-container [toasterconfig]=\"config\"></toaster-container>\r\n<div class=\"row\" style=\"display: flex\">\r\n  <div class=\"\" style=\"flex-basis: 50%;\">\r\n\r\n    <div style=\"padding-right: 10px;\">\r\n      <nb-card style=\"height: 152px;\">\r\n        <nb-tabset fullWidth>\r\n          <nb-tab tabTitle='Mentor'>\r\n            <div class=\"contact\">\r\n              <nb-user [picture]=\"user.picture\" [name]=\"user.name\"></nb-user>\r\n              <i class=\"i-contact nb-phone\"></i>\r\n            </div>\r\n          </nb-tab>\r\n        </nb-tabset>\r\n      </nb-card>\r\n\r\n\r\n      <nb-card>\r\n        <nb-card-header>Choose Skill Category</nb-card-header>\r\n        <nb-card-body>\r\n          <select class=\"form-control\" id=\"category\"\r\n                  required\r\n                  [(ngModel)]=\"model.category\" name=\"power\">\r\n            <option *ngFor=\"let cat of categories\" [value]=\"cat?.name\">{{cat?.name}}</option>\r\n          </select>\r\n\r\n        </nb-card-body>\r\n      </nb-card>\r\n      <nb-card>\r\n        <nb-card-header>Add Tags</nb-card-header>\r\n        <nb-card-body>\r\n          <div class=\"input-group input-group-fill-only\">\r\n            <input type=\"text\" [(ngModel)]=\"model.sub_category\" placeholder=\"For example: #youtube\" class=\"form-control\">\r\n            <!--button (click)=\"addSkill()\" class=\"btn btn-info btn-tn \"><i class=\"ion-plus-round\"></i></button-->\r\n          </div>\r\n        </nb-card-body>\r\n      </nb-card>\r\n\r\n      <nb-card>\r\n        <nb-card-header>Skill Description</nb-card-header>\r\n        <nb-card-body>\r\n          <div class=\"input-group\">\r\n            <textarea rows=\"5\" [(ngModel)]=\"model.remark\" placeholder=\"Please add a short description, for example:&#x0a;In this course we'll learn how to upload videos to youtube\" class=\"form-control\"></textarea>\r\n          </div>\r\n        </nb-card-body>\r\n      </nb-card>\r\n    </div>\r\n\r\n    <div class=\"input-group\" style=\"width:100%; display: flex; justify-content: center; padding-right: 10px; height: 92px;\">\r\n\r\n        <button (click)=\"submit()\" class=\"btn btn-warning\" style=\"width:45%; align-content: center; align-items: center; height: 100%\">\r\n          SUBMIT\r\n        </button>\r\n      <div style=\"width:10%\"></div>\r\n                <button class=\"btn btn-danger\" style=\"width:45%; align-content: center; align-items: center; height: 100%\">\r\n          RESET\r\n        </button>\r\n    </div>\r\n\r\n  </div>\r\n  <div style=\"flex-basis: 50%;\">\r\n    <nb-card>\r\n      <nb-card-header>Maximum Number of Students</nb-card-header>\r\n      <nb-card-body>\r\n        <select class=\"form-control\" id=\"maxStudents\"\r\n                required\r\n                [(ngModel)]=\"model.category\" name=\"power\">\r\n          <option *ngFor=\"let number of maxStudents\" [value]=\"number\">{{number}}</option>\r\n        </select>\r\n\r\n      </nb-card-body>\r\n    </nb-card>\r\n    <nb-card>\r\n      <nb-card-header>Preferred Number of Meetings</nb-card-header>\r\n      <nb-card-body>\r\n        <select class=\"form-control\" id=\"numOfMenteengs\"\r\n                required\r\n                [(ngModel)]=\"model.category\" name=\"power\">\r\n          <option *ngFor=\"let number of maxStudents\" [value]=\"number\">{{number}}</option>\r\n        </select>\r\n\r\n      </nb-card-body>\r\n\r\n    </nb-card>\r\n    <ngx-rooms></ngx-rooms>\r\n  </div>\r\n\r\n</div>\r\n"
 
 /***/ }),
 
@@ -45188,7 +45272,7 @@ var MentorSkillComponent = /** @class */ (function () {
         });
         this.categories = [{ name: 'Sport', id: 1 }, { name: 'Music', id: 2 },
             { name: 'Board Games', id: 3 }, { name: 'Math', id: 4 }, { name: 'Gaming', id: 5 },
-            { name: 'Computer games', id: 6 }, { name: 'Other', id: 7 }];
+            { name: 'Computer games', id: 6 }, { name: 'Social Media', id: 7 }, { name: 'Pets', id: 8 }, { name: 'Other', id: 8 }];
         this.classes = [{ name: 'א', id: 1 }, { name: 'ב', id: 2 }, { name: 'ג', id: 3 },
             { name: 'ד', id: 4 }, { name: 'ה', id: 5 }, { name: 'ו', id: 6 }];
     }
@@ -45466,7 +45550,7 @@ var SmartTableComponent = /** @class */ (function () {
 /***/ "./src/app/pages/tables/student-status/student-status.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<div class=\"col-md-12\" >\r\n  <nb-card>\r\n    <nb-card-header>\r\n      Search for mentor ...\r\n    </nb-card-header>\r\n    <nb-card-body>\r\n      <nb-search type=\"rotate-layout\" (click)=\"handleKeyUp($event)\"  tag=\"rotate-layout\"></nb-search>\r\n    </nb-card-body>\r\n  </nb-card>\r\n</div>\r\n<div>{{search}}</div>\r\n<div class=\"col-md-12\" *ngIf=\"true\">\r\n  <div style=\"display: flex\">\r\n    <!--<nb-action class=\"control-item\">\r\n      <nb-search type=\"rotate-layout\" (click)=\"startSearch()\"></nb-search>\r\n    </nb-action>-->\r\n\r\n    <div style=\"flex-basis: 100%; padding-right: 5px;\">\r\n      <ngx-contacts search=\"{{search}}\" isList=\"{{false}}\" isStatus=\"{{true}}\"></ngx-contacts>\r\n    </div>\r\n\r\n  </div>\r\n</div>\r\n<div *ngIf=\"false\" style=\"display: flex; flex-direction: column; justify-content: center; align-items: center; height: 80%\">\r\n  <h1 style=\"text-align: center\">Please Pick a skill and come back!</h1>\r\n</div>\r\n"
+module.exports = "\r\n<div class=\"col-md-12\" >\r\n  <nb-card>\r\n    <nb-card-header>\r\n      Search for mentor ...\r\n    </nb-card-header>\r\n    <nb-card-body>\r\n      <nb-search type=\"rotate-layout\" (click)=\"handleKeyUp($event)\"  tag=\"rotate-layout\"></nb-search>\r\n    </nb-card-body>\r\n  </nb-card>\r\n</div>\r\n<div>{{search}}</div>\r\n<div class=\"col-md-12\" *ngIf=\"true\">\r\n  <div style=\"display: flex; justify-content: center; width: 100%;\">\r\n    <!--<nb-action class=\"control-item\">\r\n      <nb-search type=\"rotate-layout\" (click)=\"startSearch()\"></nb-search>\r\n    </nb-action>-->\r\n\r\n    <div style=\"flex-basis: 100%; padding-right: 5px;\">\r\n      <ngx-contacts search=\"{{search}}\" isList=\"{{false}}\" isStatus=\"{{true}}\"></ngx-contacts>\r\n    </div>\r\n\r\n  </div>\r\n</div>\r\n<div *ngIf=\"false\" style=\"display: flex; flex-direction: column; justify-content: center; align-items: center; height: 80%; width: 100%;\">\r\n  <h1 style=\"text-align: center\">Please pick a skill and come back!</h1>\r\n</div>\r\n"
 
 /***/ }),
 

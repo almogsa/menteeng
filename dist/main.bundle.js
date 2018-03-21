@@ -472,13 +472,13 @@ var SmartTableService = /** @class */ (function () {
     SmartTableService.prototype.getCourseData = function (userData) {
         var courseData = {};
         courseData.id = Math.floor(Math.round(Math.random() * 100));
-        courseData.category = userData.skills[0].category;
-        courseData.skill = userData.skills[0].sub_category;
+        courseData.category = userData.skills.length > 0 ? userData.skills[0].category : '';
+        courseData.skill = userData.skills.length > 0 ? userData.skills[0].sub_category : '';
         courseData.mentor = userData.name;
         courseData.email = userData.email;
         var status = 'unavailable';
         if (!!userData.skills &&
-            !!userData.skills[0].status && userData.skills[0].status !== '') {
+            !!userData.skills[0] && userData.skills[0].status && userData.skills[0].status !== '') {
             status = userData.skills[0].status;
         }
         courseData.status = status;
@@ -672,8 +672,7 @@ var UserService = /** @class */ (function () {
                     }]
             },
             'kate@gmail.com': { name: 'Kate Martinez', email: 'kate@gmail.com', picture: 'assets/images/kate.png',
-                skills: [{ category: 'Youtube', sub_category: 'Youtube',
-                        image: 'assets/images/sport.png', icon: 'fa fa fa-music fa-lg', color: '#dc3545' }] },
+                skills: [] },
             'almog@gmail.com': {
                 name: 'Almog Sade', isStudent: true, class: 4,
                 email: 'almog@gmail.com', picture: 'assets/images/almog.jpg',
@@ -701,8 +700,7 @@ var UserService = /** @class */ (function () {
             'or@gmail.com': {
                 name: 'Or Sade', isStudent: true,
                 email: 'or@gmail.com', picture: 'assets/images/or3.jpg',
-                skills: [{ category: 'Dancing', sub_category: 'dancing',
-                        image: 'assets/images/sport.png', icon: 'fa fa fa-hand-scissors fa-lg', color: 'green' }]
+                skills: []
             },
             'amit@gmail.com': {
                 name: 'Amit Sade', isStudent: true,
@@ -2006,7 +2004,7 @@ var routes = [
             },
         ],
     },
-    { path: '', canActivate: [__WEBPACK_IMPORTED_MODULE_2__auth_guard_service__["a" /* AuthGuard */]], redirectTo: 'pages', pathMatch: 'full' },
+    { path: '', canActivate: [__WEBPACK_IMPORTED_MODULE_2__auth_guard_service__["a" /* AuthGuard */]], redirectTo: 'auth', pathMatch: 'full' },
     { path: '**', redirectTo: 'pages' },
 ];
 var config = {
