@@ -43,7 +43,7 @@ export class UserService {
   private settings = {gradeFilter: 0, classFilter: 0};
 public users = {
   'almog@gmail.com': {
-    name: 'al mog', email: 'almog@gmail.com', picture: 'assets/images/34.png', grade: '3', class: '3', position: 'mentor',
+    name: 'almog', email: 'almog@gmail.com', picture: 'assets/images/34.png', grade: '3', class: '3', position: 'mentor',
     skills: [
       {category: 'Indoor hobbies', sub_category: '3D printing', meetings: '8', students: '9',
         image: 'assets/images/sport.png' , icon: 'fa fa-camera-retro fa-lg' ,
@@ -52,29 +52,29 @@ public users = {
   'NickErwin@gmail.com': {
     name: 'Nick Erwin', email: 'NickErwin@gmail.com', picture: 'assets/images/22.png', grade: '4', class: '3', position: 'mentor',
     skills: [
-      {category: 'Indoor hobbies', sub_category: 'Genealogy', meetings: '7', students: '2',
-        image: 'assets/images/sport.png' , icon: 'fa fa-camera-retro fa-lg' ,
+      {category: 'Music', sub_category: 'Guitar', meetings: '7', students: '2',
+        image: 'assets/images/sport.png' , icon: 'fa fa-headphones' ,
         color: 'tomato', status: 'pending',
       }],},
   'CarletonJanette@gmail.com': {
     name: 'Carleton Janette', email: 'CarletonJanette@gmail.com', picture: 'assets/images/46.png', grade: '2', class: '3', position: 'mentor',
     skills: [
-      {category: 'Competitive hobbies', sub_category: 'Tennis', meetings: '3', students: '7',
-        image: 'assets/images/sport.png' , icon: 'fa fa-camera-retro fa-lg' ,
+      {category: 'Sport', sub_category: 'Tennis', meetings: '3', students: '7',
+        image: 'assets/images/sport.png' , icon: 'fa fa fa-futbol fa-lg' ,
         color: 'tomato', status: 'pending',
       }],},
   'TeresaAgustin@gmail.com': {
     name: 'Teresa Agustin', email: 'TeresaAgustin@gmail.com', picture: 'assets/images/5.png', grade: '5', class: '2', position: 'mentor',
     skills: [
-      {category: 'Indoor hobbies', sub_category: 'Book restoration', meetings: '9', students: '9',
-        image: 'assets/images/sport.png' , icon: 'fa fa-camera-retro fa-lg' ,
+      {category: 'Sport', sub_category: 'Basketball', meetings: '9', students: '9',
+        image: 'assets/images/sport.png' , icon: 'fa fa-basketball-ball fa-lg' ,
         color: 'tomato', status: 'pending',
       }],},
   'MadeleinePhilomena@gmail.com': {
     name: 'Madeleine Philomena', email: 'MadeleinePhilomena@gmail.com', picture: 'assets/images/9.png', grade: '5', class: '2', position: 'mentor',
     skills: [
-      {category: 'Outdoor hobbies', sub_category: 'Hiking', meetings: '5', students: '7',
-        image: 'assets/images/sport.png' , icon: 'fa fa-camera-retro fa-lg' ,
+      {category: 'Sport', sub_category: 'Football', meetings: '5', students: '7',
+        image: 'assets/images/sport.png' , icon: 'fa fa fa-futbol fa-lg' ,
         color: 'tomato', status: 'approved',
       }],},
   'AngelaElwin@gmail.com': {
@@ -101,8 +101,8 @@ public users = {
   'YolandaParker@gmail.com': {
     name: 'Yolanda Parker', email: 'YolandaParker@gmail.com', picture: 'assets/images/11.png', grade: '2', class: '4', position: 'mentor',
     skills: [
-      {category: 'Outdoor hobbies', sub_category: 'Sailing', meetings: '7', students: '10',
-        image: 'assets/images/sport.png' , icon: 'fa fa-camera-retro fa-lg' ,
+      {category: 'Sport', sub_category: 'Basketball', meetings: '7', students: '10',
+        image: 'assets/images/sport.png' , icon: 'fa fa-basketball-ball fa-lg' ,
         color: 'tomato', status: 'approved',
       }],},
   'MartyJosie@gmail.com': {
@@ -430,8 +430,8 @@ public users = {
   'JustineChantal@gmail.com': {
     name: 'Justine Chantal', email: 'JustineChantal@gmail.com', picture: 'assets/images/38.png', grade: '3', class: '4', position: 'mentor',
     skills: [
-      {category: 'Outdoor hobbies', sub_category: 'Powerlifting', meetings: '9', students: '1',
-        image: 'assets/images/sport.png' , icon: 'fa fa-camera-retro fa-lg' ,
+      {category: 'Sport', sub_category: 'Football', meetings: '9', students: '1',
+        image: 'assets/images/sport.png' , icon: 'fa fa fa-futbol fa-lg' ,
         color: 'tomato', status: 'approved',
       }],},
   'TylerErik@gmail.com': {
@@ -479,8 +479,8 @@ public users = {
     name: 'Rosalyn Loris', email: 'RosalynLoris@gmail.com', picture: 'assets/images/9.png', grade: '4', class: '2', position: 'student',
     skills: [],
     courses: [
-      {category: 'Indoor hobbies', sub_category: 'Pottery',
-        image: 'assets/images/sport.png' , icon: 'fa fa-camera-retro fa-lg' , color: 'tomato', status: 'approved',
+      {category: 'Sport', sub_category: 'Tennis',
+        image: 'assets/images/sport.png' , icon: 'fa fa fa-futbol fa-lg' , color: 'tomato', status: 'approved',
         mentorName: 'Maurice Darci', mentorEmail: 'MauriceDarci@gmail.com',
       },
       {category: 'Indoor hobbies', sub_category: 'Drama',
@@ -596,8 +596,8 @@ public users = {
     name: 'Crystal Rella', email: 'CrystalRella@gmail.com', picture: 'assets/images/1.png', grade: '3', class: '4', position: 'student',
     skills: [],
     courses: [
-      {category: 'Competitive hobbies', sub_category: 'Table tennis',
-        image: 'assets/images/sport.png' , icon: 'fa fa-camera-retro fa-lg' , color: 'tomato', status: 'pending',
+      {category: 'Sport', sub_category: 'Football',
+        image: 'assets/images/sport.png' , icon: 'fa fa fa-futbol fa-lg' , color: 'tomato', status: 'pending',
         mentorName: 'Rosa Teri', mentorEmail: 'RosaTeri@gmail.com',
       },
       {category: 'Outdoor hobbies', sub_category: 'Ghost hunting',
