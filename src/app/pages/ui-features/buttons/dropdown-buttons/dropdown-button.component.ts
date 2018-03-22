@@ -14,8 +14,8 @@ export class DropdownButtonsComponent {
 
   selectedGrade = 0;
   selectedClass = 0;
-  selectedGradeTitle = 'Please choose grade';
-  selectedClassTitle = 'Please choose class';
+  selectedGradeTitle = 'Choose grade';
+  selectedClassTitle = 'Choose class';
 
   constructor(private userService: UserService, private router: Router) {
     this.userService.getSettings().subscribe((settings: any) => {

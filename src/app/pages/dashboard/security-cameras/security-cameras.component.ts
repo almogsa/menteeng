@@ -14,10 +14,10 @@ export class SecurityCamerasComponent {
     title: 'Pets',
     source: 'assets/images/camera2.jpg',
   }, {
-    title: 'Crafting',
+    title: 'Arts & Crafts',
     source: 'assets/images/camera3.jpg',
   }, {
-    title: 'Crafting',
+    title: 'Arts & Crafts',
     source: 'assets/images/camera4.jpg',
   }];
 
