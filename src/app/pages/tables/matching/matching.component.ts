@@ -96,7 +96,7 @@ export class MatchingComponent implements OnInit {
     this.counter = 0;
     this.title = 'in progress ...';
   }
-  private showToast(body?: string, type: string) {
+  private showToast(body?: string, type?: string) {
     let defaultBody = 'Matching has been successfully finished'
     if (body && body.length > 0) {
       defaultBody = body;
