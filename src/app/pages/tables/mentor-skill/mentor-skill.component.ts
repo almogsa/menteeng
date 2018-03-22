@@ -48,7 +48,7 @@ export class MentorSkillComponent implements OnInit {
       });
     this.categories = [ {name: 'Sport', id: 1}, {name: 'Music', id: 2},
       {name: 'Board Games', id: 3} , {name: 'Math', id: 4} , {name: 'Gaming', id: 5}
-      , {name: 'Computer games', id: 6} , {name: 'Other', id: 7}];
+      , {name: 'Computer games', id: 6} , {name: 'Social Media', id: 7} , {name: 'Pets', id: 8} , {name: 'Other', id: 9}];
     this.classes = [{name: 'א' , id: 1} , {name: 'ב', id: 2} , {name: 'ג', id: 3} ,
       {name: 'ד' , id: 4} , {name: 'ה' , id: 5} , {name: 'ו'  , id: 6}];
 
