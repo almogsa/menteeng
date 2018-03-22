@@ -11,6 +11,7 @@ export interface Skill {
   icon: string;
   color: string;
   status: string; // pending or approved: supervisor need to approve new courses
+  maxNumOfStudents: number;
 }
 export interface CourseData {
   mentorName: string;
@@ -26,6 +27,7 @@ export interface UserData {
   name: string;
   email: string;
   picture: string;
+  grade: number;
   skills: Skill[];
   status?: string;
   courses: CourseData[]; // the courses that this user enrolled to and the status of the enrollment.
@@ -39,10 +41,10 @@ export class UserService {
   private settings = {gradeFilter: 0, classFilter: 0};
   public users = {
     'nick@gmail.com': {
-      name: 'Nick Jones', email: 'nick@gmail.com', picture: 'assets/images/nick.png',
+      name: 'Nick Jones', email: 'nick@gmail.com', picture: 'assets/images/nick.png', grade: 1, class: 2,
       skills: [
         {
-          category: 'photography', sub_category: 'Photography',
+          category: 'photography', sub_category: 'Photography',   maxNumOfStudents: 5,
           image: 'assets/images/sport.png' , icon: 'fa fa-camera-retro fa-lg' ,
           color: 'tomato', status: 'pending',
         }],
@@ -58,9 +60,9 @@ export class UserService {
           mentorName: 'Eva Moor', mentorEmail: 'eva@gmail.com',
         }]},
     'eva@gmail.com': {
-      name: 'Eva Moor', email: 'eva@gmail.com', picture: 'assets/images/eva.png',
+      name: 'Eva Moor', email: 'eva@gmail.com', picture: 'assets/images/eva.png', grade: 1, class: 2,
       skills: [{
-        category: 'Board games', sub_category: 'Chess',
+        category: 'Board games', sub_category: 'Chess',maxNumOfStudents: 5,
         image: 'assets/images/sport.png' , icon: 'fa fa-chess-rook fa-lg' , color: 'gray', status: 'pending'
       }],
       courses: [
@@ -70,9 +72,9 @@ export class UserService {
           mentorName: 'Nick Jones', mentorEmail: 'nick@gmail.com',
         }]},
     'jack@gmail.com': {
-      name: 'Jack Williams', email: 'jack@gmail.com', picture: 'assets/images/jack.png',
+      name: 'Jack Williams', email: 'jack@gmail.com', picture: 'assets/images/jack.png', grade: 2, class: 2,
       skills: [{
-        category: 'Sport', sub_category: 'Basketball',
+        category: 'Sport', sub_category: 'Basketball',maxNumOfStudents: 4,
         image: 'assets/images/sport.png' , icon: 'fa fa fa-basketball-ball fa-lg' , color: 'tomato', status: 'pending'
       }],
       courses: [
@@ -89,7 +91,7 @@ export class UserService {
     'lee@gmail.com': {
       name: 'Lee Wong', email: 'lee@gmail.com', picture: 'assets/images/lee.png',
       skills: [{
-      category: 'Gaming', sub_category: 'Hide & Seek',
+      category: 'Gaming', sub_category: 'Hide & Seek',maxNumOfStudents: 3,
         image: 'assets/images/sport.png' , icon: 'fa fa fa-gamepad fa-lg' , color: 'green', status: 'approved'
       }]},
     'alan@gmail.com': {

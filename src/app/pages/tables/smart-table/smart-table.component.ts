@@ -86,10 +86,6 @@ export class SmartTableComponent {
         confirmDelete: true,
       },
       columns: {
-        id: {
-          title: 'Session ID',
-          type: 'number',
-        },
         category: {
           title: 'Category',
           type: 'string',
@@ -98,13 +94,17 @@ export class SmartTableComponent {
           title: 'Skill',
           type: 'string',
         },
+        grade: {
+          title: 'Grade',
+          type: 'number',
+        },
         mentor: {
           title: 'Mentor',
           type: 'string',
         },
-        email: {
-          title: 'Email',
-          type: 'string',
+        maxNumOfStudents: {
+          title: 'Max participants',
+          type: 'number',
         },
         status: {
           title: 'Status',

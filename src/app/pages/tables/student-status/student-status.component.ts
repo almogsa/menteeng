@@ -32,7 +32,7 @@ export class StudentStatusComponent {
     },
     columns: {
       id: {
-        title: 'Session ID',
+        title: 'Grade',
         type: 'number',
       },
       firstName: {
