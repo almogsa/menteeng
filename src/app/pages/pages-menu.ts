@@ -12,7 +12,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: 'nb-tables',
     children: [
       {
-        title: 'Dashboard',
+        title: 'Analytics',
         // icon: 'nb-home',
         home: true,
         link: '/pages/dashboard',
@@ -67,5 +67,5 @@ export const MENU_ITEMS: NbMenuItem[] = [
 						},*/
     ],
   },
- 
+
 ];
