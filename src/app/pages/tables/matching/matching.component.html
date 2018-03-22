@@ -1,5 +1,133 @@
 <toaster-container [toasterconfig]="config"></toaster-container>
-<div><button (click)="startMatch()"  [class]="startMatching? 'btn btn-outline-warning btn-block' : 'btn btn-outline-info btn-warning'" >{{title}}</button></div>
+<div style="display: flex">
+<div style="width: 50%; padding-right: 10px;">
+  <div>
+    <nb-card>
+      <nb-card-header>Min grade differences between mentor to students</nb-card-header>
+      <nb-card-body>
+        <div class="checkbox">
+          <nb-checkbox>1 Year</nb-checkbox>
+        </div>
+        <div class="checkbox">
+          <nb-checkbox>2 years</nb-checkbox>
+        </div>
+        <div class="checkbox">
+          <nb-checkbox>3 years or more</nb-checkbox>
+        </div>
+      </nb-card-body>
+    </nb-card>
+    <nb-card>
+      <nb-card-header>Students selections priority </nb-card-header>
+      <nb-card-body>
+        <div class="">
+          <div class="form-check">
+            <label class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" name="gridRadios" checked>
+              <span class="custom-control-indicator"></span>
+              <span class="custom-control-description">High priority for students selections</span>
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" name="gridRadios">
+              <span class="custom-control-indicator"></span>
+              <span class="custom-control-description">Medium priority for students selections</span>
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" name="gridRadios">
+              <span class="custom-control-indicator"></span>
+              <span class="custom-control-description">Low priority for students selections</span>
+            </label>
+          </div>
+        </div>
+      </nb-card-body>
+    </nb-card>
+    <nb-card>
+      <nb-card-header>Courses history</nb-card-header>
+      <nb-card-body>
+        <div class="">
+          <div class="form-check">
+            <label class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" name="gridRadios" checked>
+              <span class="custom-control-indicator"></span>
+              <span class="custom-control-description">Don't let students to take the same category twice</span>
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" name="gridRadios">
+              <span class="custom-control-indicator"></span>
+              <span class="custom-control-description">Let students take the same course twice if place exist</span>
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" name="gridRadios">
+              <span class="custom-control-indicator"></span>
+              <span class="custom-control-description">Let students take the same course twice</span>
+            </label>
+          </div>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
+<div style="width: 50%; ; padding-right: 10px;">
+  <div>
+    <nb-card>
+      <nb-card-header>Courses history</nb-card-header>
+      <nb-card-body>
+        <div class="">
+          <div class="form-check">
+            <label class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" name="gridRadios" checked>
+              <span class="custom-control-indicator"></span>
+              <span class="custom-control-description">Don't let students to take the same category twice</span>
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" name="gridRadios">
+              <span class="custom-control-indicator"></span>
+              <span class="custom-control-description">Let students take the same course twice if place exist</span>
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" name="gridRadios">
+              <span class="custom-control-indicator"></span>
+              <span class="custom-control-description">Let students take the same course twice</span>
+            </label>
+          </div>
+        </div>
+      </nb-card-body>
+    </nb-card>
+    <nb-card>
+      <nb-card-header>Matching preferences</nb-card-header>
+      <nb-card-body>
+        <div class="">
+          <div class="form-check">
+            <label class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" name="gridRadios" checked>
+              <span class="custom-control-indicator"></span>
+              <span class="custom-control-description">All students have match</span>
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" name="gridRadios">
+              <span class="custom-control-indicator"></span>
+              <span class="custom-control-description">most of the students get first priorities</span>
+            </label>
+          </div>
+
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+  <button (click)="startMatch()"  [class]="startMatching? 'btn btn-outline-warning btn-block' : 'btn btn-outline-info btn-warning'" >{{title}}</button></div>
 <div style="display: flex;align-items: center;justify-content: center;height: 100%">
   <div *ngIf="startMatching">
     <circle-progress
