@@ -45493,9 +45493,9 @@ var SmartTableComponent = /** @class */ (function () {
                     title: 'Mentor',
                     type: 'string',
                 },
-                maxNumOfStudents: {
-                    title: 'Max participants',
-                    type: 'number',
+                email: {
+                    title: 'Email',
+                    type: 'string',
                 },
                 status: {
                     title: 'Status',

@@ -11,7 +11,7 @@ export interface Skill {
   icon: string;
   color: string;
   status: string; // pending or approved: supervisor need to approve new courses
-  maxNumOfStudents: number;
+  maxNumOfStudents?: number;
 }
 export interface CourseData {
   mentorName: string;

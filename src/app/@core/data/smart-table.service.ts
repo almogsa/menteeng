@@ -49,7 +49,7 @@ export class SmartTableService {
     courseData.category = userData.skills.length > 0  ? userData.skills[0].category : '';
     courseData.skill = userData.skills.length > 0  ? userData.skills[0].sub_category : '';
     courseData.mentor = userData.name;
-    courseData.maxNumOfStudents = userData.skills[0].maxNumOfStudents;
+    courseData.email = userData.email;
     let status = 'unavailable';
     if (!!userData.skills &&
       !! userData.skills[0] && userData.skills[0].status && userData.skills[0].status !== '') {

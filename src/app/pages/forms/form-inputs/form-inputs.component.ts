@@ -14,8 +14,8 @@ export interface  User {
   sub_category: string;
   remark: string;
   class: string;
-  numberOfMeetings: number;
-  maxNumOfStudents: number;
+  numberOfMeetings?: number;
+  maxNumOfStudents?: number;
 }
 @Component({
   selector: 'ngx-form-inputs',
