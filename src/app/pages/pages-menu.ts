@@ -18,7 +18,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/dashboard',
       },
       {
-        title: 'Matching spot',
+        title: 'Matching Spot',
         link: '/pages/tables/smart-table',
       },
       {
