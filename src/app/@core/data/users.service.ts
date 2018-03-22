@@ -458,10 +458,7 @@ public users = {
   'DollieEli@gmail.com': {
     name: 'Dollie Eli', email: 'DollieEli@gmail.com', picture: 'assets/images/42.png', grade: '1', class: '4', position: 'mentor',
     skills: [
-      {category: 'Competitive hobbies', sub_category: 'Triathlon', meetings: '9', students: '4',
-        image: 'assets/images/sport.png' , icon: 'fa fa-camera-retro fa-lg' ,
-        color: 'tomato', status: 'approved',
-      }],},
+     ],},
   'AnnCalvin@gmail.com': {
     name: 'Ann Calvin', email: 'AnnCalvin@gmail.com', picture: 'assets/images/16.png', grade: '5', class: '5', position: 'student',
     skills: [],
@@ -477,17 +474,7 @@ public users = {
     ]},
   'LinusHanna@gmail.com': {
     name: 'Linus Hanna', email: 'LinusHanna@gmail.com', picture: 'assets/images/38.png', grade: '3', class: '3', position: 'student',
-    skills: [],
-    courses: [
-      {category: 'Indoor hobbies', sub_category: 'Metalworking',
-        image: 'assets/images/sport.png' , icon: 'fa fa-camera-retro fa-lg' , color: 'tomato', status: 'pending',
-        mentorName: 'Katarina Kelsie', mentorEmail: 'KatarinaKelsie@gmail.com',
-      },
-      {category: 'Indoor hobbies', sub_category: 'Calligraphy',
-        image: 'assets/images/sport.png' , icon: 'fa fa-camera-retro fa-lg' , color: 'tomato', status: 'approved',
-        mentorName: 'Bennett Shanika', mentorEmail: 'BennettShanika@gmail.com',
-      }
-    ]},
+    skills: []},
   'RosalynLoris@gmail.com': {
     name: 'Rosalyn Loris', email: 'RosalynLoris@gmail.com', picture: 'assets/images/9.png', grade: '4', class: '2', position: 'student',
     skills: [],
