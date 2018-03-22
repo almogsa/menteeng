@@ -17,7 +17,7 @@ var MENU_ITEMS = [
         icon: 'nb-tables',
         children: [
             {
-                title: 'Dashboard',
+                title: 'Analytics',
                 // icon: 'nb-home',
                 home: true,
                 link: '/pages/dashboard',
