@@ -23,7 +23,7 @@ var MENU_ITEMS = [
                 link: '/pages/dashboard',
             },
             {
-                title: 'Matching Spot',
+                title: 'Control Center',
                 link: '/pages/tables/smart-table',
             },
             {
@@ -31,7 +31,7 @@ var MENU_ITEMS = [
                 link: '/pages/tables/all-users',
             },
             {
-                title: 'Matching',
+                title: 'Matching Spot',
                 link: '/pages/tables/matching',
             },
         ],
@@ -52,12 +52,12 @@ var MENU_ITEMS = [
         icon: 'nb-tables',
         children: [
             {
-                title: 'Pick a skill',
+                title: 'Pick a Skill',
                 // icon: 'nb-home',
                 link: '/pages/tables/all-students',
             },
             {
-                title: 'Registration status',
+                title: 'Registration Status',
                 // icon: 'nb-home',
                 link: '/pages/tables/student-status',
             },

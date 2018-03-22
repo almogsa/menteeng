@@ -70721,21 +70721,23 @@ var ContactsComponent = /** @class */ (function () {
                 if (users.hasOwnProperty(curUser)) {
                     if (_this.userType === 'students' || _this.userType === 'mentors') {
                         if (_this.userType === 'students') {
-                            if (users[curUser].position === 'student'
-                                || !!users[curUser].courses && users[curUser].courses.length > 0) {
-                                _this.contacts.push(users[curUser]);
-                            }
-                            else {
-                                _this.notRegiteredStudents.push(users[curUser]);
+                            if (users[curUser].position === 'student') {
+                                if (!!users[curUser].courses && users[curUser].courses.length > 0) {
+                                    _this.contacts.push(users[curUser]);
+                                }
+                                else {
+                                    _this.notRegiteredStudents.push(users[curUser]);
+                                }
                             }
                         }
                         if (_this.userType === 'mentors') {
-                            if (users[curUser].position === 'mentor'
-                                || !!users[curUser].skills && users[curUser].skills.length > 0) {
-                                _this.contacts.push(users[curUser]);
-                            }
-                            else {
-                                _this.notRegiteredMentors.push(users[curUser]);
+                            if (users[curUser].position === 'mentor') {
+                                if (!!users[curUser].skills && users[curUser].skills.length > 0) {
+                                    _this.contacts.push(users[curUser]);
+                                }
+                                else {
+                                    _this.notRegiteredMentors.push(users[curUser]);
+                                }
                             }
                         }
                     }
@@ -73361,7 +73363,7 @@ var DefaultButtonsComponent = /** @class */ (function () {
 /***/ "./src/app/pages/ui-features/buttons/dropdown-buttons/dropdown-button.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "    <div style=\"display: inline-block; margin-bottom: 0px; margin-top: 8px; width: 300px;\" class=\"dropdown ghost-dropdown\" ngbDropdown>\r\n      <button class=\"btn btn-primary\" type=\"button\" ngbDropdownToggle style=\"margin-bottom: 0px\">\r\n        {{selectedGradeTitle}}\r\n      </button>\r\n      <ul class=\"dropdown-menu\" ngbDropdownMenu>\r\n        <li class=\"dropdown-item\" on-click=\"changeGrade('No filter')\">Choose grade for filtering</li>\r\n        <li class=\"dropdown-item\" on-click=\"changeGrade('1st Grade')\">1st Grade</li>\r\n        <li class=\"dropdown-item\" on-click=\"changeGrade('2nd Grade')\">2nd Grade</li>\r\n        <li class=\"dropdown-item\" on-click=\"changeGrade('3rd Grade')\">3rd Grade</li>\r\n        <li class=\"dropdown-item\" on-click=\"changeGrade('4th Grade')\">4th Grade</li>\r\n        <li class=\"dropdown-item\" on-click=\"changeGrade('5th Grade')\">5th Grade</li>\r\n      </ul>\r\n    </div>\r\n\r\n    <div style=\"display: inline-block; margin-bottom: 0px; margin-top: 8px; width: 300px;\" class=\"dropdown ghost-dropdown\" ngbDropdown>\r\n      <button class=\"btn btn-primary\" type=\"button\" ngbDropdownToggle style=\"margin-bottom: 0px\">\r\n        {{selectedClassTitle}}\r\n      </button>\r\n      <ul class=\"dropdown-menu\" ngbDropdownMenu>\r\n        <li class=\"dropdown-item\" on-click=\"changeClass('No filter')\">Choose class</li>\r\n        <li class=\"dropdown-item\" on-click=\"changeClass('Class 1')\">Class 1</li>\r\n        <li class=\"dropdown-item\" on-click=\"changeClass('Class 2')\">Class 2</li>\r\n        <li class=\"dropdown-item\" on-click=\"changeClass('Class 3')\">Class 3</li>\r\n        <li class=\"dropdown-item\" on-click=\"changeClass('Class 4')\">Class 4</li>\r\n        <li class=\"dropdown-item\" on-click=\"changeClass('Class 5')\">Class 5</li>\r\n      </ul>\r\n    </div>\r\n    <div style=\"padding-right: 10px; padding-left: 10px;\"><button on-click=\"refresh()\" class=\"btn btn-primary\" style=\"display: inline-block; margin-bottom: 0px; margin-top: 8px;\">Apply Filter</button></div>\r\n"
+module.exports = "    <div style=\"display: inline-block; margin-bottom: 0px; margin-top: 8px; width: 300px;\" class=\"dropdown ghost-dropdown\" ngbDropdown>\r\n      <button class=\"btn btn-primary\" type=\"button\" ngbDropdownToggle style=\"margin-bottom: 0px; border: 2px solid #8a7fff;\">\r\n        {{selectedGradeTitle}}\r\n      </button>\r\n      <ul class=\"dropdown-menu\" ngbDropdownMenu>\r\n        <li class=\"dropdown-item\" on-click=\"changeGrade('No filter')\">Choose grade for filtering</li>\r\n        <li class=\"dropdown-item\" on-click=\"changeGrade('1st Grade')\">1st Grade</li>\r\n        <li class=\"dropdown-item\" on-click=\"changeGrade('2nd Grade')\">2nd Grade</li>\r\n        <li class=\"dropdown-item\" on-click=\"changeGrade('3rd Grade')\">3rd Grade</li>\r\n        <li class=\"dropdown-item\" on-click=\"changeGrade('4th Grade')\">4th Grade</li>\r\n        <li class=\"dropdown-item\" on-click=\"changeGrade('5th Grade')\">5th Grade</li>\r\n      </ul>\r\n    </div>\r\n\r\n    <div style=\"display: inline-block; margin-bottom: 0px; margin-left: 2px; margin-top: 8px; width: 300px;\" class=\"dropdown ghost-dropdown\" ngbDropdown>\r\n      <button class=\"btn btn-primary\" type=\"button\" ngbDropdownToggle style=\"margin-bottom: 0px; border: 2px solid #8a7fff;\">\r\n        {{selectedClassTitle}}\r\n      </button>\r\n      <ul class=\"dropdown-menu\" ngbDropdownMenu>\r\n        <li class=\"dropdown-item\" on-click=\"changeClass('No filter')\">Choose class</li>\r\n        <li class=\"dropdown-item\" on-click=\"changeClass('Class 1')\">Class 1</li>\r\n        <li class=\"dropdown-item\" on-click=\"changeClass('Class 2')\">Class 2</li>\r\n        <li class=\"dropdown-item\" on-click=\"changeClass('Class 3')\">Class 3</li>\r\n        <li class=\"dropdown-item\" on-click=\"changeClass('Class 4')\">Class 4</li>\r\n        <li class=\"dropdown-item\" on-click=\"changeClass('Class 5')\">Class 5</li>\r\n      </ul>\r\n    </div>\r\n    <div style=\"padding-right: 10px; padding-left: 10px;\"><button on-click=\"refresh()\" class=\"btn btn-primary\" style=\"display: inline-block; margin-bottom: 0px; margin-top: 8px;\">Apply Filter</button></div>\r\n"
 
 /***/ }),
 
