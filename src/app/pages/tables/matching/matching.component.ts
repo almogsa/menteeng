@@ -14,9 +14,7 @@ export class MatchingComponent implements OnInit {
   cb:any;
   counter: number = 0;
   config: any;
-  percent: number = 65;
-  iteration: number = 0;
-  color: string = '#78C000';
+
   constructor( private toasterService: ToasterService,
               private router: Router,
                private userService: UserService) {
@@ -35,19 +33,13 @@ export class MatchingComponent implements OnInit {
       setTimeout(() => {
         this.router.navigate(['dashboard']);
       },6000);
-      this.showToast('Matching has been successfully finished','success');
+      this.showToast();
       this.approveCourses();
       this.title = "Done!"
     // startMatching = true;
       return "Congratulations!"
     }else if(percent >100) {
       return "Congratulations!"
-    } else if(percent > this.percent  ) {
-      let c = percent > 80 ? 'success' : 'warning'
-      this.showToast('Matching has been successfully finished', c);
-      this.approveCourses();
-      this.title = "Done!";
-      return "Success Rate";
     }
     else if(percent >= 70){
       return "Preparing results"
@@ -88,15 +80,11 @@ export class MatchingComponent implements OnInit {
       });
   }
   startMatch() {
-    let percentRange: any[] = [63, 87 , 92 , 95];
     this.startMatching = true;
-   // this.percent = Math.floor(Math.random() * (100 - 60 + 1)) + 60;
-    this.percent = percentRange[this.iteration];
-    this.iteration = this.iteration + 1;
     this.counter = 0;
     this.title = 'in progress ...';
   }
-  private showToast(body?: string, type?: string) {
+  private showToast(body?: string) {
     let defaultBody = 'Matching has been successfully finished'
     if (body && body.length > 0) {
       defaultBody = body;
@@ -106,7 +94,7 @@ export class MatchingComponent implements OnInit {
       animation: 'fade'
     });
     const toast: Toast = {
-      type: type,
+      type: 'success',
       title: null,
       body: defaultBody,
     //  timeout: this.timeout,

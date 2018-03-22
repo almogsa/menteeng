@@ -23,7 +23,7 @@ var MENU_ITEMS = [
                 link: '/pages/dashboard',
             },
             {
-                title: 'Matching spot',
+                title: 'Matching Spot',
                 link: '/pages/tables/smart-table',
             },
             {
