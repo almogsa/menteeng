@@ -991,7 +991,7 @@ var UserService = /** @class */ (function () {
             'LillaJeri@gmail.com': {
                 name: 'Lilla Jeri', email: 'LillaJeri@gmail.com', picture: 'assets/images/47.png', grade: '2', class: '1', position: 'mentor',
                 skills: [
-                    { category: 'Competitive hobbies', sub_category: 'Marbles', meetings: '2', students: '6',
+                    { category: 'Competitive hobbies', sub_category: 'Music', meetings: '2', students: '6',
                         image: 'assets/images/sport.png', icon: 'fa fa-camera-retro fa-lg',
                         color: 'tomato', status: 'approved',
                     }
@@ -1000,7 +1000,7 @@ var UserService = /** @class */ (function () {
             'DaphneEdith@gmail.com': {
                 name: 'Daphne Edith', email: 'DaphneEdith@gmail.com', picture: 'assets/images/24.png', grade: '4', class: '5', position: 'mentor',
                 skills: [
-                    { category: 'Outdoor hobbies', sub_category: 'Scuba diving', meetings: '9', students: '1',
+                    { category: 'Outdoor hobbies', sub_category: 'Music', meetings: '9', students: '1',
                         image: 'assets/images/sport.png', icon: 'fa fa-camera-retro fa-lg',
                         color: 'tomato', status: 'approved',
                     }
