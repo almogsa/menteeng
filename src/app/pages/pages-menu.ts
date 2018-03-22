@@ -18,7 +18,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/dashboard',
       },
       {
-        title: 'Matching spot',
+        title: 'Control Center',
         link: '/pages/tables/smart-table',
       },
       {
@@ -26,7 +26,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/tables/all-users',
       },
       {
-        title: 'Matching',
+        title: 'Matching Spot',
         link: '/pages/tables/matching',
       },
     ],
@@ -52,12 +52,12 @@ export const MENU_ITEMS: NbMenuItem[] = [
     children: [
 
       {
-        title: 'Pick a skill',
+        title: 'Pick a Skill',
         // icon: 'nb-home',
         link: '/pages/tables/all-students',
       },
       {
-        title: 'Registration status',
+        title: 'Registration Status',
         // icon: 'nb-home',
         link: '/pages/tables/student-status',
       },
