@@ -26,6 +26,7 @@ export interface CourseData {
 }
 export interface UserData {
   name: string;
+  status?:string;
   email: string;
   picture: string;
   grade: number;
