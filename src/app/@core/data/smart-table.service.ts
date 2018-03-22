@@ -33,6 +33,7 @@ export class SmartTableService {
   getData() {
     this.userService.getUsers()
       .subscribe((users: any) => {
+        this.realData = [];
         for (const curUser in users) {
           if (users.hasOwnProperty(curUser)) {
             const courseData = this.getCourseData(users[curUser]);
@@ -46,15 +47,18 @@ export class SmartTableService {
   private getCourseData(userData: UserData) {
     const courseData: any = {};
     courseData.grade = userData.grade;
-    courseData.category = userData.skills.length > 0  ? userData.skills[0].category : '';
-    courseData.skill = userData.skills.length > 0  ? userData.skills[0].sub_category : '';
+    if (!!userData.skills) {
+      courseData.category = userData.skills.length > 0 ? userData.skills[0].category : '';
+      courseData.skill = userData.skills.length > 0  ? userData.skills[0].sub_category : '';
+    } else {
+      courseData.skill = courseData.category = '';
+    }
     courseData.mentor = userData.name;
     courseData.email = userData.email;
     let status = 'unavailable';
     if (!!userData.skills &&
       !! userData.skills[0] && userData.skills[0].status && userData.skills[0].status !== '') {
       status = userData.skills[0].status;
-
     }
     courseData.status = status;
     return courseData;

@@ -92,7 +92,7 @@ export class MentorSkillComponent implements OnInit {
     courseData2.sub_category = this.model.sub_category;
     courseData2.mentorEmail = this.user.email;
     courseData2.mentorName = this.user.name;
-    courseData2.status = null;
+    courseData2.status = 'pending';
     courseData2.color = 'tomato';
     courseData2.icon = 'fa fa fa-music';
     courseData = courseData2;
