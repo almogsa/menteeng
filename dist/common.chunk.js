@@ -71438,7 +71438,7 @@ var ElectricityComponent = /** @class */ (function () {
 /***/ "./src/app/pages/dashboard/filterbar/header/header.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nb-card class=\"row\" style=\"display: flex; width: 100%; flex-direction: row;\">\n  <span style=\"display: flex; flex-direction: row; flex-grow: 5;\">\n    <nb-card-header style=\"display: flex; flex-direction: row; flex-grow: 5;\">My custom filter</nb-card-header>\n  </span>\n  <span style=\"display: flex; justify-content: flex-end\">\n    <ngx-dropdown-buttons (onRefreshClick)=\"onRefreshClick($event)\" style=\"display: flex\"></ngx-dropdown-buttons>\n  </span>\n</nb-card>\n"
+module.exports = "<nb-card class=\"row\" style=\"display: flex; width: 100%; flex-direction: row;\">\n  <span style=\"display: flex; flex-direction: row; flex-grow: 5;\">\n    <nb-card-header style=\"display: flex; flex-direction: row; flex-grow: 5;\">Teacher filter toolbar</nb-card-header>\n  </span>\n  <span style=\"display: flex; justify-content: flex-end\">\n    <ngx-dropdown-buttons (onRefreshClick)=\"onRefreshClick($event)\" style=\"display: flex\"></ngx-dropdown-buttons>\n  </span>\n</nb-card>\n"
 
 /***/ }),
 

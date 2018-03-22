@@ -472,11 +472,11 @@ var SmartTableService = /** @class */ (function () {
     };
     SmartTableService.prototype.getCourseData = function (userData) {
         var courseData = {};
-        courseData.id = Math.floor(Math.round(Math.random() * 100));
+        courseData.grade = userData.grade;
         courseData.category = userData.skills.length > 0 ? userData.skills[0].category : '';
         courseData.skill = userData.skills.length > 0 ? userData.skills[0].sub_category : '';
         courseData.mentor = userData.name;
-        courseData.email = userData.email;
+        courseData.maxNumOfStudents = userData.skills[0].maxNumOfStudents;
         var status = 'unavailable';
         if (!!userData.skills &&
             !!userData.skills[0] && userData.skills[0].status && userData.skills[0].status !== '') {
@@ -605,10 +605,10 @@ var UserService = /** @class */ (function () {
         this.settings = { gradeFilter: 0, classFilter: 0 };
         this.users = {
             'nick@gmail.com': {
-                name: 'Nick Jones', email: 'nick@gmail.com', picture: 'assets/images/nick.png',
+                name: 'Nick Jones', email: 'nick@gmail.com', picture: 'assets/images/nick.png', grade: 1, class: 2,
                 skills: [
                     {
-                        category: 'photography', sub_category: 'Photography',
+                        category: 'photography', sub_category: 'Photography', maxNumOfStudents: 5,
                         image: 'assets/images/sport.png', icon: 'fa fa-camera-retro fa-lg',
                         color: 'tomato', status: 'pending',
                     }
@@ -627,9 +627,9 @@ var UserService = /** @class */ (function () {
                 ]
             },
             'eva@gmail.com': {
-                name: 'Eva Moor', email: 'eva@gmail.com', picture: 'assets/images/eva.png',
+                name: 'Eva Moor', email: 'eva@gmail.com', picture: 'assets/images/eva.png', grade: 1, class: 2,
                 skills: [{
-                        category: 'Board games', sub_category: 'Chess',
+                        category: 'Board games', sub_category: 'Chess', maxNumOfStudents: 5,
                         image: 'assets/images/sport.png', icon: 'fa fa-chess-rook fa-lg', color: 'gray', status: 'pending'
                     }],
                 courses: [
@@ -641,9 +641,9 @@ var UserService = /** @class */ (function () {
                 ]
             },
             'jack@gmail.com': {
-                name: 'Jack Williams', email: 'jack@gmail.com', picture: 'assets/images/jack.png',
+                name: 'Jack Williams', email: 'jack@gmail.com', picture: 'assets/images/jack.png', grade: 2, class: 2,
                 skills: [{
-                        category: 'Sport', sub_category: 'Basketball',
+                        category: 'Sport', sub_category: 'Basketball', maxNumOfStudents: 4,
                         image: 'assets/images/sport.png', icon: 'fa fa fa-basketball-ball fa-lg', color: 'tomato', status: 'pending'
                     }],
                 courses: [
@@ -662,7 +662,7 @@ var UserService = /** @class */ (function () {
             'lee@gmail.com': {
                 name: 'Lee Wong', email: 'lee@gmail.com', picture: 'assets/images/lee.png',
                 skills: [{
-                        category: 'Gaming', sub_category: 'Hide & Seek',
+                        category: 'Gaming', sub_category: 'Hide & Seek', maxNumOfStudents: 3,
                         image: 'assets/images/sport.png', icon: 'fa fa fa-gamepad fa-lg', color: 'green', status: 'approved'
                     }]
             },

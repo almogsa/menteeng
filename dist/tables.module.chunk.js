@@ -45477,10 +45477,6 @@ var SmartTableComponent = /** @class */ (function () {
                 confirmDelete: true,
             },
             columns: {
-                id: {
-                    title: 'Session ID',
-                    type: 'number',
-                },
                 category: {
                     title: 'Category',
                     type: 'string',
@@ -45489,13 +45485,17 @@ var SmartTableComponent = /** @class */ (function () {
                     title: 'Skill',
                     type: 'string',
                 },
+                grade: {
+                    title: 'Grade',
+                    type: 'number',
+                },
                 mentor: {
                     title: 'Mentor',
                     type: 'string',
                 },
-                email: {
-                    title: 'Email',
-                    type: 'string',
+                maxNumOfStudents: {
+                    title: 'Max participants',
+                    type: 'number',
                 },
                 status: {
                     title: 'Status',
@@ -45600,7 +45600,7 @@ var StudentStatusComponent = /** @class */ (function () {
             },
             columns: {
                 id: {
-                    title: 'Session ID',
+                    title: 'Grade',
                     type: 'number',
                 },
                 firstName: {
