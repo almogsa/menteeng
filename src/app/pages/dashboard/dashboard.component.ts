@@ -72,11 +72,11 @@ export class DashboardComponent implements OnInit {
     this.matchingData = newMatchingData;
       this.enrolmentData = [
       {
-        name: 'Enrolled Students',
+        name: 'Enrolled',
         value: this.enrolledStudentCount,
       },
       {
-        name: 'Unrolled students',
+        name: 'Unenrolled',
         value: this.studentCount - this.enrolledStudentCount,
       }
     ];

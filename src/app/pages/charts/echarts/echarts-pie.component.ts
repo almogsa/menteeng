@@ -65,8 +65,8 @@ export class EchartsPieComponent implements AfterViewInit, OnDestroy {
           {
             name: 'Categories',
             type: 'pie',
-            radius: '80%',
-            center: ['50%', '50%'],
+            radius: '70%',
+            center: ['62%', '55%'],
             data: this.data,
             itemStyle: {
               emphasis: {
