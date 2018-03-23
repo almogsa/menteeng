@@ -43,7 +43,7 @@ export class UserService {
   private settings = {gradeFilter: 0, classFilter: 0};
   public users = {
     'almog@gmail.com': {
-      name: 'al mog', email: 'almog@gmail.com', picture: 'assets/images/34.png', grade: '3', class: '3', position: 'mentor',
+      name: 'almog', email: 'almog@gmail.com', picture: 'assets/images/almog.png', grade: '3', class: '3', position: 'mentor',
       skills: [
         {category: 'Indoor hobbies', sub_category: '3D printing', meetings: '8', students: '9',
           image: 'assets/images/sport.png' , icon: 'fa fa-camera-retro fa-lg' ,
